@@ -9,24 +9,21 @@ function Home() {
   const { user } = useAuth();
   const [goal, setGoal] = useState([]);
   const [workouts, setWorkouts] = useState([]);
-  const [front, setFront] = useState(0);
   const getCurrentGoal = () => {
     getCurrGoal(user.uid).then(setGoal);
   };
 
-  const getWeeksWorkouts = () => {
+  const getWorkouts = () => {
     getWorkoutsByWeekUid(goal[0]?.weekUid).then(setWorkouts);
   };
 
   useEffect(() => {
-    let frontVal = 0;
     getCurrentGoal();
-    getWeeksWorkouts();
-    for (let i = 0; i < workouts.length; i++) {
-      frontVal += workouts[i].frontDeltSets;
-      setFront(frontVal);
-    }
-  }, [goal, workouts]);
+  }, []);
+
+  useEffect(() => {
+    getWorkouts();
+  }, [goal]);
 
   return (
     <>
@@ -38,7 +35,7 @@ function Home() {
           margin: '0 auto',
         }}
       >
-        {goal.map((obj) => <GoalBoard key={obj.firebaseKey} goalObj={obj} frontDeltVal={front} />)}
+        {goal.map((obj) => <GoalBoard key={obj.firebaseKey} goalObj={obj} workoutsArray={workouts} />)}
         <div style={{ marginTop: '20px' }}>
           <Link href={`/${goal[0]?.weekUid}`} passHref>
             <Button variant="success">Workout Log</Button>
