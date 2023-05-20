@@ -17,7 +17,7 @@ export default function NavBarAuth() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Link passHref href="/">
-              <Nav.Link>Goals</Nav.Link>
+              <Nav.Link>Goal</Nav.Link>
             </Link>
             <Link passHref href="/weeks">
               <Nav.Link>Weeks</Nav.Link>
