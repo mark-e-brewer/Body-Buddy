@@ -10,12 +10,12 @@ const getCurrGoal = (userUid) => new Promise((resolve, reject) => {
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(data))
+    .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
 
 const getWorkoutsByWeekUid = (weekUid) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/workouts.json?orderBy="weekUid"&equalTo="${weekUid}WEEK"`, {
+  fetch(`${dbUrl}/workouts.json?orderBy="weekUid"&equalTo="${weekUid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
