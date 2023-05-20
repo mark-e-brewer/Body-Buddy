@@ -2,14 +2,18 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-export default function GoalBoard({ goalObj, frontDeltVal }) {
+export default function GoalBoard({ goalObj, workoutsArray }) {
+  let FrontDeltsValue = 0;
+  for (let i = 0; i < workoutsArray.length; i++) {
+    FrontDeltsValue += workoutsArray[i].frontDeltSets;
+  }
   return (
     <>
       <Card className="d-flex goal" style={{ width: '26rem', border: 'none' }}>
         <h2 className="d-flex justify-content-center">Weekly Goal</h2>
         <Card.Title className="muscle-goal" style={{ marginBottom: '8px' }}>Front Deltoids</Card.Title>
         <div className="cont">
-          <div className="bar">{frontDeltVal} of {goalObj.frontDeltGoal}</div>
+          <div className="bar">{FrontDeltsValue} of {goalObj.frontDeltGoal}</div>
         </div>
         <Card.Title className="muscle-goal" style={{ marginBottom: '8px', marginTop: '8px' }}>Side & Rear Deltoids</Card.Title>
         <div className="cont">
@@ -69,5 +73,5 @@ GoalBoard.propTypes = {
     weekUid: PropTypes.string,
   }).isRequired,
   // onUpdate: PropTypes.func.isRequired,
-  frontDeltVal: PropTypes.number.isRequired,
+  workoutsArray: PropTypes.arrayOf(PropTypes.shape).isRequired,
 };
