@@ -14,6 +14,7 @@ export default function WorkoutLogPage() {
 
   useEffect(() => {
     getAllCurrentWorkouts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
