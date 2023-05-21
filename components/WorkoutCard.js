@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark, faFilePen } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import { deleteWorkout } from '../API/apiData';
 
@@ -11,8 +13,47 @@ export default function WorkoutCard({ workoutObj, onUpdate }) {
   };
 
   return (
-    <Card className="d-flex" style={{ margin: '5px', width: '15rem' }}>
-      <Card.Title>{workoutObj.day}</Card.Title>
+    <Card className="d-flex" style={{ margin: '5px', width: '16rem' }}>
+      <div className="d-flex justify-content-between">
+        <Card.Title
+          style={{
+            textAlign: 'center',
+            fontWeight: '600',
+            fontSize: '24px',
+            marginLeft: '8px',
+          }}
+        >
+          {workoutObj.day}
+        </Card.Title>
+        <div
+          className="d-flex"
+          style={{
+            alignItems: 'right',
+          }}
+        >
+          <Button
+            variant="primary"
+            style={{
+              backgroundColor: 'white',
+              color: '#0060c7',
+              border: 'none',
+            }}
+          >
+            <FontAwesomeIcon icon={faFilePen} />
+          </Button>
+          <Button
+            variant="danger"
+            onClick={deleteThisWorkout}
+            style={{
+              backgroundColor: 'white',
+              color: '#c40000',
+              border: 'none',
+            }}
+          >
+            <FontAwesomeIcon icon={faXmark} />
+          </Button>
+        </div>
+      </div>
       <div className="d-flex justify-content-between">
         <Card.Text>Front Deltoids</Card.Text>
         <Card.Text>{workoutObj.frontDeltSets}</Card.Text>
@@ -53,7 +94,6 @@ export default function WorkoutCard({ workoutObj, onUpdate }) {
         <Card.Text>Calves</Card.Text>
         <Card.Text>{workoutObj.calveSets}</Card.Text>
       </div>
-      <Button onClick={deleteThisWorkout}>Delete</Button>
     </Card>
   );
 }

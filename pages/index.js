@@ -19,10 +19,12 @@ function Home() {
 
   useEffect(() => {
     getCurrentGoal();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     getWorkouts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [goal]);
 
   return (
