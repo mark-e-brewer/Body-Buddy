@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export default function CircularProgressBar({ percent, weekNumber }) {
+export default function CircularProgressBar({ percent }) {
   const radius = 50; // Radius of the progress bar
   const circumference = 2 * Math.PI * radius; // Circumference of the progress bar
   const progressBarRef = useRef(null);
@@ -23,7 +23,7 @@ export default function CircularProgressBar({ percent, weekNumber }) {
   return (
     <>
       <div className="circular-progress-container">
-        <svg className="circular-progress" width={radius * 5} height={radius * 5} viewBox={`-10 0 ${radius * 2.4} ${radius * 2}`}>
+        <svg className="circular-progress" width={radius * 4.8} height={radius * 4.8} viewBox={`-10 0 ${radius * 2.4} ${radius * 2}`}>
           <circle
             ref={progressBarRef}
             className="progress-bar"
@@ -37,7 +37,6 @@ export default function CircularProgressBar({ percent, weekNumber }) {
             {percent}%
           </text>
         </svg>
-        <h1 style={{ textAlign: 'center' }}>{`Week ${weekNumber}`}</h1>
       </div>
     </>
   );
@@ -45,5 +44,4 @@ export default function CircularProgressBar({ percent, weekNumber }) {
 
 CircularProgressBar.propTypes = {
   percent: PropTypes.number.isRequired,
-  weekNumber: PropTypes.number.isRequired,
 };

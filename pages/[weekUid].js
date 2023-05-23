@@ -22,7 +22,7 @@ export default function WorkoutLogPage() {
       <div className="d-flex justify-content-center" style={{ margin: '20px' }}>
         <button type="button">Form placeholder</button>
       </div>
-      <div className="d-flex">
+      <div className="d-flex justify-content-center">
         {workouts.map((obj) => <WorkoutCard key={obj.firebaseKey} workoutObj={obj} onUpdate={getAllCurrentWorkouts} />)}
       </div>
     </>

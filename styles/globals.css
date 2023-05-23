@@ -48,17 +48,6 @@ body {
   margin-left: 35px;
 }
 
-.week-card {
-  border: none;
-  background: rgb(234,234,234);
-  background: linear-gradient(90deg, rgb(218, 218, 218) 13%, rgb(241, 241, 241) 48%, rgba(255,255,255,1) 78%);
-}
-
-.week-comp-div {
-  background: rgb(147,133,168);
-  background: linear-gradient(90deg, rgba(147,133,168,1) 0%, rgba(249,244,255,1) 72%, rgba(255,255,255,0.6375349456188726) 98%);  
-}
-
  /* WEEK PRGRESS BAR BELLOW */
 
  .circular-progress {
@@ -66,18 +55,88 @@ body {
 }
 
 .progress-bar {
-  fill: #ffffff;
-  stroke: #5e61ff;  /* Change color as desired */
-  stroke-width: 8; /* Change thickness as desired */
+  fill: #fff2d2;
+  stroke: #000000;  /* Change color as desired */
+  stroke-width: 5; /* Change thickness as desired */
   transition: stroke-dashoffset 0.5s ease;
 }
 
-.circular-progress-container {
-  transition: transform 0.3s ease;
-}
-
-.circular-progress-container:hover {
-  transform: scale(1.2);
-}
 
 /* WEEK PROGRESS BAR ABOVE */
+
+.week-card {
+  color: #1b1b1b;
+  width: 280px;
+  height: 390px;
+  position: relative;
+  outline: 6px solid #e7e7e7;
+  border-radius: 8px;
+  line-height: 150%;
+  padding: 16px;
+  background: #ff930f;
+  background-blend-mode: multiply;
+  background: linear-gradient(to top, #ff930f, #ffcc33);
+  transition: background-color 1s ease-in-out;
+  overflow: hidden;
+}
+
+.week-card-front {
+  bottom: 30px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+}
+
+.week-card-back {
+  transform: translateX(120%);
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+}
+
+
+/*Text*/
+.week-title {
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+}
+/*Text divider*/
+.week-title::after {
+  content: "";
+  display: block;
+  width: 81%;
+  border-radius: 50%;
+  height: 3px;
+  margin: 15px auto;
+  background-color: #000000;
+}
+
+.week-subtitle {
+  font-size: 39px;
+  margin-top: 20px;
+}
+
+/*Hover*/
+.week-card:hover {
+  background-color: #1b1b1b18;
+}
+
+.week-card:hover .week-card-front {
+  transform: translateX(-100%);
+}
+
+.week-card:hover .week-card-back {
+  transform: translateX(0);
+}
+
+.week-card-row-back {
+  padding-bottom: -3px;
+  margin-bottom: -4px;
+}
+
+.week-card-line-back {
+  content: "";
+  border-radius: 50%;
+  border: solid #000000 2px;
+  opacity: 85%;
+}
