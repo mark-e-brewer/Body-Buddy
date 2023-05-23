@@ -1,68 +1,27 @@
+/* eslint-disable no-restricted-syntax */
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
-import { faDumbbell } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CircularProgressBar from './ProgressCircle';
 
 export default function WeekCard({ weekObj }) {
+  let sumOfGoal = 0;
+  let sumOfComplete = 0;
+  for (const key in weekObj) {
+    if (key.includes('Goal')) {
+      sumOfGoal += weekObj[key];
+    } else if (key.includes('Total')) {
+      sumOfComplete += weekObj[key];
+    }
+  }
+  const percentComplete = Math.ceil((sumOfComplete / sumOfGoal) * 100);
   return (
     <>
-      <Card className="d-flex justify-content-center week-card" style={{ width: '18rem' }}>
-        <h2 className="d-flex justify-content-center">Week {weekObj.weekNum}</h2>
-        <Card.Title className="d-flex justify-content-center week-m-group" style={{ marginBottom: '1px' }}>Front Deltoids</Card.Title>
-        <div className="d-flex justify-content-center week-comp-div">
-          <div className="completion">{weekObj.frontDeltTotal} of {weekObj.frontDeltGoal}</div>
-        </div>
-        <Card.Title className="d-flex justify-content-center week-m-group" style={{ marginBottom: '1px', marginTop: '1px' }}>Side & Rear Deltoids</Card.Title>
-        <div className="d-flex justify-content-center week-comp-div">
-          <div className="completion">{weekObj.rearSideDeltTotal} of {weekObj.rearSideDeltGoal}</div>
-        </div>
-        <Card.Title className="d-flex justify-content-center week-m-group" style={{ marginBottom: '1px', marginTop: '1px' }}>Back</Card.Title>
-        <div className="d-flex justify-content-center week-comp-div">
-          <div className="completion">{weekObj.backTotal} of {weekObj.backGoal}</div>
-        </div>
-        <Card.Title className="d-flex justify-content-center week-m-group" style={{ marginBottom: '1px', marginTop: '1px' }}>Chest</Card.Title>
-        <div className="d-flex justify-content-center week-comp-div">
-          <div className="completion">{weekObj.chestTotal} of {weekObj.chestGoal}</div>
-        </div>
-        <Card.Title className="d-flex justify-content-center week-m-group" style={{ marginBottom: '1px', marginTop: '1px' }}>Biceps</Card.Title>
-        <div className="d-flex justify-content-center week-comp-div">
-          <div className="completion">{weekObj.bicepTotal} of {weekObj.bicepGoal}</div>
-        </div>
-        <Card.Title className="d-flex justify-content-center week-m-group" style={{ marginBottom: '1px', marginTop: '1px' }}>Triceps</Card.Title>
-        <div className="d-flex justify-content-center week-comp-div">
-          <div className="completion">{weekObj.tricepTotal} of {weekObj.tricepGoal}</div>
-        </div>
-        <Card.Title className="d-flex justify-content-center week-m-group" style={{ marginBottom: '1px', marginTop: '1px' }}>Quadriceps</Card.Title>
-        <div className="d-flex justify-content-center week-comp-div">
-          <div className="completion">{weekObj.quadTotal} of {weekObj.quadGoal}</div>
-        </div>
-        <Card.Title className="d-flex justify-content-center week-m-group" style={{ marginBottom: '1px', marginTop: '1px' }}>Hamstrings</Card.Title>
-        <div className="d-flex justify-content-center week-comp-div">
-          <div className="completion">{weekObj.hamstringTotal} of {weekObj.hamstringGoal}</div>
-        </div>
-        <Card.Title className="d-flex justify-content-center week-m-group" style={{ marginBottom: '1px', marginTop: '1px' }}>Glutes</Card.Title>
-        <div className="d-flex justify-content-center week-comp-div">
-          <div className="completion">{weekObj.gluteTotal} of {weekObj.gluteGoal}</div>
-        </div>
-        <Card.Title className="d-flex justify-content-center week-m-group" style={{ marginBottom: '1px', marginTop: '1px' }}>Calves</Card.Title>
-        <div className="d-flex justify-content-center week-comp-div" style={{ marginBottom: '5px' }}>
-          <div className="completion">{weekObj.calveTotal} of {weekObj.calveGoal}</div>
-        </div>
-        <div className="d-flex justify-content-center">
-          <Button
-            style={{
-              border: 'none',
-              width: '100px',
-              marginBottom: '5px',
-              backgroundColor: '#9385a8',
-            }}
-          >
-            <FontAwesomeIcon icon={faDumbbell} />
-          </Button>
-        </div>
-      </Card>
+      <div className="d-flex flex-column">
+        <Link href={`/weeks/${weekObj.weekUid}`} passHref>
+          <CircularProgressBar percent={percentComplete} weekNumber={weekObj.weekNum} />
+        </Link>
+      </div>
     </>
   );
 }
