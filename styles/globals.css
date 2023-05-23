@@ -58,3 +58,26 @@ body {
   background: rgb(147,133,168);
   background: linear-gradient(90deg, rgba(147,133,168,1) 0%, rgba(249,244,255,1) 72%, rgba(255,255,255,0.6375349456188726) 98%);  
 }
+
+ /* WEEK PRGRESS BAR BELLOW */
+
+ .circular-progress {
+  transform: rotate(-90deg);
+}
+
+.progress-bar {
+  fill: #ffffff;
+  stroke: #5e61ff;  /* Change color as desired */
+  stroke-width: 8; /* Change thickness as desired */
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.circular-progress-container {
+  transition: transform 0.3s ease;
+}
+
+.circular-progress-container:hover {
+  transform: scale(1.2);
+}
+
+/* WEEK PROGRESS BAR ABOVE */

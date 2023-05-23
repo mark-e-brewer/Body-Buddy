@@ -17,6 +17,7 @@ export default function WeeksPage() {
 
   return (
     <>
+      <h1 style={{ textAlign: 'center', marginBottom: '35px' }}>Previous Weeks Completion</h1>
       <div
         className="d-flex justify-content-center"
         style={{
