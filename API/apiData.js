@@ -103,7 +103,7 @@ const postWorkout = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const patchWorkouts = (payload) => new Promise((resolve, reject) => {
+const patchWorkout = (payload) => new Promise((resolve, reject) => {
   fetch(`${dbUrl}/workouts/${payload.firebaseKey}.json`, {
     method: 'PATCH',
     headers: {
@@ -137,6 +137,6 @@ export {
   postWeek,
   patchWeek,
   postWorkout,
-  patchWorkouts,
+  patchWorkout,
   deleteWorkout,
 };
