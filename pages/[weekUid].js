@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import WorkoutCard from '../components/WorkoutCard';
 import { getWorkoutsByWeekUid } from '../API/apiData';
+import LogWorkoutModal from '../components/forms/LogWorkout';
 
 export default function WorkoutLogPage() {
   const [workouts, setWorkouts] = useState([]);
@@ -20,7 +21,7 @@ export default function WorkoutLogPage() {
   return (
     <>
       <div className="d-flex justify-content-center" style={{ margin: '20px' }}>
-        <button type="button">Form placeholder</button>
+        <LogWorkoutModal weekUidProp={weekUid} background="orange" onUpdate={getAllCurrentWorkouts} />
       </div>
       <div className="d-flex justify-content-center">
         {workouts.map((obj) => <WorkoutCard key={obj.firebaseKey} workoutObj={obj} onUpdate={getAllCurrentWorkouts} />)}

@@ -55,22 +55,21 @@ body {
 }
 
 .progress-bar {
-  fill: #fff2d2;
+  fill: #ffffff;
   stroke: #000000;  /* Change color as desired */
-  stroke-width: 5; /* Change thickness as desired */
+  stroke-width: 2; /* Change thickness as desired */
   transition: stroke-dashoffset 0.5s ease;
 }
 
-
 /* WEEK PROGRESS BAR ABOVE */
-
+/* WEEK CARD BELLOW */
 .week-card {
-  color: #1b1b1b;
+  color: #000000;
   width: 280px;
   height: 390px;
   position: relative;
-  outline: 6px solid #e7e7e7;
-  border-radius: 8px;
+  border: solid rgb(255, 255, 255)3px;
+  border-radius: 10px;
   line-height: 150%;
   padding: 16px;
   background: #ff930f;
@@ -80,18 +79,35 @@ body {
   overflow: hidden;
 }
 
+.week-card-border {
+  width: 296px;
+  height: 406px;
+  padding-top: 7px;
+  border-radius: 15px;
+  background: rgb(255,105,0);
+  background: linear-gradient(0deg, rgba(255,105,0,1) 0%, rgba(255,165,0,1) 50%, rgba(255,225,0,1) 100%);
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 0px 15px 0px #ffb300;
+  transition: box-shadow 0.4s ease-in-out;
+}
+
+.week-card-border:hover {
+  box-shadow: 0px 0px 22px 3px #ffa200;
+}
+
 .week-card-front {
   bottom: 30px;
   left: 0;
   position: absolute;
   width: 100%;
   text-align: center;
-  transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  transition: transform 0.8s cubic-bezier(0.785, 0.135, 0.150, 0.860);
 }
 
 .week-card-back {
   transform: translateX(120%);
-  transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  transition: transform 0.8s cubic-bezier(0.785, 0.135, 0.150, 0.860);
 }
 
 
@@ -104,9 +120,9 @@ body {
 .week-title::after {
   content: "";
   display: block;
-  width: 81%;
+  width: 84%;
   border-radius: 50%;
-  height: 3px;
+  height: 3.5px;
   margin: 15px auto;
   background-color: #000000;
 }
@@ -118,7 +134,7 @@ body {
 
 /*Hover*/
 .week-card:hover {
-  background-color: #1b1b1b18;
+  background-color: #1b1b1b12;
 }
 
 .week-card:hover .week-card-front {
@@ -130,7 +146,6 @@ body {
 }
 
 .week-card-row-back {
-  padding-bottom: -3px;
   margin-bottom: -4px;
 }
 
@@ -140,3 +155,47 @@ body {
   border: solid #000000 2px;
   opacity: 85%;
 }
+
+/* WEEK CARD ABOVE */
+
+/* WORKOUT CARDS BELLOW */
+
+
+.workout-card {
+  width: 250px;
+  height: 385px;
+  border-radius: 15px;
+  padding: 7px;
+  box-shadow: rgba(255, 140, 0, 0.6) 0 0px 18px 0px;
+  background-image: linear-gradient(144deg,#ff8000, #ff9d00 50%,#ffd000);
+  margin: 20px;
+  transition: 0.2s ease-in-out;
+}
+
+.workout-card__content {
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  border: solid rgb(51, 51, 51) 4px;
+  background: rgb(203,202,202);
+  background: linear-gradient(0deg, rgba(203,202,202,1) 0%, rgba(228,228,228,1) 37%, rgba(255,255,255,1) 66%, rgba(255,255,255,1) 100%);
+  transition: 0.2s ease-in-out;
+}
+
+.workout-text-div {
+  margin-bottom: -7px;
+  margin-left: 7px;
+  margin-right: 7px;
+}
+
+.workout-card:hover {
+  transform: scale(1.07);
+  box-shadow: rgba(255, 140, 0, 0.9) 0 0px 24px 2px;
+}
+
+.workout-card__content:hover {
+  border: solid rgb(255, 132, 0) 0px;
+}
+
+/* WORKOUT CARDS ABOVE */
