@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { faDumbbell } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'react-bootstrap';
 import Link from 'next/link';
 import { useAuth } from '../utils/context/authContext';
@@ -39,8 +41,9 @@ function Home() {
       >
         {goal.map((obj) => <GoalBoard key={obj.firebaseKey} goalObj={obj} workoutsArray={workouts} />)}
         <div style={{ marginTop: '20px' }}>
+          <h4 className="log-workout-text">Log Workout</h4>
           <Link href={`/${goal[0]?.weekUid}`} passHref>
-            <Button variant="success">Workout Log</Button>
+            <Button className="nav-workouts-btn" variant="warning"><FontAwesomeIcon icon={faDumbbell} /></Button>
           </Link>
         </div>
       </div>
