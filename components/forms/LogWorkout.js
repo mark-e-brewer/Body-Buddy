@@ -72,7 +72,7 @@ export default function LogWorkoutModal({
     <>
       <Button
         variant="warning"
-        className="workoutModal"
+        className="workoutModal-btn"
         onClick={handleShow}
         style={{
           backgroundColor: background,
@@ -84,172 +84,186 @@ export default function LogWorkoutModal({
       >
         {buttonText}
       </Button>
-
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <h3>{obj.firebaseKey ? 'Update' : 'Log'} Workout</h3>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={handleSubmit}>
-            <FloatingLabel controlId="floatingInput3" label="Week Day" className="mb-2" style={{ color: 'orange' }}>
-              <Form.Select
-                aria-label="Week Day"
-                name="day"
-                onChange={handleChange}
-                value={formInput.day}
-              >
-                <option value="Sunday">Sunday</option>
-                <option value="Monday">Monday</option>
-                <option value="Tuesday">Tuesday</option>
-                <option value="Wednsday">Wednsday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday">Friday</option>
-                <option value="Saturday">Saturday</option>
-              </Form.Select>
-            </FloatingLabel>
-            <FloatingLabel controlId="floatingInput3" label="Front Deltoid Sets" className="mb-2" style={{ color: 'orange' }}>
-              <Form.Select
-                aria-label="Front Deltoids"
-                name="frontDeltSets"
-                onChange={handleChange}
-                value={formInput.frontDeltSets}
-              >
-                {Array.from({ length: 31 }, (_, i) => i).map((num) => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
-              </Form.Select>
-            </FloatingLabel>
-            <FloatingLabel controlId="floatingInput3" label="Side & Rear Deltoid Sets" className="mb-2" style={{ color: 'orange' }}>
-              <Form.Select
-                aria-label="Side & Rear Deltoids"
-                name="rearSideDeltSets"
-                onChange={handleChange}
-                value={formInput.rearSideDeltSets}
-              >
-                {Array.from({ length: 31 }, (_, i) => i).map((num) => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
-              </Form.Select>
-            </FloatingLabel>
-            <FloatingLabel controlId="floatingInput3" label="Back Sets" className="mb-2" style={{ color: 'orange' }}>
-              <Form.Select
-                aria-label="Back"
-                name="backSets"
-                onChange={handleChange}
-                value={formInput.backSets}
-              >
-                {Array.from({ length: 31 }, (_, i) => i).map((num) => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
-              </Form.Select>
-            </FloatingLabel>
-            <FloatingLabel controlId="floatingInput3" label="Chest Sets" className="mb-2" style={{ color: 'orange' }}>
-              <Form.Select
-                aria-label="Chest"
-                name="chestSets"
-                onChange={handleChange}
-                value={formInput.chestSets}
-              >
-                {Array.from({ length: 31 }, (_, i) => i).map((num) => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
-              </Form.Select>
-            </FloatingLabel>
-            <FloatingLabel controlId="floatingInput3" label="Bicep Sets" className="mb-2" style={{ color: 'orange' }}>
-              <Form.Select
-                aria-label="Biceps"
-                name="bicepSets"
-                onChange={handleChange}
-                value={formInput.bicepSets}
-              >
-                {Array.from({ length: 31 }, (_, i) => i).map((num) => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
-              </Form.Select>
-            </FloatingLabel>
-            <FloatingLabel controlId="floatingInput3" label="Tricep Sets" className="mb-2" style={{ color: 'orange' }}>
-              <Form.Select
-                aria-label="Triceps"
-                name="tricepSets"
-                onChange={handleChange}
-                value={formInput.tricepSets}
-              >
-                {Array.from({ length: 31 }, (_, i) => i).map((num) => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
-              </Form.Select>
-            </FloatingLabel>
-            <FloatingLabel controlId="floatingInput3" label="Quadricep Sets" className="mb-2" style={{ color: 'orange' }}>
-              <Form.Select
-                aria-label="Quadriceps"
-                name="quadSets"
-                onChange={handleChange}
-                value={formInput.quadSets}
-              >
-                {Array.from({ length: 31 }, (_, i) => i).map((num) => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
-              </Form.Select>
-            </FloatingLabel>
-            <FloatingLabel controlId="floatingInput3" label="Hamstring Sets" className="mb-2" style={{ color: 'orange' }}>
-              <Form.Select
-                aria-label="Hamstrings"
-                name="hamstringSets"
-                onChange={handleChange}
-                value={formInput.hamstringSets}
-              >
-                {Array.from({ length: 31 }, (_, i) => i).map((num) => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
-              </Form.Select>
-            </FloatingLabel>
-            <FloatingLabel controlId="floatingInput3" label="Glute Sets" className="mb-2" style={{ color: 'orange' }}>
-              <Form.Select
-                aria-label="Glutes"
-                name="gluteSets"
-                onChange={handleChange}
-                value={formInput.gluteSets}
-              >
-                {Array.from({ length: 31 }, (_, i) => i).map((num) => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
-              </Form.Select>
-            </FloatingLabel>
-            <FloatingLabel controlId="floatingInput3" label="Calve Sets" className="mb-2" style={{ color: 'orange' }}>
-              <Form.Select
-                aria-label="Calves"
-                name="gluteSets"
-                onChange={handleChange}
-                value={formInput.gluteSets}
-              >
-                {Array.from({ length: 31 }, (_, i) => i).map((num) => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
-              </Form.Select>
-            </FloatingLabel>
-            <Button type="submit">{obj.firebaseKey ? 'update' : 'Submit'}</Button>
-          </Form>
-        </Modal.Body>
+        <div className="workout-form">
+          {/* <Modal.Header closeButton className="workout-form-header">
+            <h3>{obj.firebaseKey ? 'Update' : 'Log'} Workout</h3>
+          </Modal.Header> */}
+          <Modal.Body className="workout-form-body">
+            <Form onSubmit={handleSubmit}>
+              <FloatingLabel controlId="floatingInput3" label="Week Day" className="mb-2 workout-floating-label" style={{ color: 'black' }}>
+                <Form.Select
+                  aria-label="Week Day"
+                  name="day"
+                  onChange={handleChange}
+                  value={formInput.day}
+                  className="workout-input workout-input-1"
+                >
+                  <option value="Sunday">Sunday</option>
+                  <option value="Monday">Monday</option>
+                  <option value="Tuesday">Tuesday</option>
+                  <option value="Wednsday">Wednsday</option>
+                  <option value="Thursday">Thursday</option>
+                  <option value="Friday">Friday</option>
+                  <option value="Saturday">Saturday</option>
+                </Form.Select>
+              </FloatingLabel>
+              <FloatingLabel controlId="floatingInput3" label="Front Deltoid Sets" className="mb-2 workout-floating-label" style={{ color: 'black' }}>
+                <Form.Select
+                  aria-label="Front Deltoids"
+                  name="frontDeltSets"
+                  onChange={handleChange}
+                  value={formInput.frontDeltSets}
+                  className="workout-input workout-input-2"
+                >
+                  {Array.from({ length: 31 }, (_, i) => i).map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
+              <FloatingLabel controlId="floatingInput3" label="Side & Rear Deltoid Sets" className="mb-2 workout-floating-label" style={{ color: 'black' }}>
+                <Form.Select
+                  aria-label="Side & Rear Deltoids"
+                  name="rearSideDeltSets"
+                  onChange={handleChange}
+                  value={formInput.rearSideDeltSets}
+                  className="workout-input workout-input-3"
+                >
+                  {Array.from({ length: 31 }, (_, i) => i).map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
+              <FloatingLabel controlId="floatingInput3" label="Back Sets" className="mb-2 workout-floating-label" style={{ color: 'black' }}>
+                <Form.Select
+                  aria-label="Back"
+                  name="backSets"
+                  onChange={handleChange}
+                  value={formInput.backSets}
+                  className="workout-input workout-input-4"
+                >
+                  {Array.from({ length: 31 }, (_, i) => i).map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
+              <FloatingLabel controlId="floatingInput3" label="Chest Sets" className="mb-2 workout-floating-label" style={{ color: 'black' }}>
+                <Form.Select
+                  aria-label="Chest"
+                  name="chestSets"
+                  onChange={handleChange}
+                  value={formInput.chestSets}
+                  className="workout-input workout-input-5"
+                >
+                  {Array.from({ length: 31 }, (_, i) => i).map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
+              <FloatingLabel controlId="floatingInput3" label="Bicep Sets" className="mb-2 workout-floating-label" style={{ color: 'black' }}>
+                <Form.Select
+                  aria-label="Biceps"
+                  name="bicepSets"
+                  onChange={handleChange}
+                  value={formInput.bicepSets}
+                  className="workout-input workout-input-6"
+                >
+                  {Array.from({ length: 31 }, (_, i) => i).map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
+              <FloatingLabel controlId="floatingInput3" label="Tricep Sets" className="mb-2 workout-floating-label" style={{ color: 'black' }}>
+                <Form.Select
+                  aria-label="Triceps"
+                  name="tricepSets"
+                  onChange={handleChange}
+                  value={formInput.tricepSets}
+                  className="workout-input workout-input-7"
+                >
+                  {Array.from({ length: 31 }, (_, i) => i).map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
+              <FloatingLabel controlId="floatingInput3" label="Quadricep Sets" className="mb-2 workout-floating-label" style={{ color: 'black' }}>
+                <Form.Select
+                  aria-label="Quadriceps"
+                  name="quadSets"
+                  onChange={handleChange}
+                  value={formInput.quadSets}
+                  className="workout-input workout-input-8"
+                >
+                  {Array.from({ length: 31 }, (_, i) => i).map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
+              <FloatingLabel controlId="floatingInput3" label="Hamstring Sets" className="mb-2 workout-floating-label" style={{ color: 'black' }}>
+                <Form.Select
+                  aria-label="Hamstrings"
+                  name="hamstringSets"
+                  onChange={handleChange}
+                  value={formInput.hamstringSets}
+                  className="workout-input workout-input-9"
+                >
+                  {Array.from({ length: 31 }, (_, i) => i).map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
+              <FloatingLabel controlId="floatingInput3" label="Glute Sets" className="mb-2 workout-floating-label" style={{ color: 'black' }}>
+                <Form.Select
+                  aria-label="Glutes"
+                  name="gluteSets"
+                  onChange={handleChange}
+                  value={formInput.gluteSets}
+                  className="workout-input workout-input-10"
+                >
+                  {Array.from({ length: 31 }, (_, i) => i).map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
+              <FloatingLabel controlId="floatingInput3" label="Calve Sets" className="mb-2 workout-floating-label" style={{ color: 'black' }}>
+                <Form.Select
+                  aria-label="Calves"
+                  name="gluteSets"
+                  onChange={handleChange}
+                  value={formInput.gluteSets}
+                  className="workout-input workout-input-11"
+                >
+                  {Array.from({ length: 31 }, (_, i) => i).map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
+              <div className="d-flex justify-content-center">
+                <Button className="workout-submit-button" type="submit">{obj.firebaseKey ? 'update' : 'Submit'}</Button>
+              </div>
+            </Form>
+          </Modal.Body>
+        </div>
       </Modal>
     </>
   );
