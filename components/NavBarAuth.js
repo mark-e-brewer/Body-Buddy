@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  Navbar, Container, Nav, Button,
+  Navbar, Container, Nav,
 } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
 
@@ -26,7 +26,7 @@ export default function NavBarAuth() {
               <Nav.Link className="nav-text">Info</Nav.Link>
             </Link>
           </Nav>
-          <Button variant="danger" onClick={signOut}>Sign Out</Button>
+          <button type="button" className="signout-btn" onClick={signOut}>signout</button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

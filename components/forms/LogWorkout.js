@@ -63,6 +63,7 @@ export default function LogWorkoutModal({
           setShow(false);
           setFormInput(initialState);
           onUpdate();
+          handleClose();
         });
       });
     }
@@ -246,9 +247,9 @@ export default function LogWorkoutModal({
               <FloatingLabel controlId="floatingInput3" label="Calve Sets" className="mb-2 workout-floating-label" style={{ color: 'black' }}>
                 <Form.Select
                   aria-label="Calves"
-                  name="gluteSets"
+                  name="calveSets"
                   onChange={handleChange}
-                  value={formInput.gluteSets}
+                  value={formInput.calveSets}
                   className="workout-input workout-input-11"
                 >
                   {Array.from({ length: 31 }, (_, i) => i).map((num) => (
@@ -259,7 +260,7 @@ export default function LogWorkoutModal({
                 </Form.Select>
               </FloatingLabel>
               <div className="d-flex justify-content-center">
-                <Button className="workout-submit-button" type="submit">{obj.firebaseKey ? 'update' : 'Submit'}</Button>
+                <Button className="workout-submit-button" type="submit">{obj.firebaseKey ? 'Update' : 'Submit'}</Button>
               </div>
             </Form>
           </Modal.Body>
