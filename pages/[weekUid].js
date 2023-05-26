@@ -18,10 +18,17 @@ export default function WorkoutLogPage() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  let jsx = null;
+  if (weekUid === 'undefined') {
+    jsx = <h3>Please set a goal, then you may log workouts!</h3>;
+  } else {
+    jsx = <LogWorkoutModal weekUidProp={weekUid} background="orange" onUpdate={getAllCurrentWorkouts} />;
+  }
+
   return (
     <>
       <div className="d-flex justify-content-center" style={{ margin: '20px' }}>
-        <LogWorkoutModal weekUidProp={weekUid} background="orange" onUpdate={getAllCurrentWorkouts} />
+        {jsx}
       </div>
       <div className="d-flex justify-content-center">
         {workouts.map((obj) => <WorkoutCard key={obj.firebaseKey} workoutObj={obj} onUpdate={getAllCurrentWorkouts} />)}
