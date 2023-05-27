@@ -4,8 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FloatingLabel } from 'react-bootstrap';
-import { useAuth } from '../utils/context/authContext';
-import { patchGoal, postGoal } from '../API/apiData';
+import { useAuth } from '../../utils/context/authContext';
+import { patchGoal, postGoal } from '../../API/apiData';
 
 export default function SetGoalModal({ goalObj, onUpdate }) {
   const [show, setShow] = useState(false);

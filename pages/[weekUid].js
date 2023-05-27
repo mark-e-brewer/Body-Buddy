@@ -31,7 +31,7 @@ export default function WorkoutLogPage() {
         {jsx}
       </div>
       <div className="d-flex justify-content-center">
-        {workouts.map((obj) => <WorkoutCard key={obj.firebaseKey} workoutObj={obj} onUpdate={getAllCurrentWorkouts} />)}
+        {workouts.map((obj) => <WorkoutCard key={obj.firebaseKey} workoutObj={obj} onUpdate={getAllCurrentWorkouts} formOnUpdate={getAllCurrentWorkouts} />)}
       </div>
     </>
   );

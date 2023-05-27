@@ -29,7 +29,9 @@ export default function LogWorkoutModal({
   const { user } = useAuth();
 
   useEffect(() => {
-    if (obj.firebaseKey) setFormInput(obj);
+    if (obj.firebaseKey) {
+      setFormInput(obj);
+    }
   }, [obj]);
 
   const handleClose = () => {
