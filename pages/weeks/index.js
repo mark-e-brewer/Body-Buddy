@@ -12,8 +12,9 @@ export default function WeeksPage() {
 
   useEffect(() => {
     getAllPrevWeeks();
+    console.warn(`WEEKS ${weeks[0]}`);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [user]);
 
   return (
     <>

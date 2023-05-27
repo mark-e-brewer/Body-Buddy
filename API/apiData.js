@@ -64,6 +64,19 @@ const patchGoal = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const patchOldGoalToPrev = (payload, firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/goals/${firebaseKey}.json`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
+
 const postWeek = (payload) => new Promise((resolve, reject) => {
   fetch(`${dbUrl}/weeks.json`, {
     method: 'POST',
@@ -134,6 +147,7 @@ export {
   getWorkoutsByWeekUid,
   postGoal,
   patchGoal,
+  patchOldGoalToPrev,
   postWeek,
   patchWeek,
   postWorkout,

@@ -6,7 +6,8 @@ import Link from 'next/link';
 import { useAuth } from '../utils/context/authContext';
 import GoalBoard from '../components/GoalBoard';
 import { getCurrGoal, getWorkoutsByWeekUid } from '../API/apiData';
-import SetGoalModal from '../components/SetGoalButton';
+import SetGoalModal from '../components/forms/SetGoalForm';
+import ResetWeekButton from '../components/ResetWeekButton';
 
 function Home() {
   const { user } = useAuth();
@@ -56,7 +57,12 @@ function Home() {
           marginTop: '10px',
         }}
       >
-        <SetGoalModal goalObj={goal[0]} onUpdate={getCurrentGoal} />
+        <div style={{ margin: '15px' }}>
+          <SetGoalModal goalObj={goal[0]} onUpdate={getCurrentGoal} />
+        </div>
+        <div style={{ margin: '15px' }}>
+          <ResetWeekButton goalObj={goal[0]} onUpdate={getCurrentGoal} workoutsArray={workouts} />
+        </div>
       </div>
       <div
         className="text-center d-flex flex-column justify-content-center align-content-center"

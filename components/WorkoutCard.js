@@ -23,6 +23,7 @@ export default function WorkoutCard({ workoutObj, onUpdate, formOnUpdate }) {
               background="white"
               color="black"
               onUpdate={formOnUpdate}
+              obj={workoutObj}
             />
             <h4
               style={{
