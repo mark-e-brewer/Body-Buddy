@@ -5,14 +5,16 @@ import { Button } from 'react-bootstrap';
 import Link from 'next/link';
 import { useAuth } from '../utils/context/authContext';
 import GoalBoard from '../components/GoalBoard';
-import { getCurrGoal, getWorkoutsByWeekUid } from '../API/apiData';
+import { getCurrGoal, getResetDay, getWorkoutsByWeekUid } from '../API/apiData';
 import SetGoalModal from '../components/forms/SetGoalForm';
 import ResetWeekButton from '../components/ResetWeekButton';
+import SetResetDay from '../components/ResetDaySelector';
 
 function Home() {
   const { user } = useAuth();
   const [goal, setGoal] = useState([]);
   const [workouts, setWorkouts] = useState([]);
+  const [day, setDay] = useState([]);
   const defualtGoal = [{
     backGoal: 0,
     bicepGoal: 0,
@@ -27,6 +29,10 @@ function Home() {
     weekNum: 1,
   }];
 
+  const getTheResetDay = () => {
+    getResetDay(user.uid).then(setDay);
+  };
+
   const getCurrentGoal = () => {
     getCurrGoal(user.uid).then(setGoal);
   };
@@ -37,6 +43,7 @@ function Home() {
 
   useEffect(() => {
     getCurrentGoal();
+    getResetDay();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -51,23 +58,25 @@ function Home() {
 
   return (
     <>
+      <SetResetDay dayObj={day[0]} onUpdate={getTheResetDay} />
       <div
         className="d-flex justify-content-center"
         style={{
-          marginTop: '10px',
+          marginTop: '1px',
+          marginBottom: '25px',
         }}
       >
-        <div style={{ margin: '15px' }}>
+        <div style={{ marginRight: '25px', marginTop: '0px' }}>
           <SetGoalModal goalObj={goal[0]} onUpdate={getCurrentGoal} />
         </div>
-        <div style={{ margin: '15px' }}>
+        <div style={{ marginleft: '25px', marginTop: '0px' }}>
           <ResetWeekButton goalObj={goal[0]} onUpdate={getCurrentGoal} workoutsArray={workouts} />
         </div>
       </div>
       <div
         className="text-center d-flex flex-column justify-content-center align-content-center"
         style={{
-          height: '95vh',
+          // height: '85vh',
           maxWidth: '400px',
           margin: '0 auto',
         }}
