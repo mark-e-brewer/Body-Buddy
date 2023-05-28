@@ -38,6 +38,30 @@ const getPrevWeeks = (userUid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getWeekByWeekUid = (weekUid) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/weeks.json?orderBy="weekUid"&equalTo="${weekUid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const getResetDay = (userUid) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/resetDay.json?orderBy="userUid"&equalTo="${userUid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 const postGoal = (payload) => new Promise((resolve, reject) => {
   fetch(`${dbUrl}/goals.json`, {
     method: 'POST',
@@ -141,10 +165,38 @@ const deleteWorkout = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const postResetDay = (payload) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/resetDay.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const patchResetDay = (payload) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/resetDay/${payload.firebaseKey}.json`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
+
 export {
   getCurrGoal,
   getPrevWeeks,
   getWorkoutsByWeekUid,
+  getWeekByWeekUid,
+  getResetDay,
   postGoal,
   patchGoal,
   patchOldGoalToPrev,
@@ -153,4 +205,6 @@ export {
   postWorkout,
   patchWorkout,
   deleteWorkout,
+  postResetDay,
+  patchResetDay,
 };

@@ -12,7 +12,7 @@ const initialState = {
   bicepSets: 0,
   calveSets: 0,
   chestSets: 0,
-  day: '',
+  day: 'Sunday',
   frontDeltSets: 0,
   gluteSets: 0,
   hamstringSets: 0,

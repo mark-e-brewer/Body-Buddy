@@ -13,6 +13,16 @@ export default function ResetWeekButton({ goalObj, onUpdate, workoutsArray }) {
   const [weekCount, setWeekCount] = useState();
   const [oldFirebaseKey, setOldFirebaseKey] = useState();
   const { user } = useAuth();
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   let FrontDeltsValue = 0;
   let rearSideDeltValue = 0;
   let backValue = 0;
@@ -68,11 +78,22 @@ export default function ResetWeekButton({ goalObj, onUpdate, workoutsArray }) {
 
   return (
     <>
-      <Button onClick={handleSubmit} variant="warning">
-        <div className="d-flex">
-          <p style={{ marginRight: '3px', marginBottom: '1px' }}>Reset</p>
-          <p style={{ marginBottom: '1px' }}><FontAwesomeIcon icon={faArrowsRotate} /></p>
-          <p style={{ marginLeft: '3px', marginBottom: '1px' }}>Week</p>
+      <Button
+        onClick={handleSubmit}
+        variant="warning"
+        className="reset-week-btn"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="d-flex reset-week-text-div">
+          <p className="reset-week-text" style={{ marginRight: '3px', marginBottom: '1px' }}>Reset</p>
+          <p
+            className={`reset-week-icon${isHovered ? ' spin-icon' : ''}`}
+            style={{ marginBottom: '1px' }}
+          >
+            <FontAwesomeIcon icon={faArrowsRotate} />
+          </p>
+          <p className="reset-week-text" style={{ marginLeft: '3px', marginBottom: '1px' }}>Week</p>
         </div>
       </Button>
     </>

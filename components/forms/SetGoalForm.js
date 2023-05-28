@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBullseye } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -53,13 +55,22 @@ export default function SetGoalModal({ goalObj, onUpdate }) {
 
   return (
     <>
-      <Button
-        variant="warning"
-        className="goalModal-btn"
+      <button
+        type="button"
         onClick={handleShow}
+        className="set-goal-button"
       >
-        Set Goal
-      </Button>
+        <div>
+          <span>
+            <p className="set-goal-text">Set Goal</p>
+          </span>
+        </div>
+        <div>
+          <span>
+            <FontAwesomeIcon className="bullseye-set-goal" icon={faBullseye} />
+          </span>
+        </div>
+      </button>
       <Modal show={show} onHide={handleClose}>
         <div className="goal-form">
           <Modal.Body className="goal-form-body">
