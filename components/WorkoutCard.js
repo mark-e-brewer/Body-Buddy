@@ -17,13 +17,14 @@ export default function WorkoutCard({ workoutObj, onUpdate, formOnUpdate }) {
     <>
       <div className="workout-card">
         <div className="workout-card__content">
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-around">
             <LogWorkoutModal
               buttonText={<FontAwesomeIcon icon={faPlusCircle} />}
               background="white"
               color="black"
               onUpdate={formOnUpdate}
               obj={workoutObj}
+              textSize={16}
             />
             <h4
               style={{
@@ -43,7 +44,7 @@ export default function WorkoutCard({ workoutObj, onUpdate, formOnUpdate }) {
                 border: 'none',
                 marginTop: '1px',
                 width: '25px',
-                fontSize: '20px',
+                fontSize: '16px',
               }}
             >
               <FontAwesomeIcon icon={faBan} />
