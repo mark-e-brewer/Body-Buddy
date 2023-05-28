@@ -38,7 +38,7 @@ body {
 /* RESET DAY COMPONENT BELLOW */
 
 .reset-day {
-  margin-top: 8px;
+  margin-top: 15px;
   margin-left: 15px;
   margin-bottom: 4px;
 }
@@ -143,35 +143,49 @@ body {
 .cont {
   height: 100%;
   text-align: right;
-  background:  white;
+  background: white;
 }
 
-.bar {
+.progress-bar-goal {
+  width: 99%;
+  height: 18px;
+  background-color: #ffffff;
+  border-radius: 9px;
+  margin-bottom: 8px;
+  position: relative;
+  border: solid rgb(255, 255, 255) 2px;
+}
+
+.progress-goal {
+  height: 100%;
   background: linear-gradient(to right, #ffb700 0%, #ff8000 100%);
-  color: rgb(255, 255, 255);
-  font-weight: 600;
-  height: 30px;
-  border-radius: 0px 3px 3px 0px;
-  padding-left: 0px;
-  padding-top: 1px;
-  border-top: solid rgb(255, 255, 255) 2px;
-  border-bottom: solid rgb(255, 255, 255) 2px;
-  transition: 2s ease-in-out;
-  padding-right: 5px;
+  border-radius: 9px;
+  transition: 1.8s ease-in-out;
+}
+
+.progress-text-goal {
+  position: absolute;
+  font-size: 14px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000000;
+  font-weight: 400;
 }
 
 .goal {
   text-align: left;
-  background: rgb(234,234,234);
-  background: linear-gradient(90deg, rgb(217, 217, 217) 13%, rgb(234, 234, 234) 48%, rgba(255,255,255,1) 78%);
+  background: rgb(234, 234, 234);
+  background: linear-gradient(90deg, rgb(217, 217, 217) 13%, rgb(234, 234, 234) 48%, rgb(255, 255, 255) 78%);
   border-radius: 10px;
+  position: relative;
 }
 
 .goal::before {
   content: '';
-  background-image: linear-gradient(118deg, rgb(255, 255, 255) 35%, rgb(209, 209, 209) 100%);
-  height: 766px;
-  width: 436px;
+  background: rgb(197, 197, 197);
+  height: 573px;
+  width: 435px;
   position: absolute;
   margin-top: -8px;
   margin-left: -10px;
@@ -180,10 +194,14 @@ body {
   box-shadow: 9px 9px 12px 0px rgba(142, 142, 142, 0.626);
 }
 
-
-
 .muscle-goal {
-  margin-left: 30px;
+  margin-left: 4px;
+}
+
+.muscle-goal-title {
+  margin-top: -2px;
+  margin-left: 3px;
+  font-size: 18px;
 }
 /* GOAL BOARD ABOVE */
 .nav-workouts-btn {
@@ -225,6 +243,43 @@ body {
  .nav-workouts-btn:hover::before {
   width: 9em;
  }
+
+ .nav-workouts-btn {
+  /* Existing styles */
+
+  position: relative;
+  /* Add transform origin to center the scaling */
+  transform-origin: center;
+}
+
+/* Add a class for the icon animation */
+.nav-wokrouts-dumbbell {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Apply the animation on hover */
+/* Define the rotation animation keyframes */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.nav-workouts-btn:hover .nav-wokrouts-dumbbell {
+  animation: rotate 0.5s ease-in-out; /* Add rotation animation */
+}
  /* WEEK PRGRESS BAR BELLOW */
 
  .circular-progress {

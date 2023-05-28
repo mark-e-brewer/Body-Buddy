@@ -38,54 +38,34 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
   let glutePercent = (gluteValue / goalObj.gluteGoal) * 100;
   let calvePercent = (calveValue / goalObj.gluteGoal) * 100;
 
-  if (frontDeltPercent < 15) {
-    frontDeltPercent = 15;
-  } else if (frontDeltPercent > 100) {
+  if (frontDeltPercent > 100) {
     frontDeltPercent = 100;
   }
-  if (rearSideDeltPercent < 15) {
-    rearSideDeltPercent = 15;
-  } else if (rearSideDeltPercent > 100) {
+  if (rearSideDeltPercent > 100) {
     rearSideDeltPercent = 100;
   }
-  if (backPercent < 15) {
-    backPercent = 15;
-  } else if (backPercent > 100) {
+  if (backPercent > 100) {
     backPercent = 100;
   }
-  if (chestPercent < 15) {
-    chestPercent = 15;
-  } else if (chestPercent > 100) {
+  if (chestPercent > 100) {
     chestPercent = 100;
   }
-  if (bicepPercent < 15) {
-    bicepPercent = 15;
-  } else if (bicepPercent > 100) {
+  if (bicepPercent > 100) {
     bicepPercent = 100;
   }
-  if (tricepPercent < 15) {
-    tricepPercent = 15;
-  } else if (tricepPercent > 100) {
+  if (tricepPercent > 100) {
     tricepPercent = 100;
   }
-  if (quadPercent < 15) {
-    quadPercent = 15;
-  } else if (quadPercent > 100) {
+  if (quadPercent > 100) {
     quadPercent = 100;
   }
-  if (hamstringPercent < 15) {
-    hamstringPercent = 15;
-  } else if (hamstringPercent > 100) {
+  if (hamstringPercent > 100) {
     hamstringPercent = 100;
   }
-  if (glutePercent < 15) {
-    glutePercent = 15;
-  } else if (glutePercent > 100) {
+  if (glutePercent > 100) {
     glutePercent = 100;
   }
-  if (calvePercent < 15) {
-    calvePercent = 15;
-  } else if (calvePercent > 100) {
+  if (calvePercent > 100) {
     calvePercent = 100;
   }
 
@@ -93,46 +73,82 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
     <>
       <div className="goal-border">
         <Card className="d-flex goal" style={{ width: '26rem', border: 'none' }}>
-          <h2 className="d-flex justify-content-center" style={{ marginBottom: '5px' }}>Weekly Goal</h2>
-          <Card.Title className="muscle-goal" style={{ marginBottom: '8px' }}>Front Deltoids</Card.Title>
-          <div className="cont">
-            <div className="bar" style={{ width: `${frontDeltPercent}%` }}>{FrontDeltsValue} of {goalObj.frontDeltGoal}</div>
+          {/* Front Deltoids */}
+          <div className="muscle-goal">
+            <Card.Title style={{ marginTop: '8px' }} className="muscle-goal-title">Front Deltoids</Card.Title>
+            <div className="progress-bar-goal">
+              <div className="progress-goal" style={{ width: `${frontDeltPercent}%` }} />
+              <div className="progress-text-goal">{FrontDeltsValue} / {goalObj.frontDeltGoal}</div>
+            </div>
           </div>
-          <Card.Title className="muscle-goal" style={{ marginBottom: '8px', marginTop: '8px' }}>Side & Rear Deltoids</Card.Title>
-          <div className="cont">
-            <div className="bar" style={{ width: `${rearSideDeltPercent}%` }}>{rearSideDeltValue} of {goalObj.rearSideDeltGoal}</div>
+          {/* Side & Rear Deltoids */}
+          <div className="muscle-goal">
+            <Card.Title className="muscle-goal-title">Side & Rear Deltoids</Card.Title>
+            <div className="progress-bar-goal">
+              <div className="progress-goal" style={{ width: `${rearSideDeltPercent}%` }} />
+              <div className="progress-text-goal">{rearSideDeltValue} / {goalObj.rearSideDeltGoal}</div>
+            </div>
           </div>
-          <Card.Title className="muscle-goal" style={{ marginBottom: '8px', marginTop: '8px' }}>Back</Card.Title>
-          <div className="cont">
-            <div className="bar" style={{ width: `${backPercent}%` }}>{backValue} of {goalObj.backGoal}</div>
+          {/* Back */}
+          <div className="muscle-goal">
+            <Card.Title className="muscle-goal-title">Back</Card.Title>
+            <div className="progress-bar-goal">
+              <div className="progress-goal" style={{ width: `${backPercent}%` }} />
+              <div className="progress-text-goal">{backValue} / {goalObj.backGoal}</div>
+            </div>
           </div>
-          <Card.Title className="muscle-goal" style={{ marginBottom: '8px', marginTop: '8px' }}>Chest</Card.Title>
-          <div className="cont">
-            <div className="bar" style={{ width: `${chestPercent}%` }}>{chestValue} of {goalObj.chestGoal}</div>
+          {/* Chest */}
+          <div className="muscle-goal">
+            <Card.Title className="muscle-goal-title">Chest</Card.Title>
+            <div className="progress-bar-goal">
+              <div className="progress-goal" style={{ width: `${chestPercent}%` }} />
+              <div className="progress-text-goal">{chestValue} / {goalObj.chestGoal}</div>
+            </div>
           </div>
-          <Card.Title className="muscle-goal" style={{ marginBottom: '8px', marginTop: '8px' }}>Biceps</Card.Title>
-          <div className="cont">
-            <div className="bar" style={{ width: `${bicepPercent}%` }}>{bicepValue} of {goalObj.bicepGoal}</div>
+          {/* Biceps */}
+          <div className="muscle-goal">
+            <Card.Title className="muscle-goal-title">Biceps</Card.Title>
+            <div className="progress-bar-goal">
+              <div className="progress-goal" style={{ width: `${bicepPercent}%` }} />
+              <div className="progress-text-goal">{bicepValue} / {goalObj.bicepGoal}</div>
+            </div>
           </div>
-          <Card.Title className="muscle-goal" style={{ marginBottom: '8px', marginTop: '8px' }}>Triceps</Card.Title>
-          <div className="cont">
-            <div className="bar" style={{ width: `${tricepPercent}%` }}>{tricepValue} of {goalObj.tricepGoal}</div>
+          {/* Triceps */}
+          <div className="muscle-goal">
+            <Card.Title className="muscle-goal-title">Triceps</Card.Title>
+            <div className="progress-bar-goal">
+              <div className="progress-goal" style={{ width: `${tricepPercent}%` }} />
+              <div className="progress-text-goal">{tricepValue} / {goalObj.tricepGoal}</div>
+            </div>
           </div>
-          <Card.Title className="muscle-goal" style={{ marginBottom: '8px', marginTop: '8px' }}>Quadriceps</Card.Title>
-          <div className="cont">
-            <div className="bar" style={{ width: `${quadPercent}%` }}>{quadValue} of {goalObj.quadGoal}</div>
+          {/* Quads */}
+          <div className="muscle-goal">
+            <Card.Title className="muscle-goal-title">Quadriceps</Card.Title>
+            <div className="progress-bar-goal">
+              <div className="progress-goal" style={{ width: `${quadPercent}%` }} />
+              <div className="progress-text-goal">{quadValue} / {goalObj.quadGoal}</div>
+            </div>
           </div>
-          <Card.Title className="muscle-goal" style={{ marginBottom: '8px', marginTop: '8px' }}>Hamstrings</Card.Title>
-          <div className="cont">
-            <div className="bar" style={{ width: `${hamstringPercent}%` }}>{hamstringValue} of {goalObj.hamstringGoal}</div>
+          <div className="muscle-goal">
+            <Card.Title className="muscle-goal-title">Hamstrings</Card.Title>
+            <div className="progress-bar-goal">
+              <div className="progress-goal" style={{ width: `${hamstringPercent}%` }} />
+              <div className="progress-text-goal">{hamstringValue} / {goalObj.hamstringGoal}</div>
+            </div>
           </div>
-          <Card.Title className="muscle-goal" style={{ marginBottom: '8px', marginTop: '8px' }}>Glutes</Card.Title>
-          <div className="cont">
-            <div className="bar" style={{ width: `${glutePercent}%` }}>{gluteValue} of {goalObj.gluteGoal}</div>
+          <div className="muscle-goal">
+            <Card.Title className="muscle-goal-title">Glutes</Card.Title>
+            <div className="progress-bar-goal">
+              <div className="progress-goal" style={{ width: `${glutePercent}%` }} />
+              <div className="progress-text-goal">{gluteValue} / {goalObj.gluteGoal}</div>
+            </div>
           </div>
-          <Card.Title className="muscle-goal" style={{ marginBottom: '8px', marginTop: '8px' }}>Calves</Card.Title>
-          <div className="cont" style={{ marginBottom: '15px' }}>
-            <div className="bar" style={{ width: `${calvePercent}%` }}>{calveValue} of {goalObj.calveGoal}</div>
+          <div className="muscle-goal" style={{ marginBottom: '10px' }}>
+            <Card.Title className="muscle-goal-title">Calves</Card.Title>
+            <div className="progress-bar-goal">
+              <div className="progress-goal" style={{ width: `${calvePercent}%` }} />
+              <div className="progress-text-goal">{calveValue} / {goalObj.calveGoal}</div>
+            </div>
           </div>
         </Card>
       </div>

@@ -62,14 +62,14 @@ function Home() {
       <div
         className="d-flex justify-content-center"
         style={{
-          marginTop: '1px',
-          marginBottom: '25px',
+          marginTop: '0px',
+          marginBottom: '34px',
         }}
       >
-        <div style={{ marginRight: '25px', marginTop: '0px' }}>
+        <div style={{ marginRight: '25px', marginTop: '10px' }}>
           <SetGoalModal goalObj={goal[0]} onUpdate={getCurrentGoal} />
         </div>
-        <div style={{ marginleft: '25px', marginTop: '0px' }}>
+        <div style={{ marginleft: '25px', marginTop: '10px' }}>
           <ResetWeekButton goalObj={goal[0]} onUpdate={getCurrentGoal} workoutsArray={workouts} />
         </div>
       </div>
@@ -82,10 +82,10 @@ function Home() {
         }}
       >
         {goal.map((obj) => <GoalBoard key={obj.firebaseKey} goalObj={obj} workoutsArray={workouts} />)}
-        <div style={{ marginTop: '20px' }}>
-          <h4 className="log-workout-text">Log Workout</h4>
+        <div style={{ marginTop: '30px' }}>
+          <h4 className="log-workout-text">Log Workouts</h4>
           <Link href={`/${goal[0]?.weekUid}`} passHref>
-            <Button className="nav-workouts-btn" variant="warning"><FontAwesomeIcon icon={faDumbbell} /></Button>
+            <Button className="nav-workouts-btn" variant="warning"><FontAwesomeIcon className="nav-wokrouts-dumbbell" icon={faDumbbell} /></Button>
           </Link>
         </div>
       </div>
