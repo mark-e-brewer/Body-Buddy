@@ -38,8 +38,8 @@ body {
 /* RESET DAY COMPONENT BELLOW */
 
 .reset-day {
-  margin-top: 15px;
-  margin-left: 15px;
+  margin-top: 20px;
+  margin-left: 125px;
   margin-bottom: 4px;
 }
 
@@ -49,12 +49,12 @@ body {
 
 .reset-day-input {
   font-size: 22px;
-  margin-top: 2.5px;
+  margin-top: -3px;
   font-weight: 600;
   padding-left: 5px;
-  padding-right: 6px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-right: 30px;
+  padding-top: 6px;
+  padding-bottom: 7px;
   border: none;
   outline: none;
   transition: 0.1s ease-in-out;
@@ -62,8 +62,32 @@ body {
 
 .reset-day-input:focus {
   outline: solid rgb(255, 174, 0) 3px;
-  box-shadow: 0px 0px 10px 0px orange;
+  box-shadow: 0px 0px 10px 1px rgb(255, 162, 0);
   border: none;
+}
+
+.reset-day-submit {
+  height: 24px;
+  width: 24px;
+  padding-top: 0px;
+  padding-left: 3px;
+  margin-left: 15px;
+  margin-top: 18px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 174, 0);
+  font-weight: 600;
+  border: solid white 2px;
+  transition: 0.2s ease-in-out;
+  box-shadow: none;
+  border-radius: 6px;
+}
+
+.reset-day-submit:hover {
+  box-shadow: 0px 0px 9px -1px rgb(255, 162, 0);
+  background-color: white;
+  border: solid rgb(255, 174, 0) 2px;
+  color: rgb(255, 174, 0);
+  border-radius: 6px;
 }
 
 /* RESET DAY COMPONENT ABOVE */
@@ -184,7 +208,7 @@ body {
 .goal::before {
   content: '';
   background: rgb(197, 197, 197);
-  height: 573px;
+  height: 636px;
   width: 435px;
   position: absolute;
   margin-top: -8px;
@@ -297,8 +321,8 @@ body {
 /* WEEK CARD BELLOW */
 .week-card {
   color: #000000;
-  width: 280px;
-  height: 390px;
+  width: 290px;
+  height: 410px;
   position: relative;
   border: solid rgb(255, 255, 255)3px;
   border-radius: 10px;
@@ -312,8 +336,8 @@ body {
 }
 
 .week-card-border {
-  width: 296px;
-  height: 406px;
+  width: 306px;
+  height: 425px;
   padding-top: 7px;
   border-radius: 15px;
   background: rgb(255,105,0);
@@ -378,7 +402,7 @@ body {
 }
 
 .week-card-row-back {
-  margin-bottom: -4px;
+  margin-bottom: -6px;
 }
 
 .week-card-line-back {
@@ -394,8 +418,8 @@ body {
 
 
 .workout-card {
-  width: 250px;
-  height: 385px;
+  width: 255px;
+  height: 406px;
   border-radius: 15px;
   padding: 7px;
   box-shadow: rgba(255, 140, 0, 0.6) 0 0px 18px 0px;
@@ -416,7 +440,7 @@ body {
 }
 
 .workout-text-div {
-  margin-bottom: -7px;
+  margin-bottom: -8px;
   margin-left: 7px;
   margin-right: 7px;
 }
@@ -442,7 +466,7 @@ body {
 .workout-form::before {
   content: '';
   background-image: linear-gradient(144deg,#ff6a00, #ff9d00 50%,#ffd000);
-  height: 812px;
+  height: 879px;
   width: 514px;
   position: absolute;
   margin-top: -8px;
@@ -478,6 +502,11 @@ body {
 .workout-submit-button:hover {
   box-shadow: 0px 0px 7px 0px rgb(255, 157, 0);
   border: solid rgb(255, 157, 0) 1px;
+}
+
+.workout-input-0:focus {
+  outline: solid #fa6e0a 5px;
+  box-shadow: 0px 0px 13px 0px #fa6e0a;
 }
 
 .workout-input-1:focus {
@@ -617,7 +646,7 @@ body {
 .goal-form::before {
   content: '';
   background-image: linear-gradient(144deg,#ff6a00, #ff9d00 50%,#ffd000);
-  height: 744px;
+  height: 812px;
   width: 514px;
   position: absolute;
   margin-top: -8px;
@@ -654,6 +683,11 @@ body {
 .goal-submit-button:hover {
   box-shadow: 0px 0px 7px 0px rgb(255, 157, 0);
   border: solid rgb(255, 162, 0) 1px;
+}
+
+.goal-input-0:focus {
+  outline: solid #fa6e0a 5px;
+  box-shadow: 0px 0px 13px 0px #fa6e0a;
 }
 
 .goal-input-1:focus {

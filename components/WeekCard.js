@@ -7,20 +7,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CircularProgressBar from './ProgressCircle';
 
 export default function WeekCard({ weekObj }) {
-  let sumOfGoal = 0;
-  let sumOfComplete = 0;
-  for (const key in weekObj) {
-    if (key.includes('Goal')) {
-      sumOfGoal += weekObj[key];
-    } else if (key.includes('Total')) {
-      sumOfComplete += weekObj[key];
+  let totalSum = 0;
+  let goalSum = 0;
+
+  Object.keys(weekObj).forEach((key) => {
+    if (key.endsWith('Total')) {
+      const goalKey = key.replace('Total', 'Goal');
+      const totalValue = weekObj[key];
+      const goalValue = weekObj[goalKey];
+
+      const updatedTotalValue = totalValue > goalValue ? goalValue : totalValue;
+
+      totalSum += updatedTotalValue;
+    } else if (key.endsWith('Goal')) {
+      goalSum += weekObj[key];
     }
-  }
-  const percentComplete = Math.ceil((sumOfComplete / sumOfGoal) * 100);
+  });
+
+  const percentComplete = Math.ceil((totalSum / goalSum) * 100);
   return (
     <>
       <Link href={`/weeks/${weekObj.weekUid}`} passHref>
-        <div className="week-card-border">
+        <div style={{ margin: '18px' }} className="week-card-border">
           <div className="week-card">
             <div className="week-card-front">
               <div className="week-title">
@@ -35,6 +43,11 @@ export default function WeekCard({ weekObj }) {
                 <p><FontAwesomeIcon icon={faBullseye} /></p>
               </div>
               <hr className="week-card-line-back" style={{ margin: '0px', marginBottom: '12px' }} />
+              <div className="d-flex flex-row justify-content-between week-card-row-back">
+                <p>{weekObj.trapTotal}</p>
+                <p className="mg-week-card">Traps</p>
+                <p>{weekObj.trapGoal}</p>
+              </div>
               <div className="d-flex flex-row justify-content-between week-card-row-back">
                 <p>{weekObj.frontDeltTotal}</p>
                 <p className="mg-week-card">Front Delts</p>
@@ -101,6 +114,7 @@ WeekCard.propTypes = {
     quadGoal: PropTypes.number,
     rearSideDeltGoal: PropTypes.number,
     tricepGoal: PropTypes.number,
+    trapGoal: PropTypes.number,
     backTotal: PropTypes.number,
     bicepTotal: PropTypes.number,
     calveTotal: PropTypes.number,
@@ -111,6 +125,7 @@ WeekCard.propTypes = {
     quadTotal: PropTypes.number,
     rearSideDeltTotal: PropTypes.number,
     tricepTotal: PropTypes.number,
+    trapTotal: PropTypes.number,
     userUid: PropTypes.string,
     weekUid: PropTypes.string,
     weekNum: PropTypes.number,

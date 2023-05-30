@@ -76,6 +76,21 @@ export default function SetGoalModal({ goalObj, onUpdate }) {
           <Modal.Body className="goal-form-body">
             <Form onSubmit={handleSubmit}>
 
+              <FloatingLabel controlId="floatingInput3" label="Traps Goal" className="mb-2 goal-floating-label" style={{ color: 'black' }}>
+                <Form.Select
+                  aria-label="Traps"
+                  name="trapGoal"
+                  onChange={handleChange}
+                  value={formInput.trapGoal}
+                  className="goal-input goal-input-0"
+                >
+                  {Array.from({ length: 51 }, (_, i) => i).map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
               <FloatingLabel controlId="floatingInput3" label="Front Deltoid Goal" className="mb-2 goal-floating-label" style={{ color: 'black' }}>
                 <Form.Select
                   aria-label="Front Deltoids"
@@ -250,6 +265,7 @@ SetGoalModal.propTypes = {
     quadGoal: PropTypes.number,
     rearSideDeltGoal: PropTypes.number,
     tricepGoal: PropTypes.number,
+    trapGoal: PropTypes.number,
     userUid: PropTypes.string,
     weekUid: PropTypes.string,
     isDefault: PropTypes.bool,

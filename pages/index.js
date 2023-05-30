@@ -14,7 +14,7 @@ function Home() {
   const { user } = useAuth();
   const [goal, setGoal] = useState([]);
   const [workouts, setWorkouts] = useState([]);
-  const [day, setDay] = useState([]);
+  const [day, setDay] = useState();
   const defualtGoal = [{
     backGoal: 0,
     bicepGoal: 0,
@@ -26,6 +26,7 @@ function Home() {
     quadGoal: 0,
     rearSideDeltGoal: 0,
     tricepGoal: 0,
+    trapGoal: 0,
     weekNum: 1,
   }];
 
@@ -43,7 +44,7 @@ function Home() {
 
   useEffect(() => {
     getCurrentGoal();
-    getResetDay();
+    getTheResetDay();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -55,10 +56,13 @@ function Home() {
   if (goal.length === 0) {
     setGoal(defualtGoal);
   }
+  if (goal.length > 1) {
+    getCurrentGoal();
+  }
 
   return (
     <>
-      <SetResetDay dayObj={day[0]} onUpdate={getTheResetDay} />
+      <SetResetDay dayArr={day} onUpdate={getTheResetDay} />
       <div
         className="d-flex justify-content-center"
         style={{

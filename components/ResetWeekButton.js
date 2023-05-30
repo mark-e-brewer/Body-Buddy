@@ -23,7 +23,8 @@ export default function ResetWeekButton({ goalObj, onUpdate, workoutsArray }) {
     setIsHovered(false);
   };
 
-  let FrontDeltsValue = 0;
+  let trapValue = 0;
+  let frontDeltValue = 0;
   let rearSideDeltValue = 0;
   let backValue = 0;
   let chestValue = 0;
@@ -35,7 +36,8 @@ export default function ResetWeekButton({ goalObj, onUpdate, workoutsArray }) {
   let calveValue = 0;
 
   for (let i = 0; i < workoutsArray.length; i++) {
-    FrontDeltsValue += workoutsArray[i].frontDeltSets;
+    trapValue += workoutsArray[i].trapSets;
+    frontDeltValue += workoutsArray[i].frontDeltSets;
     rearSideDeltValue += workoutsArray[i].rearSideDeltSets;
     backValue += workoutsArray[i].backSets;
     chestValue += workoutsArray[i].chestSets;
@@ -55,25 +57,46 @@ export default function ResetWeekButton({ goalObj, onUpdate, workoutsArray }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const playload = { ...goal };
-    postGoal(playload).then(({ name }) => {
-      const patchNewPayload = {
-        firebaseKey: name, weekUid: `${name}WEEK`, userUid: `${user.uid}CURR`, weekNum: weekCount + 1,
-      };
-      patchGoal(patchNewPayload).then(() => {
-        const patchOldPayload = { userUid: `${user.uid}PREV` };
-        patchOldGoalToPrev(patchOldPayload, oldFirebaseKey).then();
+    if (window.confirm('Reset Your Week?')) {
+      const playload = { ...goal };
+
+      const postPatchGoalPromise = postGoal(playload).then(({ name }) => {
+        const patchNewPayload = {
+          firebaseKey: name,
+          weekUid: `${name}WEEK`,
+          userUid: `${user.uid}CURR`,
+          weekNum: weekCount + 1,
+        };
+        return patchGoal(patchNewPayload).then(() => {
+          const patchOldPayload = { userUid: `${user.uid}PREV` };
+          return patchOldGoalToPrev(patchOldPayload, oldFirebaseKey);
+        });
       });
-    });
-    const weekPayload = {
-      ...goal, frontDeltTotal: FrontDeltsValue, rearSideDeltTotal: rearSideDeltValue, backTotal: backValue, chestTotal: chestValue, bicepTotal: bicepValue, tricepTotal: tricepValue, quadTotal: quadValue, hamstringTotal: hamstringValue, gluteTotal: gluteValue, calveTotal: calveValue,
-    };
-    postWeek(weekPayload).then(({ name }) => {
-      const patchWeekPayload = { userUid: `${user.uid}PREV`, firebaseKey: name };
-      patchWeek(patchWeekPayload).then(() => {
+
+      const weekPayload = {
+        ...goal,
+        trapTotal: trapValue,
+        frontDeltTotal: frontDeltValue,
+        rearSideDeltTotal: rearSideDeltValue,
+        backTotal: backValue,
+        chestTotal: chestValue,
+        bicepTotal: bicepValue,
+        tricepTotal: tricepValue,
+        quadTotal: quadValue,
+        hamstringTotal: hamstringValue,
+        gluteTotal: gluteValue,
+        calveTotal: calveValue,
+      };
+
+      const postPatchWeekPromise = postWeek(weekPayload).then(({ name }) => {
+        const patchWeekPayload = { userUid: `${user.uid}PREV`, firebaseKey: name };
+        return patchWeek(patchWeekPayload);
+      });
+
+      Promise.all([postPatchGoalPromise, postPatchWeekPromise]).then(() => {
         onUpdate();
       });
-    });
+    }
   };
 
   return (
@@ -113,6 +136,7 @@ ResetWeekButton.propTypes = {
     quadGoal: PropTypes.number,
     rearSideDeltGoal: PropTypes.number,
     tricepGoal: PropTypes.number,
+    trapGoal: PropTypes.number,
     userUid: PropTypes.string,
     weekUid: PropTypes.string,
     weekNum: PropTypes.number,

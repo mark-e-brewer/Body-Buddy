@@ -18,7 +18,7 @@ export default function WeeksPage() {
 
   return (
     <>
-      <h1 style={{ textAlign: 'center', marginBottom: '35px' }}>Previous Weeks Completion</h1>
+      <h1 style={{ textAlign: 'center', marginBottom: '12px' }}>Previous Weeks Completion</h1>
       <div
         className="d-flex justify-content-center"
         style={{
@@ -29,7 +29,7 @@ export default function WeeksPage() {
         <div
           className="d-flex"
           style={{
-            margin: '10px',
+            margin: '0px',
           }}
         >
           {weeks.map((obj) => <WeekCard key={obj.firebaseKey} weekObj={obj} />)}

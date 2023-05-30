@@ -57,6 +57,10 @@ export default function WorkoutCard({ workoutObj, onUpdate, formOnUpdate }) {
             />
           </div>
           <div className="d-flex justify-content-between workout-text-div">
+            <p>Trapezius</p>
+            <p>{workoutObj.trapSets}</p>
+          </div>
+          <div className="d-flex justify-content-between workout-text-div">
             <p>Front Deltoids</p>
             <p>{workoutObj.frontDeltSets}</p>
           </div>
@@ -92,7 +96,7 @@ export default function WorkoutCard({ workoutObj, onUpdate, formOnUpdate }) {
             <p>Glutes</p>
             <p>{workoutObj.gluteSets}</p>
           </div>
-          <div className="d-flex justify-content-between workout-text-div calve-workout">
+          <div className="d-flex justify-content-between workout-text-div">
             <p>Calves</p>
             <p>{workoutObj.calveSets}</p>
           </div>
@@ -116,6 +120,7 @@ WorkoutCard.propTypes = {
     quadSets: PropTypes.number,
     rearSideDeltSets: PropTypes.number,
     tricepSets: PropTypes.number,
+    trapSets: PropTypes.number,
     userUid: PropTypes.string,
     weekUid: PropTypes.string,
   }).isRequired,

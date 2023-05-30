@@ -3,7 +3,8 @@ import { Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 export default function GoalBoard({ goalObj, workoutsArray }) {
-  let FrontDeltsValue = 0;
+  let trapValue = 0;
+  let frontDeltValue = 0;
   let rearSideDeltValue = 0;
   let backValue = 0;
   let chestValue = 0;
@@ -15,7 +16,8 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
   let calveValue = 0;
 
   for (let i = 0; i < workoutsArray.length; i++) {
-    FrontDeltsValue += workoutsArray[i].frontDeltSets;
+    trapValue += workoutsArray[i].trapSets;
+    frontDeltValue += workoutsArray[i].frontDeltSets;
     rearSideDeltValue += workoutsArray[i].rearSideDeltSets;
     backValue += workoutsArray[i].backSets;
     chestValue += workoutsArray[i].chestSets;
@@ -27,7 +29,8 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
     calveValue += workoutsArray[i].calveSets;
   }
 
-  let frontDeltPercent = (FrontDeltsValue / goalObj.frontDeltGoal) * 100;
+  let trapPercent = (trapValue / goalObj.trapGoal) * 100;
+  let frontDeltPercent = (frontDeltValue / goalObj.frontDeltGoal) * 100;
   let rearSideDeltPercent = (rearSideDeltValue / goalObj.rearSideDeltGoal) * 100;
   let backPercent = (backValue / goalObj.backGoal) * 100;
   let chestPercent = (chestValue / goalObj.chestGoal) * 100;
@@ -38,6 +41,9 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
   let glutePercent = (gluteValue / goalObj.gluteGoal) * 100;
   let calvePercent = (calveValue / goalObj.gluteGoal) * 100;
 
+  if (trapPercent > 100) {
+    trapPercent = 100;
+  }
   if (frontDeltPercent > 100) {
     frontDeltPercent = 100;
   }
@@ -73,12 +79,20 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
     <>
       <div className="goal-border">
         <Card className="d-flex goal" style={{ width: '26rem', border: 'none' }}>
+          {/* Traps */}
+          <div className="muscle-goal">
+            <Card.Title style={{ marginTop: '10px' }} className="muscle-goal-title">Trapezius</Card.Title>
+            <div className="progress-bar-goal">
+              <div className="progress-goal" style={{ width: `${trapPercent}%` }} />
+              <div className="progress-text-goal">{trapValue} / {goalObj.trapGoal}</div>
+            </div>
+          </div>
           {/* Front Deltoids */}
           <div className="muscle-goal">
-            <Card.Title style={{ marginTop: '8px' }} className="muscle-goal-title">Front Deltoids</Card.Title>
+            <Card.Title className="muscle-goal-title">Front Deltoids</Card.Title>
             <div className="progress-bar-goal">
               <div className="progress-goal" style={{ width: `${frontDeltPercent}%` }} />
-              <div className="progress-text-goal">{FrontDeltsValue} / {goalObj.frontDeltGoal}</div>
+              <div className="progress-text-goal">{frontDeltValue} / {goalObj.frontDeltGoal}</div>
             </div>
           </div>
           {/* Side & Rear Deltoids */}
@@ -129,6 +143,7 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
               <div className="progress-text-goal">{quadValue} / {goalObj.quadGoal}</div>
             </div>
           </div>
+          {/* Hamstrings */}
           <div className="muscle-goal">
             <Card.Title className="muscle-goal-title">Hamstrings</Card.Title>
             <div className="progress-bar-goal">
@@ -136,6 +151,7 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
               <div className="progress-text-goal">{hamstringValue} / {goalObj.hamstringGoal}</div>
             </div>
           </div>
+          {/* Glutes */}
           <div className="muscle-goal">
             <Card.Title className="muscle-goal-title">Glutes</Card.Title>
             <div className="progress-bar-goal">
@@ -143,6 +159,7 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
               <div className="progress-text-goal">{gluteValue} / {goalObj.gluteGoal}</div>
             </div>
           </div>
+          {/* Calves */}
           <div className="muscle-goal" style={{ marginBottom: '10px' }}>
             <Card.Title className="muscle-goal-title">Calves</Card.Title>
             <div className="progress-bar-goal">
@@ -169,6 +186,7 @@ GoalBoard.propTypes = {
     quadGoal: PropTypes.number,
     rearSideDeltGoal: PropTypes.number,
     tricepGoal: PropTypes.number,
+    trapGoal: PropTypes.number,
     userUid: PropTypes.string,
     weekUid: PropTypes.string,
   }).isRequired,

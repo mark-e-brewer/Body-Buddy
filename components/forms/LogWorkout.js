@@ -19,6 +19,7 @@ const initialState = {
   quadSets: 0,
   rearSideDeltSets: 0,
   tricepSets: 0,
+  trapSets: 0,
 };
 
 export default function LogWorkoutModal({
@@ -100,7 +101,7 @@ export default function LogWorkoutModal({
                   name="day"
                   onChange={handleChange}
                   value={formInput.day}
-                  className="workout-input workout-input-1"
+                  className="workout-input workout-input-0"
                 >
                   <option value="Sunday">Sunday</option>
                   <option value="Monday">Monday</option>
@@ -109,6 +110,21 @@ export default function LogWorkoutModal({
                   <option value="Thursday">Thursday</option>
                   <option value="Friday">Friday</option>
                   <option value="Saturday">Saturday</option>
+                </Form.Select>
+              </FloatingLabel>
+              <FloatingLabel controlId="floatingInput3" label="Traps Sets" className="mb-2 workout-floating-label" style={{ color: 'black' }}>
+                <Form.Select
+                  aria-label="Traps"
+                  name="trapSets"
+                  onChange={handleChange}
+                  value={formInput.trapSets}
+                  className="workout-input workout-input-1"
+                >
+                  {Array.from({ length: 31 }, (_, i) => i).map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
                 </Form.Select>
               </FloatingLabel>
               <FloatingLabel controlId="floatingInput3" label="Front Deltoid Sets" className="mb-2 workout-floating-label" style={{ color: 'black' }}>
@@ -286,6 +302,7 @@ LogWorkoutModal.propTypes = {
     quadSets: PropTypes.number,
     rearSideDeltSets: PropTypes.number,
     tricepSets: PropTypes.number,
+    trapSets: PropTypes.number,
     userUid: PropTypes.string,
     weekUid: PropTypes.string,
   }),
