@@ -167,6 +167,7 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
               <div className="progress-text-goal">{calveValue} / {goalObj.calveGoal}</div>
             </div>
           </div>
+          <div className="blob-goal" />
         </Card>
       </div>
     </>
