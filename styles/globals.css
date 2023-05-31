@@ -39,7 +39,7 @@ body {
 
 .reset-day {
   margin-top: 20px;
-  margin-left: 125px;
+  margin-left: 160px;
   margin-bottom: 4px;
 }
 
@@ -62,7 +62,7 @@ body {
 
 .reset-day-input:focus {
   outline: solid rgb(255, 174, 0) 3px;
-  box-shadow: 0px 0px 10px 1px rgb(255, 162, 0);
+  box-shadow: 0px 0px 10px 1px rgb(255, 174, 0);
   border: none;
 }
 
@@ -83,7 +83,7 @@ body {
 }
 
 .reset-day-submit:hover {
-  box-shadow: 0px 0px 9px -1px rgb(255, 162, 0);
+  box-shadow: 0px 0px 9px -1px rgb(255, 174, 0);
   background-color: white;
   border: solid rgb(255, 174, 0) 2px;
   color: rgb(255, 174, 0);
@@ -164,6 +164,35 @@ body {
 /*NAV BAR ABOVE */
 
 /* GOAL BOARD BELLOW */
+
+.goal-border {
+  position: relative;
+  width: 431px;
+  height: 646px;
+  border-radius: 15px;
+  z-index: 1111;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 9px 9px 18px #c0c0c0;
+}
+
+.blob-goal {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  height:500px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #ffb700 0%, #ff8000 100%);
+  opacity: 1;
+  filter: blur(30px);
+  animation: blob-bounce 6s infinite ease;
+}
+
 .cont {
   height: 100%;
   text-align: right;
@@ -172,7 +201,7 @@ body {
 
 .progress-bar-goal {
   width: 99%;
-  height: 18px;
+  height: 20px;
   background-color: #ffffff;
   border-radius: 9px;
   margin-bottom: 8px;
@@ -198,33 +227,26 @@ body {
 }
 
 .goal {
+  margin-top: -1px;
+  margin-right: 0px;
+  width: 97.5%;
+  height: 97.5%;
   text-align: left;
   background: rgb(234, 234, 234);
   background: linear-gradient(90deg, rgb(217, 217, 217) 13%, rgb(234, 234, 234) 48%, rgb(255, 255, 255) 78%);
   border-radius: 10px;
   position: relative;
+
 }
 
-.goal::before {
-  content: '';
-  background: rgb(197, 197, 197);
-  height: 636px;
-  width: 435px;
-  position: absolute;
-  margin-top: -8px;
-  margin-left: -10px;
-  z-index: -1;
-  border-radius: 15px;
-  box-shadow: 9px 9px 12px 0px rgba(142, 142, 142, 0.626);
-}
 
 .muscle-goal {
-  margin-left: 4px;
+  margin-left: 5px;
 }
 
 .muscle-goal-title {
   margin-top: -2px;
-  margin-left: 3px;
+  margin-left: 4px;
   font-size: 18px;
 }
 /* GOAL BOARD ABOVE */
@@ -585,7 +607,7 @@ body {
       border-radius: 30em;
       box-shadow: 6px 6px 12px #c0c0c0;
       overflow: hidden;
-      background-color: #ffb300;
+      background: linear-gradient(to right, #ffb700 0%, #ff8000 100%);
      }
 
      
@@ -745,5 +767,104 @@ body {
   box-shadow: 0px 0px 13px 0px #ffb300;
 }
 
-
 /* GOAL SET MODAL ABOVE  */
+/* INFO CHART BELLOW */
+
+.info-card {
+  position: relative;
+  width: 610px;
+  height: 610px;
+  border-radius: 14px;
+  z-index: 1111;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 9px 9px 18px #c0c0c0;
+}
+
+.blob {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: linear-gradient(130deg, rgb(255, 106, 0) 0%, rgba(255,207,0,1) 100%);
+  filter: blur(16px);
+  animation: blob-bounce 6s infinite ease;
+}
+
+@keyframes blob-bounce {
+  0% {
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+  }
+
+  50% {
+    transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+  }
+
+  75% {
+    transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+  }
+
+  100% {
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
+  }
+}
+
+.info-chart { 
+  width: 98%;
+  height: 98%;
+  content: '';
+  border-radius: 10px;
+  display: inline-grid;
+  grid-template-rows: repeat(12, 1fr);
+  gap: 5px;
+  background: rgb(255, 255, 255);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.info-line {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 2px dotted rgb(0, 0, 0);
+}
+
+.first-col {
+  width: 165px;
+  margin-left: 6px;
+  text-align: left;
+}
+
+.second-col {
+  width: 60px;
+}
+
+.third-col {
+  width: 70px;
+}
+
+.fourth-col {
+  width: 90px;
+}
+
+.fifth-col {
+  width: 85px;
+}
+
+.fifth-col {
+  width: 90px;
+}
+
+.sixth-col {
+  width: 100px;
+}
+/* INFO CHART ABOVE */
