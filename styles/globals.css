@@ -167,7 +167,7 @@ body {
 
 .goal-border {
   position: relative;
-  width: 431px;
+  width: 499px;
   height: 646px;
   border-radius: 15px;
   z-index: 1111;
@@ -190,7 +190,7 @@ body {
   background: linear-gradient(to right, #ffb700 0%, #ff8000 100%);
   opacity: 1;
   filter: blur(30px);
-  animation: blob-bounce 6s infinite ease;
+  animation: blob-bounce 7s infinite ease;
 }
 
 .cont {
@@ -200,7 +200,7 @@ body {
 }
 
 .progress-bar-goal {
-  width: 99%;
+  width: 96.5%;
   height: 20px;
   background-color: #ffffff;
   border-radius: 9px;
@@ -229,8 +229,8 @@ body {
 .goal {
   margin-top: -1px;
   margin-right: 0px;
-  width: 97.5%;
-  height: 97.5%;
+  width: 100%;
+  height: 97.25%;
   text-align: left;
   background: rgb(234, 234, 234);
   background: linear-gradient(90deg, rgb(217, 217, 217) 13%, rgb(234, 234, 234) 48%, rgb(255, 255, 255) 78%);
@@ -241,12 +241,12 @@ body {
 
 
 .muscle-goal {
-  margin-left: 5px;
+  margin-left: 15px;
 }
 
 .muscle-goal-title {
   margin-top: -2px;
-  margin-left: 4px;
+  margin-left: 10px;
   font-size: 18px;
 }
 /* GOAL BOARD ABOVE */
@@ -792,9 +792,9 @@ body {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: linear-gradient(130deg, rgb(255, 106, 0) 0%, rgba(255,207,0,1) 100%);
+  background: linear-gradient(130deg, rgb(255, 119, 0) 0%, rgb(255, 191, 0) 100%);
   filter: blur(16px);
-  animation: blob-bounce 6s infinite ease;
+  animation: blob-bounce 7s infinite ease;
 }
 
 @keyframes blob-bounce {
@@ -868,3 +868,23 @@ body {
   width: 100px;
 }
 /* INFO CHART ABOVE */
+
+/* BAR CHART MUSCLE GROUPS BELLOW */
+
+
+#spacing-example-1 {
+  height: 700px;
+  width: 1000px;
+  margin: 40px;
+}
+
+.label-bar-muscles {
+  /* moves label away from bar chart */
+  --labels-size: 55px;
+}
+
+
+
+
+
+/* BAR CHART CHART MUSCLE GROUPS ABOVE */

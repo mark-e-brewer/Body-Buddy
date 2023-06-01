@@ -83,6 +83,7 @@ function Home() {
           // height: '85vh',
           maxWidth: '400px',
           margin: '0 auto',
+          alignItems: 'center',
         }}
       >
         {goal.map((obj) => <GoalBoard key={obj.firebaseKey} goalObj={obj} workoutsArray={workouts} />)}
