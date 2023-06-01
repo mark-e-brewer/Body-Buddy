@@ -22,6 +22,9 @@ export default function NavBarAuth() {
             <Link passHref href="/weeks">
               <Nav.Link className="nav-text">Weeks</Nav.Link>
             </Link>
+            <Link passHref href="/stats">
+              <Nav.Link className="nav-text">Stats</Nav.Link>
+            </Link>
             <Link passHref href="/info">
               <Nav.Link className="nav-text">Info</Nav.Link>
             </Link>
