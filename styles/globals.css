@@ -338,7 +338,7 @@ body {
 .week-card {
   color: #000000;
   width: 290px;
-  height: 410px;
+  height: 425px;
   position: relative;
   border: solid rgb(255, 255, 255)3px;
   border-radius: 10px;
@@ -353,7 +353,7 @@ body {
 
 .week-card-border {
   width: 306px;
-  height: 425px;
+  height: 440px;
   padding-top: 7px;
   border-radius: 15px;
   background: rgb(255,105,0);
@@ -369,17 +369,17 @@ body {
 }
 
 .week-card-front {
-  bottom: 30px;
+  bottom: 46px;
   left: 0;
   position: absolute;
   width: 100%;
   text-align: center;
-  transition: transform 0.8s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  transition: transform 0.7s cubic-bezier(0.785, 0.135, 0.150, 0.860);
 }
 
 .week-card-back {
   transform: translateX(120%);
-  transition: transform 0.8s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  transition: transform 0.7s cubic-bezier(0.785, 0.135, 0.150, 0.860);
 }
 
 .week-title {
@@ -415,7 +415,7 @@ body {
 }
 
 .week-card-row-back {
-  margin-bottom: -6px;
+  margin-bottom: -7px;
 }
 
 .week-card-line-back {
@@ -918,10 +918,11 @@ body {
     margin-top: 30px;
     --color: #adcbff;
   }
-  
-  .label-bar-muscles-each-day {
-    --labels-size: 50px;
+
+  .bar-muscles-each-day {
+    --start: 0.5;
   }
+  
   
   .bar-muscles-each-day-data {
     border-radius: 6px 6px 0px 0px;
@@ -955,6 +956,7 @@ body {
 
   .stat-filter-button-muscles-active {
     background: rgb(255, 163, 0);
+    font-weight: 600;
     border: none;
     border-radius: 4px;
     box-shadow: 0px 0px 5px 0px rgb(255, 163, 0);
@@ -963,6 +965,7 @@ body {
   .stat-filter-button-muscles-active:hover {
     background: rgb(255, 163, 0);
     border: none;
+    font-weight: 600;
     border-radius: 4px;
     box-shadow: 0px 0px 5px 0px rgb(255, 163, 0);
   }
