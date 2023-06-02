@@ -38,7 +38,7 @@ body {
 /* RESET DAY COMPONENT BELLOW */
 
 .reset-day {
-  margin-top: 20px;
+  margin-top: 16px;
   margin-left: 160px;
   margin-bottom: 4px;
 }
@@ -143,9 +143,9 @@ body {
 /* RESET WEEK BUTTON ABOVE */
 /* NAV BAR BELLOW */
 .nav-bar {
-  background: linear-gradient(144deg,#ff8000, #ff9d00 50%,#ffb700);
+  background: linear-gradient(144deg,rgba(255,163,0,1), rgba(255,163,0,1),rgba(255,163,0,1));
   font-weight: 600;
-  box-shadow: 0px 0px 11px -3px rgba(24, 24, 24, 0.905);
+  box-shadow: 0px 0px 10px -2px rgba(80, 80, 80, 0.905);
 }
 
 .nav-text {
@@ -168,9 +168,9 @@ body {
 .goal-border {
   position: relative;
   width: 499px;
-  height: 646px;
+  height: 652px;
   border-radius: 15px;
-  z-index: 1111;
+  z-index: 15;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -291,20 +291,14 @@ body {
  }
 
  .nav-workouts-btn {
-  /* Existing styles */
-
   position: relative;
-  /* Add transform origin to center the scaling */
   transform-origin: center;
 }
 
-/* Add a class for the icon animation */
 .nav-wokrouts-dumbbell {
   transition: transform 0.5s ease-in-out;
 }
 
-/* Apply the animation on hover */
-/* Define the rotation animation keyframes */
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
@@ -334,8 +328,8 @@ body {
 
 .progress-bar {
   fill: #ffffff;
-  stroke: #000000;  /* Change color as desired */
-  stroke-width: 2; /* Change thickness as desired */
+  stroke: #000000; 
+  stroke-width: 2;
   transition: stroke-dashoffset 0.5s ease;
 }
 
@@ -388,13 +382,11 @@ body {
   transition: transform 0.8s cubic-bezier(0.785, 0.135, 0.150, 0.860);
 }
 
-
-/*Text*/
 .week-title {
   font-size: 1.7rem;
   margin-bottom: 20px;
 }
-/*Text divider*/
+
 .week-title::after {
   content: "";
   display: block;
@@ -410,7 +402,6 @@ body {
   margin-top: 20px;
 }
 
-/*Hover*/
 .week-card:hover {
   background-color: #1b1b1b12;
 }
@@ -663,6 +654,7 @@ body {
 
 .goal-form {
   max-width: 500px;
+  z-index: 12;
 }
 
 .goal-form::before {
@@ -870,21 +862,108 @@ body {
 /* INFO CHART ABOVE */
 
 /* BAR CHART MUSCLE GROUPS BELLOW */
-
-
-#spacing-example-1 {
+#bar-muscle-total {
   height: 700px;
-  width: 1000px;
-  margin: 40px;
+  width: 800px;
+  margin-top: 30px;
+  --color: #adcbff;
+  /* complementary of (255, 163, 0) orange */
 }
 
 .label-bar-muscles {
   /* moves label away from bar chart */
-  --labels-size: 55px;
+  --labels-size: 50px;
 }
 
+.bar-muscle-data {
+  border-radius: 6px 6px 0px 0px;
+  transition: 1s ease-in-out;
+}
 
-
-
-
+.bar-muscle-datatext {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  margin-top: -4px;
+}
 /* BAR CHART CHART MUSCLE GROUPS ABOVE */
+  /* BAR CHART WORKOUTS LOGGED EACH DAY BELLOW */
+#bar-workouts-each-day {
+  height: 700px;
+  width: 800px;
+  margin-top: 30px;
+  --color: #adcbff;
+}
+
+.label-bar-workouts-each-day {
+  --labels-size: 50px;
+}
+
+.bar-workouts-each-day-data {
+  border-radius: 6px 6px 0px 0px;
+  transition: 1s ease-in-out;
+}
+
+.bar-workouts-each-day-datatext {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  margin-top: -4px;
+}
+  /* BAR CHART WORKOUTS LOGGED EACH DAY ABOVE */
+  /* BAR CHART MUSCLE GROUPS SET EACH DAY OF WEEK BELLOW */
+  #bar-muscles-each-day {
+    height: 700px;
+    width: 800px;
+    margin-top: 30px;
+    --color: #adcbff;
+  }
+  
+  .label-bar-muscles-each-day {
+    --labels-size: 50px;
+  }
+  
+  .bar-muscles-each-day-data {
+    border-radius: 6px 6px 0px 0px;
+    transition: 1s ease-in-out;
+  }
+  
+  .bar-muscles-each-day-datatext {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    margin-top: -4px;
+  }
+
+  .muscle-option-div-bar {
+    border: solid rgb(234, 234, 234) 3px;
+    border-radius: 6px;
+  }
+
+  .stat-filter-button-muscles {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    transition: 0.2s ease-in-out;
+  }
+
+  .stat-filter-button-muscles:hover {
+    background-color: #e3e3e3;
+    border: none;
+    border-radius: 4px;
+  }
+
+  .stat-filter-button-muscles-active {
+    background: rgb(255, 163, 0);
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px 0px rgb(255, 163, 0);
+  }
+
+  .stat-filter-button-muscles-active:hover {
+    background: rgb(255, 163, 0);
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px 0px rgb(255, 163, 0);
+  }
+/* MUSCLE GROUP SETS EACH DAY OF WEEK ABOVE */
