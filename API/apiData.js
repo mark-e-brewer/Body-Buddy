@@ -26,6 +26,18 @@ const getWorkoutsByWeekUid = (weekUid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getWorkoutsByUserUid = (userUid) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/workouts.json?orderBy="userUid"&equalTo="${userUid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 const getPrevWeeks = (userUid) => new Promise((resolve, reject) => {
   fetch(`${dbUrl}/weeks.json?orderBy="userUid"&equalTo="${userUid}PREV"`, {
     method: 'GET',
@@ -195,6 +207,7 @@ export {
   getCurrGoal,
   getPrevWeeks,
   getWorkoutsByWeekUid,
+  getWorkoutsByUserUid,
   getWeekByWeekUid,
   getResetDay,
   postGoal,
