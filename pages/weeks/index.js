@@ -31,7 +31,7 @@ export default function WeeksPage() {
             margin: '0px',
           }}
         >
-          {weeks.map((obj) => <WeekCard key={obj.firebaseKey} weekObj={obj} />)}
+          {weeks.map((obj) => <WeekCard key={obj.firebaseKey} weekObj={obj} weekObjDisplay={obj} />)}
         </div>
       </div>
     </>

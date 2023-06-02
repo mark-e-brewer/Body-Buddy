@@ -57,7 +57,7 @@ export default function ResetWeekButton({ goalObj, onUpdate, workoutsArray }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (window.confirm('Reset Your Week?')) {
+    if (window.confirm('You wont be able to Edit or Delete workouts for this week once you reset!')) {
       const playload = { ...goal };
 
       const postPatchGoalPromise = postGoal(playload).then(({ name }) => {

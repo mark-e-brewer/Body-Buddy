@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -6,25 +5,21 @@ import { faBullseye, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CircularProgressBar from './ProgressCircle';
 
-export default function WeekCard({ weekObj }) {
-  let totalSum = 0;
-  let goalSum = 0;
-
+export default function WeekCard({ weekObj, weekObjDisplay }) {
+  let totalGoal = 0;
+  let totalCompleted = 0;
   Object.keys(weekObj).forEach((key) => {
-    if (key.endsWith('Total')) {
-      const goalKey = key.replace('Total', 'Goal');
-      const totalValue = weekObj[key];
-      const goalValue = weekObj[goalKey];
-
-      const updatedTotalValue = totalValue > goalValue ? goalValue : totalValue;
-
-      totalSum += updatedTotalValue;
-    } else if (key.endsWith('Goal')) {
-      goalSum += weekObj[key];
+    if (key.endsWith('Goal')) {
+      const totalKey = key.replace('Goal', 'Total');
+      const goal = weekObj[key];
+      const total = weekObj[totalKey];
+      const completed = Math.min(total, goal);
+      totalGoal += goal;
+      totalCompleted += completed;
     }
   });
+  const percentComplete = Math.ceil((totalCompleted / totalGoal) * 100);
 
-  const percentComplete = Math.ceil((totalSum / goalSum) * 100);
   return (
     <>
       <Link href={`/weeks/${weekObj.weekUid}`} passHref>
@@ -44,54 +39,59 @@ export default function WeekCard({ weekObj }) {
               </div>
               <hr className="week-card-line-back" style={{ margin: '0px', marginBottom: '12px' }} />
               <div className="d-flex flex-row justify-content-between week-card-row-back">
-                <p>{weekObj.trapTotal}</p>
+                <p>{weekObjDisplay.trapTotal}</p>
                 <p className="mg-week-card">Traps</p>
-                <p>{weekObj.trapGoal}</p>
+                <p>{weekObjDisplay.trapGoal}</p>
               </div>
               <div className="d-flex flex-row justify-content-between week-card-row-back">
-                <p>{weekObj.frontDeltTotal}</p>
+                <p>{weekObjDisplay.frontDeltTotal}</p>
                 <p className="mg-week-card">Front Delts</p>
-                <p>{weekObj.frontDeltGoal}</p>
+                <p>{weekObjDisplay.frontDeltGoal}</p>
               </div>
               <div className="d-flex flex-row justify-content-between week-card-row-back">
-                <p>{weekObj.rearSideDeltTotal}</p>
+                <p>{weekObjDisplay.rearSideDeltTotal}</p>
                 <p className="mg-week-card">Rear & Side Delts</p>
-                <p>{weekObj.rearSideDeltGoal}</p>
+                <p>{weekObjDisplay.rearSideDeltGoal}</p>
               </div>
               <div className="d-flex flex-row justify-content-between week-card-row-back">
-                <p>{weekObj.backTotal}</p>
+                <p>{weekObjDisplay.backTotal}</p>
                 <p className="mg-week-card">Back</p>
-                <p>{weekObj.backGoal}</p>
+                <p>{weekObjDisplay.backGoal}</p>
               </div>
               <div className="d-flex flex-row justify-content-between week-card-row-back">
-                <p>{weekObj.chestTotal}</p>
+                <p>{weekObjDisplay.chestTotal}</p>
                 <p className="mg-week-card">Chest</p>
-                <p>{weekObj.chestGoal}</p>
+                <p>{weekObjDisplay.chestGoal}</p>
               </div>
               <div className="d-flex flex-row justify-content-between week-card-row-back">
-                <p>{weekObj.bicepTotal}</p>
+                <p>{weekObjDisplay.bicepTotal}</p>
                 <p className="mg-week-card">Biceps</p>
-                <p>{weekObj.bicepGoal}</p>
+                <p>{weekObjDisplay.bicepGoal}</p>
               </div>
               <div className="d-flex flex-row justify-content-between week-card-row-back">
-                <p>{weekObj.quadTotal}</p>
+                <p>{weekObjDisplay.tricepTotal}</p>
+                <p className="mg-week-card">Triceps</p>
+                <p>{weekObjDisplay.tricepGoal}</p>
+              </div>
+              <div className="d-flex flex-row justify-content-between week-card-row-back">
+                <p>{weekObjDisplay.quadTotal}</p>
                 <p className="mg-week-card">Quadriceps</p>
-                <p>{weekObj.quadGoal}</p>
+                <p>{weekObjDisplay.quadGoal}</p>
               </div>
               <div className="d-flex flex-row justify-content-between week-card-row-back">
-                <p>{weekObj.hamstringTotal}</p>
+                <p>{weekObjDisplay.hamstringTotal}</p>
                 <p className="mg-week-card">Hamstrings</p>
-                <p>{weekObj.hamstringGoal}</p>
+                <p>{weekObjDisplay.hamstringGoal}</p>
               </div>
               <div className="d-flex flex-row justify-content-between week-card-row-back">
-                <p>{weekObj.gluteTotal}</p>
+                <p>{weekObjDisplay.gluteTotal}</p>
                 <p className="mg-week-card">Glutes</p>
-                <p>{weekObj.gluteGoal}</p>
+                <p>{weekObjDisplay.gluteGoal}</p>
               </div>
               <div className="d-flex flex-row justify-content-between week-card-row-back">
-                <p>{weekObj.calveTotal}</p>
+                <p>{weekObjDisplay.calveTotal}</p>
                 <p className="mg-week-card">Calves</p>
-                <p>{weekObj.calveGoal}</p>
+                <p>{weekObjDisplay.calveGoal}</p>
               </div>
             </div>
           </div>
@@ -103,6 +103,34 @@ export default function WeekCard({ weekObj }) {
 
 WeekCard.propTypes = {
   weekObj: PropTypes.shape({
+    backGoal: PropTypes.number,
+    bicepGoal: PropTypes.number,
+    calveGoal: PropTypes.number,
+    chestGoal: PropTypes.number,
+    firebaseKey: PropTypes.string,
+    frontDeltGoal: PropTypes.number,
+    gluteGoal: PropTypes.number,
+    hamstringGoal: PropTypes.number,
+    quadGoal: PropTypes.number,
+    rearSideDeltGoal: PropTypes.number,
+    tricepGoal: PropTypes.number,
+    trapGoal: PropTypes.number,
+    backTotal: PropTypes.number,
+    bicepTotal: PropTypes.number,
+    calveTotal: PropTypes.number,
+    chestTotal: PropTypes.number,
+    frontDeltTotal: PropTypes.number,
+    gluteTotal: PropTypes.number,
+    hamstringTotal: PropTypes.number,
+    quadTotal: PropTypes.number,
+    rearSideDeltTotal: PropTypes.number,
+    tricepTotal: PropTypes.number,
+    trapTotal: PropTypes.number,
+    userUid: PropTypes.string,
+    weekUid: PropTypes.string,
+    weekNum: PropTypes.number,
+  }).isRequired,
+  weekObjDisplay: PropTypes.shape({
     backGoal: PropTypes.number,
     bicepGoal: PropTypes.number,
     calveGoal: PropTypes.number,
