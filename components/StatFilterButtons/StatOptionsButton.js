@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 
 export default function StatOptionsButton({ setFilterGraphs }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const filterStatOptions = ['Total Per Muscle', 'Workouts Sun-Sat', 'Muscle Total Sun-Sat'];
+  const filterStatOptions = ['Total Per Muscle', 'Total Workouts Sun-Sat', 'Muscle Total Sun-Sat', 'Past Month Completion'];
   const handleButtonState = (targetValue) => {
     setFilterGraphs(targetValue);
   };

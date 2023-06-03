@@ -1,31 +1,12 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBan, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
-import { deleteWorkout } from '../API/apiData';
-import LogWorkoutModal from './forms/LogWorkout';
 
-export default function WorkoutCard({ workoutObj, onUpdate, formOnUpdate }) {
-  const deleteThisWorkout = () => {
-    if (window.confirm('Delete this Workout?')) {
-      deleteWorkout(workoutObj.firebaseKey).then(() => onUpdate());
-    }
-  };
-
+export default function WorkoutCardWeekView({ workoutObj }) {
   return (
     <>
       <div className="workout-card">
         <div className="workout-card__content">
-          <div className="d-flex justify-content-around">
-            <LogWorkoutModal
-              buttonText={<FontAwesomeIcon icon={faPlusCircle} />}
-              background="white"
-              color="black"
-              onUpdate={formOnUpdate}
-              obj={workoutObj}
-              textSize={16}
-            />
+          <div className="d-flex justify-content-center">
             <h4
               style={{
                 textAlign: 'center',
@@ -35,20 +16,6 @@ export default function WorkoutCard({ workoutObj, onUpdate, formOnUpdate }) {
             >
               {workoutObj.day}
             </h4>
-            <Button
-              onClick={deleteThisWorkout}
-              className="workout-delete"
-              style={{
-                color: 'black',
-                backgroundColor: 'white',
-                border: 'none',
-                marginTop: '1px',
-                width: '25px',
-                fontSize: '16px',
-              }}
-            >
-              <FontAwesomeIcon icon={faBan} />
-            </Button>
           </div>
           <div className="d-flex justify-content-between workout-text-div">
             <p>Trapezius</p>
@@ -100,7 +67,7 @@ export default function WorkoutCard({ workoutObj, onUpdate, formOnUpdate }) {
   );
 }
 
-WorkoutCard.propTypes = {
+WorkoutCardWeekView.propTypes = {
   workoutObj: PropTypes.shape({
     backSets: PropTypes.number,
     bicepSets: PropTypes.number,
@@ -118,6 +85,4 @@ WorkoutCard.propTypes = {
     userUid: PropTypes.string,
     weekUid: PropTypes.string,
   }).isRequired,
-  onUpdate: PropTypes.func.isRequired,
-  formOnUpdate: PropTypes.func.isRequired,
 };

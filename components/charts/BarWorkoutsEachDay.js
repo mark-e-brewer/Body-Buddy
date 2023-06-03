@@ -10,19 +10,19 @@ export default function BarChartWorkoutsEachDay({ workoutsArray }) {
   let fridayTotal = 0;
   let saturdayTotal = 0;
   for (let i = 0; i < workoutsArray.length; i++) {
-    if (workoutsArray[i].day === 'Sunday') {
+    if (workoutsArray[i]?.day === 'Sunday') {
       sundayTotal += 1;
-    } else if (workoutsArray[i].day === 'Monday') {
+    } else if (workoutsArray[i]?.day === 'Monday') {
       mondayTotal += 1;
-    } else if (workoutsArray[i].day === 'Tuesday') {
+    } else if (workoutsArray[i]?.day === 'Tuesday') {
       tuesdayTotal += 1;
-    } else if (workoutsArray[i].day === 'Wednsday') {
+    } else if (workoutsArray[i]?.day === 'Wednsday') {
       wednsdayTotal += 1;
-    } else if (workoutsArray[i].day === 'Thursday') {
+    } else if (workoutsArray[i]?.day === 'Thursday') {
       thursdayTotal += 1;
-    } else if (workoutsArray[i].day === 'Friday') {
+    } else if (workoutsArray[i]?.day === 'Friday') {
       fridayTotal += 1;
-    } else if (workoutsArray[i].day === 'Saturday') {
+    } else if (workoutsArray[i]?.day === 'Saturday') {
       saturdayTotal += 1;
     }
   }

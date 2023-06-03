@@ -16,17 +16,17 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
   let calveValue = 0;
 
   for (let i = 0; i < workoutsArray.length; i++) {
-    trapValue += workoutsArray[i].trapSets;
-    frontDeltValue += workoutsArray[i].frontDeltSets;
-    rearSideDeltValue += workoutsArray[i].rearSideDeltSets;
-    backValue += workoutsArray[i].backSets;
-    chestValue += workoutsArray[i].chestSets;
-    bicepValue += workoutsArray[i].bicepSets;
-    tricepValue += workoutsArray[i].tricepSets;
-    quadValue += workoutsArray[i].quadSets;
-    hamstringValue += workoutsArray[i].hamstringSets;
-    gluteValue += workoutsArray[i].gluteSets;
-    calveValue += workoutsArray[i].calveSets;
+    trapValue += workoutsArray[i]?.trapSets;
+    frontDeltValue += workoutsArray[i]?.frontDeltSets;
+    rearSideDeltValue += workoutsArray[i]?.rearSideDeltSets;
+    backValue += workoutsArray[i]?.backSets;
+    chestValue += workoutsArray[i]?.chestSets;
+    bicepValue += workoutsArray[i]?.bicepSets;
+    tricepValue += workoutsArray[i]?.tricepSets;
+    quadValue += workoutsArray[i]?.quadSets;
+    hamstringValue += workoutsArray[i]?.hamstringSets;
+    gluteValue += workoutsArray[i]?.gluteSets;
+    calveValue += workoutsArray[i]?.calveSets;
   }
 
   let trapPercent = (trapValue / goalObj.trapGoal) * 100;

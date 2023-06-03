@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import WorkoutCard from '../../components/WorkoutCard';
+import WorkoutCardWeekView from '../../components/WorkoutCardWeekView';
 import { getWorkoutsByWeekUid, getWeekByWeekUid } from '../../API/apiData';
 
 export default function WorkoutsViewPage() {
@@ -26,7 +26,7 @@ export default function WorkoutsViewPage() {
     <>
       <h1 className="d-flex justify-content-center">Week {week[0]?.weekNum} Workouts</h1>
       <div className="d-flex justify-content-center">
-        {workouts.map((obj) => <WorkoutCard key={obj.firebaseKey} workoutObj={obj} onUpdate={getAllCurrentWorkouts} formOnUpdate={getAllCurrentWorkouts} />)}
+        {workouts.map((obj) => <WorkoutCardWeekView key={obj.firebaseKey} workoutObj={obj} />)}
       </div>
     </>
   );
