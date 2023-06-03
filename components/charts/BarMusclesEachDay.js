@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import {} from 'charts.css';
 import { useState } from 'react';
-import StatOptionsMuscleGroups from '../StatOptionsMuscleGroups';
+import StatOptionsMuscleGroups from '../StatFilterButtons/StatOptionsMuscleGroups';
 
 export default function BarChartMusclesEachDay({ workoutsArray }) {
-  const [muscleGroup, setMuscleGroup] = useState('Traps');
+  const [muscleGroup, setMuscleGroup] = useState('All');
   let sundayTotal = 0;
   let mondayTotal = 0;
   let tuesdayTotal = 0;
@@ -74,7 +74,7 @@ export default function BarChartMusclesEachDay({ workoutsArray }) {
     tuesdayTotal = total.Tuesday;
     wednsdayTotal = total.Wednsday;
     thursdayTotal = total.Thursday;
-    fridayTotal = total.Firday;
+    fridayTotal = total.Friday;
     saturdayTotal = total.Saturday;
   }
   if (sundayTotal === undefined) {
@@ -126,28 +126,28 @@ export default function BarChartMusclesEachDay({ workoutsArray }) {
               </td>
             </tr>
             <tr>
-              <th scope="row" className="label-bar-workouts-each-day">Tuesday</th>
+              <th scope="row" className="label-bar-muscles-each-day">Tuesday</th>
               <td className="bar-muscles-each-day-data" style={{ '--size': `${tuesdayPercent}` }}><span className="bar-muscles-each-day-datatext"> {tuesdayTotal} </span></td>
             </tr>
             <tr>
-              <th scope="row" className="label-bar-workouts-each-day">Wednsday</th>
+              <th scope="row" className="label-bar-muscles-each-day">Wednsday</th>
               <td className="bar-muscles-each-day-data" style={{ '--size': `${wednsdayPercent}` }}><span className="bar-muscles-each-day-datatext"> {wednsdayTotal} </span></td>
             </tr>
             <tr>
-              <th scope="row" className="label-bar-workouts-each-day">Thursday</th>
+              <th scope="row" className="label-bar-muscles-each-day">Thursday</th>
               <td className="bar-muscles-each-day-data" style={{ '--size': `${thursdayPercent}` }}><span className="bar-muscles-each-day-datatext"> {thursdayTotal} </span></td>
             </tr>
             <tr>
-              <th scope="row" className="label-bar-workouts-each-day">Friday</th>
+              <th scope="row" className="label-bar-muscles-each-day">Friday</th>
               <td className="bar-muscles-each-day-data" style={{ '--size': `${fridayPercent}` }}><span className="bar-muscles-each-day-datatext"> {fridayTotal} </span></td>
             </tr>
             <tr>
-              <th scope="row" className="label-bar-workouts-each-day">Saturday</th>
+              <th scope="row" className="label-bar-muscles-each-day">Saturday</th>
               <td className="bar-muscles-each-day-data" style={{ '--size': `${saturdayPercent}` }}><span className="bar-muscles-each-day-datatext"> {saturdayTotal} </span></td>
             </tr>
           </tbody>
         </table>
-        <div className="d-flex muscle-option-div-bar" style={{ marginTop: '50px' }}>
+        <div className="d-flex muscle-option-div-bar" style={{ marginTop: '70px' }}>
           <StatOptionsMuscleGroups setMuscleGroup={setMuscleGroup} />
         </div>
       </div>

@@ -923,6 +923,9 @@ body {
     --start: 0.5;
   }
   
+  .label-bar-muscles-each-day {
+    --labels-size: 50px;
+  }
   
   .bar-muscles-each-day-data {
     border-radius: 6px 6px 0px 0px;
@@ -970,3 +973,41 @@ body {
     box-shadow: 0px 0px 5px 0px rgb(255, 163, 0);
   }
 /* MUSCLE GROUP SETS EACH DAY OF WEEK ABOVE */
+/* LINE PERCENT OF GOAL BELLOW */
+
+#line-percent-goal {
+  height: 700px;
+  width: 800px;
+  margin-top: 30px;
+  --color: #adcbff;
+}
+
+.line-percent-goal-label {
+  --labels-size: 50px;
+}
+
+
+
+
+
+
+
+/* LINE PERCENT OF GOAL ABOVE */
+/* STAT OPTION NUMBER OR PERCENT BELLOW */
+.num-percent-fil {
+  border-radius: 2px;
+  outline: solid rgb(176, 176, 176) 3px;
+}
+
+.stat-filter-number-percent {
+  border-radius: 1px;
+  border: none;
+}
+
+.stat-filter-number-percent-active {
+  border-radius: 1px;
+  border: none;
+}
+
+
+/* STAT OPTION NUMBER OR PERCENT ABOVE */
