@@ -38,7 +38,7 @@ export default function StatsPage() {
   } else if (filterGraphs === 'Muscle Total Sun-Sat') {
     graphJSX = <BarChartMusclesEachDay workoutsArray={workouts} />;
   } else if (filterGraphs === 'Past Month Completion') {
-    graphJSX = <LinePercentOfGoal weekArray={weeks} />;
+    graphJSX = <LinePercentOfGoal weekArray={weeks} weekArray2={weeks} />;
   }
 
   return (
