@@ -13,7 +13,9 @@ export default function StatsPage() {
   const [workouts, setWorkouts] = useState([]);
   const [weeks, setWeeks] = useState([]);
   const getAllWeeks = () => {
-    getPrevWeeks(user.uid).then(setWeeks);
+    getPrevWeeks(user.uid).then((data) => {
+      setWeeks(data?.sort((a, b) => a?.weekNum - b?.weekNum));
+    });
   };
   const getAllWorkouts = () => {
     getWorkoutsByUserUid(user.uid).then(setWorkouts);
@@ -26,7 +28,6 @@ export default function StatsPage() {
     getAllWeeks()?.then((data) => {
       setWeeks(data);
     });
-    setWeeks(weeks.splice(0, (weeks.legnth - 4)));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -37,8 +38,8 @@ export default function StatsPage() {
     graphJSX = <BarChartWorkoutsEachDay workoutsArray={workouts} />;
   } else if (filterGraphs === 'Muscle Total Sun-Sat') {
     graphJSX = <BarChartMusclesEachDay workoutsArray={workouts} />;
-  } else if (filterGraphs === 'Past Month Completion') {
-    graphJSX = <LinePercentOfGoal weekArray={weeks} weekArray2={weeks} />;
+  } else if (filterGraphs === 'Past Month Percentages') {
+    graphJSX = <LinePercentOfGoal weekArray={weeks} />;
   }
 
   return (
