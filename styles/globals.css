@@ -980,17 +980,20 @@ body {
   width: 800px;
   margin-top: 30px;
   --color: #adcbff;
+  overflow: visible;
 }
 
 .line-percent-goal-label {
   --labels-size: 50px;
 }
 
+.line-percent-goal-datatext {
+  font-weight: 700;
+}
 
-
-
-
-
+.line-percent-goal-data {
+outline: solid rgb(205, 205, 205) 2px;
+}
 
 /* LINE PERCENT OF GOAL ABOVE */
 /* STAT OPTION NUMBER OR PERCENT BELLOW */
@@ -1008,6 +1011,4 @@ body {
   border-radius: 1px;
   border: none;
 }
-
-
 /* STAT OPTION NUMBER OR PERCENT ABOVE */
