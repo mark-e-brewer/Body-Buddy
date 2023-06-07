@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import {
-  Navbar, Container, Nav,
+  Navbar, Container, Nav, Image,
 } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
 import { getCurrGoal } from '../API/apiData';
@@ -26,6 +26,7 @@ export default function NavBarAuth({ weekUid, setWeekUid }) {
   return (
     <Navbar className="nav-bar" collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container className="nav-bar-container">
+        <Image className="nav-logo-img" src="https://i.ibb.co/2jyK9FJ/bodyGrey.png" />
         <Link passHref href="/">
           <Navbar.Brand>Body Buddy</Navbar.Brand>
         </Link>
