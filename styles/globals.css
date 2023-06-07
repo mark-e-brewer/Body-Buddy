@@ -61,8 +61,8 @@ body {
 }
 
 .reset-day-input:focus {
-  outline: solid rgb(255, 174, 0) 3px;
-  box-shadow: 0px 0px 10px 1px rgb(255, 174, 0);
+  outline: solid #adcbff 3px;
+  box-shadow: 0px 0px 10px 1px #adcbff;
   border: none;
 }
 
@@ -74,7 +74,7 @@ body {
   margin-left: 15px;
   margin-top: 18px;
   background-color: rgb(255, 255, 255);
-  color: rgb(255, 174, 0);
+  color: #adcbff;
   font-weight: 600;
   border: solid white 2px;
   transition: 0.2s ease-in-out;
@@ -83,10 +83,10 @@ body {
 }
 
 .reset-day-submit:hover {
-  box-shadow: 0px 0px 9px -1px rgb(255, 174, 0);
+  box-shadow: 0px 0px 9px -1px #9ec0fa;
   background-color: white;
-  border: solid rgb(255, 174, 0) 2px;
-  color: rgb(255, 174, 0);
+  border: solid #a1c3fd 2px;
+  color: #9cc0fd;
   border-radius: 6px;
 }
 
@@ -150,7 +150,7 @@ body {
 }
 
 .nav-bar {
-  background: linear-gradient(144deg,rgba(255,163,0,1), rgba(255,163,0,1),rgba(255,163,0,1));
+  background: linear-gradient(144deg,rgb(173, 203, 255), rgb(255, 255, 255),rgb(255, 180, 0));
   font-weight: 600;
   box-shadow: 0px 0px 10px -2px rgba(80, 80, 80, 0.905);
 }
@@ -194,7 +194,7 @@ body {
   width: 350px;
   height:500px;
   border-radius: 50%;
-  background: linear-gradient(to right, #ffb700 0%, #ff8000 100%);
+ background: rgb(173, 203, 255);  /*  MAIN BLUE */
   opacity: 1;
   filter: blur(30px);
   animation: blob-bounce 7s infinite ease;
@@ -870,7 +870,7 @@ body {
 /* BAR CHART MUSCLE GROUPS BELLOW */
 #bar-muscle-total {
   height: 700px;
-  width: 800px;
+  width: 900px;
   margin-top: 30px;
   --color: #adcbff;
   /* complementary of (255, 163, 0) orange */
@@ -896,7 +896,7 @@ body {
   /* BAR CHART WORKOUTS LOGGED EACH DAY BELLOW */
 #bar-workouts-each-day {
   height: 700px;
-  width: 800px;
+  width: 900px;
   margin-top: 30px;
   --color: #adcbff;
 }
@@ -920,7 +920,7 @@ body {
   /* BAR CHART MUSCLE GROUPS SET EACH DAY OF WEEK BELLOW */
   #bar-muscles-each-day {
     height: 700px;
-    width: 800px;
+    width: 900px;
     margin-top: 30px;
     --color: #adcbff;
   }
@@ -982,7 +982,7 @@ body {
 /* LINE PERCENT OF GOAL BELLOW */
 #line-percent-goal {
   height: 700px;
-  width: 800px;
+  width: 900px;
   margin-top: 30px;
   --color: #adcbff;
   overflow: visible;
@@ -1019,7 +1019,7 @@ outline: solid rgb(205, 205, 205) 2px;
 /* LINE NUMBER VS GOAL BELLOW */
 #line-number-goal {
   height: 700px;
-  width: 800px;
+  width: 900px;
   margin-top: 30px;
   --color: #adcbff;
   overflow: visible;
@@ -1031,10 +1031,59 @@ outline: solid rgb(205, 205, 205) 2px;
 
 .line-number-goal-datatext {
   font-weight: 700;
+  margin-right: 2px;
+}
+
+.line-number-goal-label {
+  --labels-size: 50px;
+}
+  /* LEGEND CSS BELLOW */
+
+.charts-css#legend li:first-child::before {
+  background-color: rgb(255, 180, 0);
+  border: none;
+  height: 3px;
+  width: 1.9rem;
+  border-radius: 1px;
+  --color: rgb(255, 180, 0);
+}
+
+.charts-css#legend li:nth-child(2)::before {
+  background-color: #adcbff;
+  color: #adcbff;
+  border: none;
+  height: 2.5px;
+  width: 1.9rem;
+  border-radius: 1px;
 }
 
 
+#legend {
+  position: relative;
+  font-weight: 600;
+  border: none;
+  width: 143px;
+  height: 30px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  z-index: 10;
+  margin: 0px;
+  top: -38%;
+  left: 60%;
+}
 
+#legend-item {
+  margin: 0px;
+  padding: 0px;
+}
 
+.line-number-goal-data {
+  outline: solid rgb(205, 205, 205) 2px;
+}
 
+.title-legend-container {
+  position: relative;
+  left: 8.5%;
+}
+  /* LEGEND CSS ABOVE */
 /* LINE NUMBER VS GOAL ABOVE */
