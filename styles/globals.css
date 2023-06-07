@@ -142,6 +142,13 @@ body {
 
 /* RESET WEEK BUTTON ABOVE */
 /* NAV BAR BELLOW */
+.nav-logo-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  
+}
+
 .nav-bar {
   background: linear-gradient(144deg,rgba(255,163,0,1), rgba(255,163,0,1),rgba(255,163,0,1));
   font-weight: 600;
@@ -761,7 +768,6 @@ body {
 
 /* GOAL SET MODAL ABOVE  */
 /* INFO CHART BELLOW */
-
 .info-card {
   position: relative;
   width: 610px;
@@ -974,7 +980,6 @@ body {
   }
 /* MUSCLE GROUP SETS EACH DAY OF WEEK ABOVE */
 /* LINE PERCENT OF GOAL BELLOW */
-
 #line-percent-goal {
   height: 700px;
   width: 800px;
@@ -994,7 +999,6 @@ body {
 .line-percent-goal-data {
 outline: solid rgb(205, 205, 205) 2px;
 }
-
 /* LINE PERCENT OF GOAL ABOVE */
 /* STAT OPTION NUMBER OR PERCENT BELLOW */
 .num-percent-fil {
@@ -1012,3 +1016,25 @@ outline: solid rgb(205, 205, 205) 2px;
   border: none;
 }
 /* STAT OPTION NUMBER OR PERCENT ABOVE */
+/* LINE NUMBER VS GOAL BELLOW */
+#line-number-goal {
+  height: 700px;
+  width: 800px;
+  margin-top: 30px;
+  --color: #adcbff;
+  overflow: visible;
+}
+
+.line-number-goal-dataGoal {
+  --color: rgb(255, 180, 0);
+}
+
+.line-number-goal-datatext {
+  font-weight: 700;
+}
+
+
+
+
+
+/* LINE NUMBER VS GOAL ABOVE */

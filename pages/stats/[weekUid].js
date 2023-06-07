@@ -6,6 +6,7 @@ import StatOptionsButton from '../../components/StatFilterButtons/StatOptionsBut
 import BarChartWorkoutsEachDay from '../../components/charts/BarWorkoutsEachDay';
 import BarChartMusclesEachDay from '../../components/charts/BarMusclesEachDay';
 import LinePercentOfGoal from '../../components/charts/LinePercentOfGoal';
+import LineNumsVsGoal from '../../components/charts/LineNumsVsGoal';
 
 export default function StatsPage() {
   const [filterGraphs, setFilterGraphs] = useState('Total Per Muscle');
@@ -40,6 +41,8 @@ export default function StatsPage() {
     graphJSX = <BarChartMusclesEachDay workoutsArray={workouts} />;
   } else if (filterGraphs === 'Past Month Percentages') {
     graphJSX = <LinePercentOfGoal weekArray={weeks} />;
+  } else if (filterGraphs === 'Past Month Vs Goal') {
+    graphJSX = <LineNumsVsGoal weekArray={weeks} />;
   }
 
   return (

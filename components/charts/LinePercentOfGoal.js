@@ -13,7 +13,6 @@ export default function LinePercentOfGoal({ weekArray }) {
     setPrevMonth(highestFourWeeks);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [weekArray]);
-  console.warn('hi');
 
   let muscleSelected = null;
   let week1percent = 0;
@@ -74,7 +73,6 @@ export default function LinePercentOfGoal({ weekArray }) {
         totalCompleted1 += completed;
       }
     });
-
     Object?.keys(weekObj2 || {}).forEach((key) => {
       if (key?.endsWith('Goal')) {
         const totalKey = key.replace('Goal', 'Total');
@@ -85,7 +83,6 @@ export default function LinePercentOfGoal({ weekArray }) {
         totalCompleted2 += completed;
       }
     });
-
     Object?.keys(weekObj3 || {}).forEach((key) => {
       if (key?.endsWith('Goal')) {
         const totalKey = key.replace('Goal', 'Total');
@@ -96,7 +93,6 @@ export default function LinePercentOfGoal({ weekArray }) {
         totalCompleted3 += completed;
       }
     });
-
     Object?.keys(weekObj4 || {}).forEach((key) => {
       if (key?.endsWith('Goal')) {
         const totalKey = key.replace('Goal', 'Total');
