@@ -96,28 +96,106 @@ export default function LineNumsVsGoal({ weekArray }) {
         week4complete += weekObj4[key];
       }
     });
-    const allSumsArray = [week1complete, week1goal, week2complete, week2goal, week3complete, week3goal, week4complete, week4goal];
-    const sortedSumsArray = allSumsArray.sort((a, b) => a - b);
-    const highestVal = sortedSumsArray[7];
-    week1percentGoal = (week1goal / highestVal - 0.005);
-    week1percentComplete = (week1complete / highestVal - 0.005);
-    week2percentGoal = (week2goal / highestVal - 0.005);
-    week2percentComplete = (week2complete / highestVal - 0.005);
-    week3percentGoal = (week3goal / highestVal - 0.005);
-    week3percentComplete = (week3complete / highestVal - 0.005);
-    week4percentGoal = (week4goal / highestVal - 0.005);
-    week4percentComplete = (week4complete / highestVal - 0.005);
+  } else {
+    const weekObj1 = prevMonth[0];
+    const weekObj2 = prevMonth[1];
+    const weekObj3 = prevMonth[2];
+    const weekObj4 = prevMonth[3];
+
+    Object.keys(weekObj1 || {}).forEach((key) => {
+      if (key.includes(`${muscleSelected}`) && key.includes('Goal')) {
+        week1goal = weekObj1[key];
+      } else if (key.includes(`${muscleSelected}`) && key.includes('Total')) {
+        week1complete = weekObj1[key];
+      }
+    });
+    Object.keys(weekObj2 || {}).forEach((key) => {
+      if (key.includes(`${muscleSelected}`) && key.includes('Goal')) {
+        week2goal = weekObj2[key];
+      } else if (key.includes(`${muscleSelected}`) && key.includes('Total')) {
+        week2complete = weekObj2[key];
+      }
+    });
+    Object.keys(weekObj3 || {}).forEach((key) => {
+      if (key.includes(`${muscleSelected}`) && key.includes('Goal')) {
+        week3goal = weekObj3[key];
+      } else if (key.includes(`${muscleSelected}`) && key.includes('Total')) {
+        week3complete = weekObj3[key];
+      }
+    });
+    Object.keys(weekObj4 || {}).forEach((key) => {
+      if (key.includes(`${muscleSelected}`) && key.includes('Goal')) {
+        week4goal = weekObj4[key];
+      } else if (key.includes(`${muscleSelected}`) && key.includes('Total')) {
+        week4complete = weekObj4[key];
+      }
+    });
   }
+  if (week1complete === undefined) {
+    week1complete = 0;
+  }
+  if (week1goal === undefined) {
+    week1goal = 0;
+  }
+  if (week2complete === undefined) {
+    week2complete = 0;
+  }
+  if (week2goal === undefined) {
+    week2goal = 0;
+  }
+  if (week3complete === undefined) {
+    week3complete = 0;
+  }
+  if (week3goal === undefined) {
+    week3goal = 0;
+  }
+  if (week4complete === undefined) {
+    week4complete = 0;
+  }
+  if (week4goal === undefined) {
+    week4goal = 0;
+  }
+  const allSumsArray = [week1complete, week1goal, week2complete, week2goal, week3complete, week3goal, week4complete, week4goal];
+  const sortedSumsArray = allSumsArray.sort((a, b) => a - b);
+  const highestVal = sortedSumsArray[7];
+  week1percentGoal = (week1goal / highestVal - 0.005);
+  week1percentComplete = (week1complete / highestVal - 0.005);
+  week2percentGoal = (week2goal / highestVal - 0.005);
+  week2percentComplete = (week2complete / highestVal - 0.005);
+  week3percentGoal = (week3goal / highestVal - 0.005);
+  week3percentComplete = (week3complete / highestVal - 0.005);
+  week4percentGoal = (week4goal / highestVal - 0.005);
+  week4percentComplete = (week4complete / highestVal - 0.005);
 
   return (
     <>
       <div className="line-number-goal">
         <table id="line-number-goal" className="charts-css line multiple show-labels show-primary-axis show-10-secondary-axes show-data-axes">
-          <h3 style={{ marginBottom: '12px' }} className="d-flex justify-content-center">Last Four Weeks Completion Vs Goal</h3>
+          <div className="text-center d-flex justify-content-center title-legend-container">
+            <h3 style={{ marginBottom: '12px' }} className="d-flex justify-content-center">Last Four Weeks Completion Vs Goal</h3>
+            <div className="legend-container">
+              <ul id="legend" className="charts-css legend legend-circle line-nums-legend">
+                <li id="legend-item">Goal Set</li>
+                <li id="legend-item">Complete</li>
+              </ul>
+            </div>
+          </div>
           <tbody>
             <tr>
-              <p className="line-number-goal-datatext" style={{ position: 'absolute', bottom: `${(100 * week1percentComplete) - 6}%`, left: '-9.5%' }}>{week1complete}</p>
-              <p className="line-number-goal-datatext" style={{ position: 'absolute', bottom: `${(100 * week1percentGoal) - 2}%`, left: '-9.5%' }}>{week1goal}</p>
+              <p
+                className="line-number-goal-datatext"
+                style={{
+                  position: 'absolute', bottom: `${(100 * week1percentComplete) - 5}%`, left: '-9.5%', zIndex: '100',
+                }}
+              >{week1complete}
+              </p>
+              <p
+                className="line-number-goal-datatext"
+                style={{
+                  position: 'absolute', bottom: `${(100 * week1percentGoal) - 2}%`, left: '-9.5%', zIndex: '100',
+                }}
+              >{week1goal}
+              </p>
               <th className="line-number-goal-label" scope="row">week {prevMonth[1]?.weekNum}<FontAwesomeIcon icon={faRightLong} /></th>
               <td className="line-number-goal-data" style={{ '--start': `${week1percentComplete}`, '--size': `${week2percentComplete}` }}><span className="line-number-goal-datatext">{week2complete}</span></td>
               <td className="line-number-goal-dataGoal" style={{ '--start': `${week1percentGoal}`, '--size': `${week2percentGoal}` }}><span className="line-number-goal-datatext">{week2goal}</span></td>

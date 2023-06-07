@@ -137,20 +137,23 @@ export default function LinePercentOfGoal({ weekArray }) {
           <h3 style={{ marginBottom: '12px' }} className="d-flex justify-content-center">Last Four Weeks Percentages</h3>
           <tbody>
             <tr>
-              <p className="line-percent-goal-datatext" style={{ position: 'absolute', top: `${96 - week1percent}%`, left: '-9.5%' }}>{week1percent}%</p>
+              <p
+                className="line-percent-goal-datatext"
+                style={{
+                  position: 'absolute', top: `${96 - week1percent}%`, left: '-9.5%', zIndex: '100',
+                }}
+              >{week1percent}%
+              </p>
               <th className="line-percent-goal-label" scope="row">week {prevMonth[1]?.weekNum}<FontAwesomeIcon icon={faRightLong} /></th>
               <td className="line-percent-goal-data" style={{ '--start': `${(week1percent / 100) - 0.005}`, '--size': `${(week2percent / 100) - 0.005}` }}><span className="line-percent-goal-datatext">{week2percent}%</span></td>
-              {/* <td style={{ '--start': '0.0', '--size': '0.0' }}><span className="line-percent-goal-datatext"> 20 </span></td> */}
             </tr>
             <tr>
               <th className="line-percent-goal-label" scope="row">week {prevMonth[2]?.weekNum}<FontAwesomeIcon icon={faRightLong} /></th>
               <td className="line-percent-goal-data" style={{ '--start': `${(week2percent / 100) - 0.005}`, '--size': `${(week3percent / 100) - 0.005}` }}><span className="line-percent-goal-datatext">{week3percent}%</span></td>
-              {/* <td style={{ '--start': '0.0', '--size': '0.5' }}><span className="line-percent-goal-datatext"> 50 </span></td> */}
             </tr>
             <tr>
               <th className="line-percent-goal-label" scope="row">week {prevMonth[3]?.weekNum}<FontAwesomeIcon icon={faRightLong} /></th>
               <td className="line-percent-goal-data" style={{ '--start': `${(week3percent / 100) - 0.005}`, '--size': `${(week4percent / 100) - 0.005}` }}><span className="line-percent-goal-datatext">{week4percent}%</span></td>
-              {/* <td style={{ '--start': '0.5', '--size': '0.3' }}><span className="line-percent-goal-datatext"> 30 </span></td> */}
             </tr>
           </tbody>
         </table>
