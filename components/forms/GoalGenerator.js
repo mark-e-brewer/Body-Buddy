@@ -2,8 +2,6 @@
 // import PropTypes from 'prop-types';
 // import Form from 'react-bootstrap/Form';
 // import Button from 'react-bootstrap/Button';
-// import { bicepWorkArr, tricepWorkArr } from '../../API/exerciseData';
-// import { postExercise, patchExercise } from '../../API/apiData';
 
 // eslint-disable-next-line no-unused-vars
 const muscleGroups = {
@@ -20,7 +18,7 @@ const muscleGroups = {
   trap: 'Skip',
 };
 
-// export default function WorkoutGenerator() {
+// export default function GoalGenerator() {
 //   const [muscles, setMuscles] = useState(muscleGroups);
 
 //   return (
