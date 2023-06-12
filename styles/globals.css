@@ -168,6 +168,7 @@ body {
 .nav-text:focus {
   color: white;
 }
+
 /*NAV BAR ABOVE */
 
 /* GOAL BOARD BELLOW */
@@ -1087,3 +1088,36 @@ outline: solid rgb(205, 205, 205) 2px;
 }
   /* LEGEND CSS ABOVE */
 /* LINE NUMBER VS GOAL ABOVE */
+
+/* MOBILE LOGGER BELLOW */
+
+.log-counters-container {
+  max-width: 750px;
+  min-width: 315px;
+}
+
+.counter-muscle-container {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.counter-muscle {
+  align-self: center;
+  margin-bottom: -1px;
+}
+
+.counter-container > p {
+  margin: 0px;
+  padding: 0px;
+}
+
+#count {
+  margin-bottom: 2px;
+  margin-left: 1.5px;
+}
+
+
+
+/* MOBILE LOGGER ABOVE */

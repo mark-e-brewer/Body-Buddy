@@ -1,10 +1,10 @@
-import WorkoutGenerator from '../components/forms/WorkoutGenerator';
+import GoalGenerator from '../components/forms/GoalGenerator';
 
 export default function GeneratorPage() {
   return (
     <>
       <div>
-        <WorkoutGenerator />
+        <GoalGenerator />
       </div>
     </>
   );
