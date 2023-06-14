@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import PropTypes from 'prop-types';
+import { useAuth } from '../utils/context/authContext';
+import { postMobileLog, patchMobileLog } from '../API/apiData';
 
 const initialState = {
   back: 0,
@@ -18,16 +20,36 @@ const initialState = {
   trap: 0,
 };
 
-export default function MobileLogger() {
-  // eslint-disable-next-line no-unused-vars
+export default function MobileLogger({ logObj }) {
   const [countObj, setCountObj] = useState(initialState);
+  const { user } = useAuth();
+  console.warn(logObj);
+  useEffect(() => {
+    if (logObj?.firebaseKey) {
+      setCountObj(logObj);
+    }
+  }, [logObj]);
+  console.warn(`COUNT ${countObj.day}`);
+
+  const handleUpClickTrap = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, trap: countObj.trap + 1 };
+      patchMobileLog(patchPayload).then();
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid };
+        patchMobileLog(patchPayload).then();
+      });
+    }
+  };
+
   return (
     <>
       <div className="log-counters-container">
         <div className="counter-muscle-container d-flex justify-content-between">
           <h5 className="counter-muscle">Trapezius</h5>
           <div className="counter-container">
-            <p id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></p>
+            <button type="button" aria-label="Button label" onClick={handleUpClickTrap} id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></button>
             <p id="count">{countObj.trap}</p>
             <p id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></p>
           </div>
@@ -52,7 +74,7 @@ export default function MobileLogger() {
           <h5 className="counter-muscle">Back</h5>
           <div className="counter-container">
             <p id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></p>
-            <p id="count">{countObj.back}</p>
+            <p id="count">{countObj?.back}</p>
             <p id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></p>
           </div>
         </div>
@@ -104,7 +126,7 @@ export default function MobileLogger() {
             <p id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></p>
           </div>
         </div>
-        <div className="counter-muscle-container d-flex justify-content-between">
+        <div className="d-flex justify-content-between">
           <h5 className="counter-muscle">Calves</h5>
           <div className="counter-container">
             <p id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></p>
@@ -117,22 +139,22 @@ export default function MobileLogger() {
   );
 }
 
-// MobileLogger.propTypes = {
-//   loggerObj: PropTypes.shape({
-//     back: PropTypes.number,
-//     bicep: PropTypes.number,
-//     calve: PropTypes.number,
-//     chest: PropTypes.number,
-//     day: PropTypes.string,
-//     firebaseKey: PropTypes.string,
-//     frontDelt: PropTypes.number,
-//     glute: PropTypes.number,
-//     hamstring: PropTypes.number,
-//     quad: PropTypes.number,
-//     rearSideDelt: PropTypes.number,
-//     tricep: PropTypes.number,
-//     trap: PropTypes.number,
-//     userUid: PropTypes.string,
-//     weekUid: PropTypes.string,
-//   }).isRequiredm,
-// };
+MobileLogger.propTypes = {
+  logObj: PropTypes.shape({
+    back: PropTypes.number,
+    bicep: PropTypes.number,
+    calve: PropTypes.number,
+    chest: PropTypes.number,
+    day: PropTypes.string,
+    firebaseKey: PropTypes.string,
+    frontDelt: PropTypes.number,
+    glute: PropTypes.number,
+    hamstring: PropTypes.number,
+    quad: PropTypes.number,
+    rearSideDelt: PropTypes.number,
+    tricep: PropTypes.number,
+    trap: PropTypes.number,
+    userUid: PropTypes.string,
+    weekUid: PropTypes.string,
+  }).isRequired,
+};

@@ -74,6 +74,18 @@ const getResetDay = (userUid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getMobileLog = (userUid) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/mobile.json?orderBy="userUid"&equalTo="${userUid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 const postGoal = (payload) => new Promise((resolve, reject) => {
   fetch(`${dbUrl}/goals.json`, {
     method: 'POST',
@@ -203,6 +215,32 @@ const patchResetDay = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const postMobileLog = (payload) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/mobile.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const patchMobileLog = (payload) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/mobile/${payload.firebaseKey}.json`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
+
 export {
   getCurrGoal,
   getPrevWeeks,
@@ -210,6 +248,7 @@ export {
   getWorkoutsByUserUid,
   getWeekByWeekUid,
   getResetDay,
+  getMobileLog,
   postGoal,
   patchGoal,
   patchOldGoalToPrev,
@@ -220,4 +259,6 @@ export {
   deleteWorkout,
   postResetDay,
   patchResetDay,
+  postMobileLog,
+  patchMobileLog,
 };

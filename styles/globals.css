@@ -28,6 +28,7 @@ body {
   font-weight: 600;
   font-size: 17px;
   transition: 0.2s ease-in;
+  margin-left: -4px;
 }
 
 .signout-btn:hover {
@@ -1101,6 +1102,7 @@ outline: solid rgb(205, 205, 205) 2px;
   padding-bottom: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
+  border-bottom: solid rgb(165, 165, 165) 1px;
 }
 
 .counter-muscle {
@@ -1117,7 +1119,6 @@ outline: solid rgb(205, 205, 205) 2px;
   margin-bottom: 2px;
   margin-left: 1.5px;
 }
-
 
 
 /* MOBILE LOGGER ABOVE */
