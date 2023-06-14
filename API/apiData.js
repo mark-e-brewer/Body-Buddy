@@ -241,6 +241,19 @@ const patchMobileLog = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const patchMobileLogReset = (payload, firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/mobile/${firebaseKey}.json`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
+
 export {
   getCurrGoal,
   getPrevWeeks,
@@ -261,4 +274,5 @@ export {
   patchResetDay,
   postMobileLog,
   patchMobileLog,
+  patchMobileLogReset,
 };

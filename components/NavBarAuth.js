@@ -42,10 +42,10 @@ export default function NavBarAuth({ weekUid, setWeekUid }) {
             <Link passHref href="/weeks">
               <Nav.Link className="nav-text">Weeks</Nav.Link>
             </Link>
-            <Link passHref href={`/stats/${weekUid}`}>
+            <Link passHref href="/stats">
               <Nav.Link className="nav-text">Stats</Nav.Link>
             </Link>
-            <Link passHref href="/mobileLog">
+            <Link passHref href={`/mobileLog/${weekUid}`}>
               <Nav.Link className="nav-text">Mobile Log</Nav.Link>
             </Link>
             <Link passHref href="/info">
