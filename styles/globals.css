@@ -1102,7 +1102,6 @@ outline: solid rgb(205, 205, 205) 2px;
   padding-bottom: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
-  border-bottom: solid rgb(165, 165, 165) 1px;
 }
 
 .counter-muscle {
@@ -1117,8 +1116,24 @@ outline: solid rgb(205, 205, 205) 2px;
 
 #count {
   margin-bottom: 2px;
-  margin-left: 1.5px;
+  margin-left: 6.5px;
 }
 
+#up-iterate {
+  border: none;
+  background-color: white;
+}
 
+#down-iterate {
+  border: none;
+  background-color: white;
+}
 /* MOBILE LOGGER ABOVE */
+/* MOBILE LOG DAY MODAL/SUBMIT BELLOW */
+
+.mobile-form-submit {
+  margin-top: 10px;
+  margin-bottom: -5px;
+}
+
+/* MOBILE LOG DAY MODAL/SUBMIT ABOVE */

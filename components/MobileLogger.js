@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAuth } from '../utils/context/authContext';
-import { postMobileLog, patchMobileLog } from '../API/apiData';
+import { postMobileLog, patchMobileLog, patchMobileLogReset } from '../API/apiData';
+import MobileLogSubmit from './forms/MobileLogSubmit';
 
 const initialState = {
   back: 0,
@@ -20,119 +22,472 @@ const initialState = {
   trap: 0,
 };
 
-export default function MobileLogger({ logObj }) {
+export default function MobileLogger({ logObj, onUpdate }) {
   const [countObj, setCountObj] = useState(initialState);
   const { user } = useAuth();
-  console.warn(logObj);
+  const router = useRouter();
+  const { weekUid } = router.query;
+
   useEffect(() => {
     if (logObj?.firebaseKey) {
       setCountObj(logObj);
     }
   }, [logObj]);
-  console.warn(`COUNT ${countObj.day}`);
 
-  const handleUpClickTrap = () => {
+  const resetOnFormSubmit = () => {
+    const resetPayload = { ...initialState };
+    patchMobileLogReset(resetPayload, countObj.firebaseKey).then(() => {
+      onUpdate();
+    });
+  };
+
+  const handleReset = () => {
+    if (countObj?.firebaseKey) {
+      const resetPayload = { ...initialState };
+      patchMobileLogReset(resetPayload, countObj.firebaseKey).then(() => {
+        onUpdate();
+      });
+    } else {
+      window.confirm('Use Log First!');
+    }
+  };
+
+  const upClickTrap = () => {
     if (countObj.firebaseKey) {
       const patchPayload = { ...countObj, trap: countObj.trap + 1 };
-      patchMobileLog(patchPayload).then();
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
     } else {
       postMobileLog(initialState).then(({ name }) => {
-        const patchPayload = { firebaseKey: name, userUid: user.uid };
-        patchMobileLog(patchPayload).then();
+        const patchPayload = { firebaseKey: name, userUid: user.uid, trap: countObj.trap + 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+  const downClickTrap = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, trap: countObj.trap - 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, trap: countObj.trap - 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
       });
     }
   };
 
+  const upClickFrontD = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, frontDelt: countObj.frontDelt + 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, frontDelt: countObj.frontDelt + 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+  const downClickFrontD = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, frontDelt: countObj.frontDelt - 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, frontDelt: countObj.frontDelt - 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+
+  const upClickRearSide = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, rearSideDelt: countObj.rearSideDelt + 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, rearSideDelt: countObj.rearSideDelt + 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+  const downClickRearSide = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, rearSideDelt: countObj.rearSideDelt - 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, rearSideDelt: countObj.rearSideDelt - 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+
+  const upClickBack = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, back: countObj.back + 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, back: countObj.back + 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+  const downClickBack = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, back: countObj.back - 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, back: countObj.back - 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+
+  const upClickChest = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, chest: countObj.chest + 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, chest: countObj.chest + 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+  const downClickChest = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, chest: countObj.chest - 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, chest: countObj.chest - 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+
+  const upClickBicep = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, bicep: countObj.bicep + 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, bicep: countObj.bicep + 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+  const downClickBicep = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, bicep: countObj.bicep - 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, bicep: countObj.bicep - 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+
+  const upClickTricep = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, tricep: countObj.tricep + 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, tricep: countObj.tricep + 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+  const downClickTricep = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, tricep: countObj.tricep - 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, tricep: countObj.tricep - 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+
+  const upClickQuad = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, quad: countObj.quad + 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, quad: countObj.quad + 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+  const downClickQuad = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, quad: countObj.quad - 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, quad: countObj.quad - 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+
+  const upClickHam = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, hamstring: countObj.hamstring + 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, hamstring: countObj.hamstring + 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+  const downClickHam = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, hamstring: countObj.hamstring - 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, hamstring: countObj.hamstring - 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+
+  const upClickGlute = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, glute: countObj.glute + 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, glute: countObj.glute + 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+  const downClickGlute = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, glute: countObj.glute - 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, glute: countObj.glute - 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+
+  const upClickCalve = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, calve: countObj.calve + 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, calve: countObj.calve + 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
+  const downClickCalve = () => {
+    if (countObj.firebaseKey) {
+      const patchPayload = { ...countObj, calve: countObj.calve - 1 };
+      patchMobileLog(patchPayload).then(() => {
+        onUpdate();
+      });
+    } else {
+      postMobileLog(initialState).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, userUid: user.uid, calve: countObj.calve - 1 };
+        patchMobileLog(patchPayload).then(() => {
+          onUpdate();
+        });
+      });
+    }
+  };
   return (
     <>
-      <div className="log-counters-container">
-        <div className="counter-muscle-container d-flex justify-content-between">
-          <h5 className="counter-muscle">Trapezius</h5>
-          <div className="counter-container">
-            <button type="button" aria-label="Button label" onClick={handleUpClickTrap} id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></button>
-            <p id="count">{countObj.trap}</p>
-            <p id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></p>
+      <div className="mobile-log-full-component">
+        <div className="log-counters-container">
+          <div className="counter-muscle-container d-flex justify-content-between">
+            <h5 className="counter-muscle">Trapezius</h5>
+            <div className="counter-container">
+              <button type="button" aria-label="Button label" onClick={upClickTrap} id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></button>
+              <p id="count">{countObj.trap}</p>
+              <button type="button" aria-label="Button label" onClick={downClickTrap} id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></button>
+            </div>
+          </div>
+          <div className="counter-muscle-container d-flex justify-content-between">
+            <h5 className="counter-muscle">Front Deltoids</h5>
+            <div className="counter-container">
+              <button type="button" aria-label="Button label" onClick={upClickFrontD} id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></button>
+              <p id="count">{countObj.frontDelt}</p>
+              <button type="button" aria-label="Button label" onClick={downClickFrontD} id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></button>
+            </div>
+          </div>
+          <div className="counter-muscle-container d-flex justify-content-between">
+            <h5 className="counter-muscle">Side & Rear Deltoids</h5>
+            <div className="counter-container">
+              <button type="button" aria-label="Button label" onClick={upClickRearSide} id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></button>
+              <p id="count">{countObj.rearSideDelt}</p>
+              <button type="button" aria-label="Button label" onClick={downClickRearSide} id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></button>
+            </div>
+          </div>
+          <div className="counter-muscle-container d-flex justify-content-between">
+            <h5 className="counter-muscle">Back</h5>
+            <div className="counter-container">
+              <button type="button" aria-label="Button label" onClick={upClickBack} id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></button>
+              <p id="count">{countObj?.back}</p>
+              <button type="button" aria-label="Button label" onClick={downClickBack} id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></button>
+            </div>
+          </div>
+          <div className="counter-muscle-container d-flex justify-content-between">
+            <h5 className="counter-muscle">Chest</h5>
+            <div className="counter-container">
+              <button type="button" aria-label="Button label" onClick={upClickChest} id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></button>
+              <p id="count">{countObj.chest}</p>
+              <button type="button" aria-label="Button label" onClick={downClickChest} id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></button>
+            </div>
+          </div>
+          <div className="counter-muscle-container d-flex justify-content-between">
+            <h5 className="counter-muscle">Biceps</h5>
+            <div className="counter-container">
+              <button type="button" aria-label="Button label" onClick={upClickBicep} id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></button>
+              <p id="count">{countObj.bicep}</p>
+              <button type="button" aria-label="Button label" onClick={downClickBicep} id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></button>
+            </div>
+          </div>
+          <div className="counter-muscle-container d-flex justify-content-between">
+            <h5 className="counter-muscle">Triceps</h5>
+            <div className="counter-container">
+              <button type="button" aria-label="Button label" onClick={upClickTricep} id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></button>
+              <p id="count">{countObj.tricep}</p>
+              <button type="button" aria-label="Button label" onClick={downClickTricep} id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></button>
+            </div>
+          </div>
+          <div className="counter-muscle-container d-flex justify-content-between">
+            <h5 className="counter-muscle">Quadriceps</h5>
+            <div className="counter-container">
+              <button type="button" aria-label="Button label" onClick={upClickQuad} id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></button>
+              <p id="count">{countObj.quad}</p>
+              <button type="button" aria-label="Button label" onClick={downClickQuad} id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></button>
+            </div>
+          </div>
+          <div className="counter-muscle-container d-flex justify-content-between">
+            <h5 className="counter-muscle">Hamstrings</h5>
+            <div className="counter-container">
+              <button type="button" aria-label="Button label" onClick={upClickHam} id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></button>
+              <p id="count">{countObj.hamstring}</p>
+              <button type="button" aria-label="Button label" onClick={downClickHam} id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></button>
+            </div>
+          </div>
+          <div className="counter-muscle-container d-flex justify-content-between">
+            <h5 className="counter-muscle">Glutes</h5>
+            <div className="counter-container">
+              <button type="button" aria-label="Button label" onClick={upClickGlute} id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></button>
+              <p id="count">{countObj.glute}</p>
+              <button type="button" aria-label="Button label" onClick={downClickGlute} id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></button>
+            </div>
+          </div>
+          <div className="counter-muscle-container d-flex justify-content-between">
+            <h5 className="counter-muscle">Calves</h5>
+            <div className="counter-container">
+              <button type="button" aria-label="Button label" onClick={upClickCalve} id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></button>
+              <p id="count">{countObj.calve}</p>
+              <button type="button" aria-label="Button label" onClick={downClickCalve} id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></button>
+            </div>
           </div>
         </div>
-        <div className="counter-muscle-container d-flex justify-content-between">
-          <h5 className="counter-muscle">Front Deltoids</h5>
-          <div className="counter-container">
-            <p id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></p>
-            <p id="count">{countObj.frontDelt}</p>
-            <p id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></p>
-          </div>
-        </div>
-        <div className="counter-muscle-container d-flex justify-content-between">
-          <h5 className="counter-muscle">Side & Rear Deltoids</h5>
-          <div className="counter-container">
-            <p id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></p>
-            <p id="count">{countObj.rearSideDelt}</p>
-            <p id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></p>
-          </div>
-        </div>
-        <div className="counter-muscle-container d-flex justify-content-between">
-          <h5 className="counter-muscle">Back</h5>
-          <div className="counter-container">
-            <p id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></p>
-            <p id="count">{countObj?.back}</p>
-            <p id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></p>
-          </div>
-        </div>
-        <div className="counter-muscle-container d-flex justify-content-between">
-          <h5 className="counter-muscle">Chest</h5>
-          <div className="counter-container">
-            <p id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></p>
-            <p id="count">{countObj.chest}</p>
-            <p id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></p>
-          </div>
-        </div>
-        <div className="counter-muscle-container d-flex justify-content-between">
-          <h5 className="counter-muscle">Biceps</h5>
-          <div className="counter-container">
-            <p id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></p>
-            <p id="count">{countObj.bicep}</p>
-            <p id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></p>
-          </div>
-        </div>
-        <div className="counter-muscle-container d-flex justify-content-between">
-          <h5 className="counter-muscle">Triceps</h5>
-          <div className="counter-container">
-            <p id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></p>
-            <p id="count">{countObj.tricep}</p>
-            <p id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></p>
-          </div>
-        </div>
-        <div className="counter-muscle-container d-flex justify-content-between">
-          <h5 className="counter-muscle">Quadriceps</h5>
-          <div className="counter-container">
-            <p id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></p>
-            <p id="count">{countObj.quad}</p>
-            <p id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></p>
-          </div>
-        </div>
-        <div className="counter-muscle-container d-flex justify-content-between">
-          <h5 className="counter-muscle">Hamstrings</h5>
-          <div className="counter-container">
-            <p id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></p>
-            <p id="count">{countObj.hamstring}</p>
-            <p id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></p>
-          </div>
-        </div>
-        <div className="counter-muscle-container d-flex justify-content-between">
-          <h5 className="counter-muscle">Glutes</h5>
-          <div className="counter-container">
-            <p id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></p>
-            <p id="count">{countObj.glute}</p>
-            <p id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></p>
-          </div>
-        </div>
-        <div className="d-flex justify-content-between">
-          <h5 className="counter-muscle">Calves</h5>
-          <div className="counter-container">
-            <p id="up-iterate"><FontAwesomeIcon icon={faAngleUp} /></p>
-            <p id="count">{countObj.calve}</p>
-            <p id="down-iterate"><FontAwesomeIcon icon={faAngleDown} /></p>
-          </div>
+        <div className="mobile-log-btn-container d-flex justify-content-between">
+          <button type="button" onClick={handleReset}>Reset Log</button>
+          <MobileLogSubmit workoutObj={countObj} weekId={weekUid} resetLog={resetOnFormSubmit} />
         </div>
       </div>
     </>
@@ -157,4 +512,5 @@ MobileLogger.propTypes = {
     userUid: PropTypes.string,
     weekUid: PropTypes.string,
   }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
