@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FloatingLabel } from 'react-bootstrap';
+import ExperienceSelector from '../goalGenButtons/ExperienceSelect';
 
 const initialState = {
   experience: 'Beginner',
@@ -22,7 +23,8 @@ const initialState = {
 
 export default function GoalGenerator() {
   const [formInput, setFormInput] = useState(initialState);
-  const goals = {};
+  const [experience, setExperience] = useState('Beginner');
+  const [goalTrap, setGoalTrap] = useState('S');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,22 +40,16 @@ export default function GoalGenerator() {
 
   return (
     <>
-      <div>
-        <Form onSubmit={handleSubmit}>
-          <FloatingLabel label="Experience Level" className="goal-gen-floating-label">
-            <Form.Select
-              aria-label="Experience Level"
-              name="experience"
-              onChange={handleChange}
-              value={formInput.experience}
-              className="goal-gen-input"
-            >
-              <option value="Beginner">Beginner</option>
-              <option value="Intermediate">Intermediate</option>
-              <option value="Advanced">Advanced</option>
-            </Form.Select>
-          </FloatingLabel>
-        </Form>
+      <div className="goal-gen-form-container align-self-center">
+        <div>
+          <ExperienceSelector setExperience={setExperience} />
+        </div>
+        <hr className="goal-gen-page-line-top" />
+        <div className="goal-gen-muscles-cont">
+          <div className="goal-gen-muscle-selector-cont">
+            <h5>Trapezius</h5>
+          </div>
+        </div>
       </div>
     </>
   );

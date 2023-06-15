@@ -36,8 +36,8 @@ export default function NavBarAuth({ weekUid, setWeekUid }) {
             <Link passHref href="/">
               <Nav.Link className="nav-text">Goal</Nav.Link>
             </Link>
-            <Link passHref href="/GoalGen">
-              <Nav.Link className="nav-text">Goal Generator</Nav.Link>
+            <Link passHref href={`/GoalGen/${weekUid}`}>
+              <Nav.Link className="nav-text">Generator</Nav.Link>
             </Link>
             <Link passHref href="/weeks">
               <Nav.Link className="nav-text">Weeks</Nav.Link>
