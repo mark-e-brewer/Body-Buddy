@@ -2,17 +2,19 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 
-export default function IntentionSelectorTrap({ setGoalTrap }) {
+export default function IntentionHamstring({ setGoalHamstring }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const trapIntention = ['S', 'M', 'N', 'F'];
+  const hamstringIntention = ['S', 'M', 'N', 'F'];
   const handleButtonState = (targetValue) => {
-    setGoalTrap(targetValue);
+    if (targetValue !== setGoalHamstring) {
+      setGoalHamstring(targetValue);
+    }
   };
   return (
     <>
       <div style={{ marginTop: '4px' }} className="d-flex align-self-center">
-        {trapIntention.map((category, index) => (
-          selectedIndex === index ? <Button variant="dark" className="intention-filter-btn-active px-1 mx-1 fs-6 py-1" value={category} onClick={handleButtonState} active>{category}</Button>
+        {hamstringIntention.map((category, index) => (
+          selectedIndex === index ? <Button variant="dark" className="intention-filter-btn-active px-1 mx-1 fs-6 py-1" value={category} onClick={() => handleButtonState(category)} active>{category}</Button>
             : (
               <Button
                 variant="light"
@@ -31,6 +33,6 @@ export default function IntentionSelectorTrap({ setGoalTrap }) {
   );
 }
 
-IntentionSelectorTrap.propTypes = {
-  setGoalTrap: PropTypes.string.isRequired,
+IntentionHamstring.propTypes = {
+  setGoalHamstring: PropTypes.string.isRequired,
 };
