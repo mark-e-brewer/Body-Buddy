@@ -1,5 +1,6 @@
 @import 'bootstrap/dist/css/bootstrap.css';
 
+@media (min-width: 1025px) {
 html,
 body {
   padding: 0;
@@ -1093,8 +1094,7 @@ outline: solid rgb(205, 205, 205) 2px;
 /* MOBILE LOGGER BELLOW */
 
 .log-counters-container {
-  max-width: 750px;
-  min-width: 315px;
+  min-width: 700px;
 }
 
 .counter-muscle-container {
@@ -1130,25 +1130,105 @@ outline: solid rgb(205, 205, 205) 2px;
 }
 /* MOBILE LOGGER ABOVE */
 /* MOBILE LOG DAY MODAL/SUBMIT BELLOW */
-
 .mobile-form-submit {
   margin-top: 10px;
   margin-bottom: -5px;
 }
-
 /* MOBILE LOG DAY MODAL/SUBMIT ABOVE */
-
 /* GOAL GENERATOR PAGE/ COMPONENT BELLOW */
 .goal-gen-page-line-top {
   border-top: solid rgb(33, 33, 33) 2px;
 }
 
+.goal-gen-count {
+  padding-bottom: 0px;
+  padding-top: 4px;
+}
 
+.goal-gen-muscle-title {
+  padding-bottom: 0px;
+  padding-top: 8px;
+}
 
+  .goal-gen-form-container {
+    min-width: 700px;
+  }
 
+  .goal-gen-muscle-selector-cont {
+    font-size: 28px;
+  }
 
-
-
-
-
+  .goal-gen-submit {
+    margin-top: 20px;
+  }
 /* GOAL GENERATOR PAGE/ COMPONENT ABOVE */
+}
+
+/* PHONE STYLES BELLOW!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+@media (max-width: 767px) {
+
+  /* GOAL GENERATOR BELLOW */
+
+  .muscle-intention-container {
+    margin-right: 70px;
+  }
+
+  .goal-gen-page-line-top {
+  border-top: solid rgb(33, 33, 33) 2px;
+}
+
+.goal-gen-count {
+  padding-bottom: 0px;
+  padding-top: 6px;
+}
+
+.goal-gen-muscle-title {
+  padding-bottom: 0px;
+  padding-top: 8px;
+}
+
+.goal-gen-submit {
+  margin-top: 4px;
+}
+
+  /* MOBILE LOG BELLOW */
+  .log-counters-container {
+    max-width: 750px;
+    min-width: 300px;
+  }
+  
+  .counter-muscle-container {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  
+  .counter-muscle {
+    align-self: center;
+    margin-bottom: -1px;
+  }
+  
+  .counter-container > p {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  #count {
+    margin-bottom: 2px;
+    margin-left: 6.5px;
+  }
+  
+  #up-iterate {
+    border: none;
+    background-color: white;
+  }
+  
+  #down-iterate {
+    border: none;
+    background-color: white;
+  }
+
+
+}

@@ -61,7 +61,7 @@ export default function NavBarAuth({ weekUid, setWeekUid }) {
 
 NavBarAuth.propTypes = {
   weekUid: PropTypes.string.isRequired,
-  setWeekUid: PropTypes.string,
+  setWeekUid: PropTypes.func,
 };
 
 NavBarAuth.defaultProps = {
