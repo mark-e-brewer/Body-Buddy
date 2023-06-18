@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Router, useRouter } from 'next/router';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FloatingLabel } from 'react-bootstrap';
@@ -16,6 +18,8 @@ import IntentionQuad from '../goalGenButtons/QuadGoal';
 import IntentionHamstring from '../goalGenButtons/HamstringGoal';
 import IntentionGlute from '../goalGenButtons/GluteGoal';
 import IntentionCalve from '../goalGenButtons/CalveGoal';
+import { patchGoal, postGoal } from '../../API/apiData';
+import { useAuth } from '../../utils/context/authContext';
 
 const initialState = {
   experience: 'Beginner',
@@ -32,7 +36,10 @@ const initialState = {
   trap: 'Skip',
 };
 
-export default function GoalGenerator() {
+export default function GoalGenerator({ weekId, weekFirebaseKey }) {
+  const router = useRouter();
+  const { weekUid } = router.query;
+  const { user } = useAuth();
   const [formInput, setFormInput] = useState(initialState);
   const [experience, setExperience] = useState('Beginner');
   const [goalTrap, setGoalTrap] = useState('S');
@@ -428,6 +435,17 @@ export default function GoalGenerator() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (weekUid === 'undefined') {
+      const payload = { ...goalObj, userUid: `${user.uid}CURR`, weekUid: 'weekUidPlaceholder' };
+      postGoal(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name, weekUid: `${name}WEEK` };
+        patchGoal(patchPayload).then(() => {
+          router.push('/');
+        });
+      });
+    } else {
+      const patchPayload = { ...goalObj };
+    }
   };
 
   return (
