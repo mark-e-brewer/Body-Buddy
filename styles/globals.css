@@ -1094,7 +1094,7 @@ outline: solid rgb(205, 205, 205) 2px;
 /* MOBILE LOGGER BELLOW */
 
 .log-counters-container {
-  min-width: 700px;
+  min-width: 800px;
 }
 
 .counter-muscle-container {
@@ -1138,31 +1138,137 @@ outline: solid rgb(205, 205, 205) 2px;
 /* GOAL GENERATOR PAGE/ COMPONENT BELLOW */
 .goal-gen-page-line-top {
   border-top: solid rgb(33, 33, 33) 2px;
+  margin-top: 4px;
+  margin-bottom: 2px;
 }
 
 .goal-gen-count {
   padding-bottom: 0px;
   padding-top: 4px;
+  margin-right: 12px;
 }
 
 .goal-gen-muscle-title {
   padding-bottom: 0px;
   padding-top: 8px;
+  width: 150px;
+}
+
+.goal-gen-muscles-cont{
+  margin-top: 0px;
 }
 
   .goal-gen-form-container {
-    min-width: 700px;
+    min-width: 800px;
   }
 
   .goal-gen-muscle-selector-cont {
     font-size: 28px;
   }
 
-  .goal-gen-submit {
+  .goal-gen-submit-container {
     margin-top: 20px;
   }
+
+  .muscle-intent-titles {
+    margin-bottom: 0px;
+  }
+
+  .muscle-intent-description {
+    margin-bottom: -16px;
+    margin-top: 60px;
+  }
+
+  .select-intention {
+    margin-left: 0px;
+  }
+
+  /* SUBMIT BUTTON BELLOW FOR GOAL GEN */
+  .goal-gen-submit {
+    padding-top: 12px;
+    background-color: white;
+    color: #000000;
+    width: 9em;
+    height: 3em;
+    border-radius: 30em;
+    text-shadow: 5px 5px 5px #000000;
+    font-size: 18px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c0c0c0;
+    transition: 0.5s ease-in-out;
+   }
+  
+   .goal-gen-submit:hover {
+    background-color: rgb(220, 220, 220);
+   }
+   
+   .goal-gen-submit::before {
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #ffb700 0%, #ff8000 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+   }
+   
+   .goal-gen-submit:hover::before {
+    width: 9em;
+   }
+  
+   .goal-gen-submit {
+    position: relative;
+    transform-origin: center;
+  }
+  
+  .goal-gen-thumbUp {
+    transition: transform 0.5s ease-in-out;
+    color: black;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-15deg);
+    }
+    50% {
+      transform: rotate(15deg);
+    }
+    75% {
+      transform: rotate(-15deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+  .goal-gen-submit:hover .goal-gen-thumbUp {
+    animation: rotate 0.5s ease-in-out; /* Add rotation animation */
+  }
+
+
 /* GOAL GENERATOR PAGE/ COMPONENT ABOVE */
 }
+
+
+
+
+
+
+
+
+
+
 
 /* PHONE STYLES BELLOW!!!!!!!!!!!!!!!!!!!!!!!!! */
 
