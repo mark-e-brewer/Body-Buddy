@@ -1,11 +1,9 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Router, useRouter } from 'next/router';
-import Form from 'react-bootstrap/Form';
+import { useRouter } from 'next/router';
 import Button from 'react-bootstrap/Button';
-import { FloatingLabel } from 'react-bootstrap';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ExperienceSelector from '../goalGenButtons/ExperienceSelect';
 import IntentionTrap from '../goalGenButtons/TrapGoal';
 import IntentionFrontDelt from '../goalGenButtons/FrontDeltGoal';
@@ -18,29 +16,12 @@ import IntentionQuad from '../goalGenButtons/QuadGoal';
 import IntentionHamstring from '../goalGenButtons/HamstringGoal';
 import IntentionGlute from '../goalGenButtons/GluteGoal';
 import IntentionCalve from '../goalGenButtons/CalveGoal';
-import { patchGoal, postGoal } from '../../API/apiData';
+import { patchGoal, patchGoalGenerator, postGoal } from '../../API/apiData';
 import { useAuth } from '../../utils/context/authContext';
 
-const initialState = {
-  experience: 'Beginner',
-  back: 'Skip',
-  bicep: 'Skip',
-  calve: 'Skip',
-  chest: 'Skip',
-  frontDelt: 'Skip',
-  glute: 'Skip',
-  hamstring: 'Skip',
-  quad: 'Skip',
-  rearSideDelt: 'Skip',
-  tricep: 'Skip',
-  trap: 'Skip',
-};
-
-export default function GoalGenerator({ weekId, weekFirebaseKey }) {
+export default function GoalGenerator({ weekId }) {
   const router = useRouter();
-  const { weekUid } = router.query;
   const { user } = useAuth();
-  const [formInput, setFormInput] = useState(initialState);
   const [experience, setExperience] = useState('Beginner');
   const [goalTrap, setGoalTrap] = useState('S');
   const [goalFrontDelt, setGoalFrontDelt] = useState('S');
@@ -53,6 +34,10 @@ export default function GoalGenerator({ weekId, weekFirebaseKey }) {
   const [goalHamstring, setGoalHamstring] = useState('S');
   const [goalGlute, setGoalGlute] = useState('S');
   const [goalCalve, setGoalCalve] = useState('S');
+  let weekFirebaseKey = null;
+  if (weekId !== undefined && weekId !== 'undefined') {
+    weekFirebaseKey = weekId.split('').splice(0, 20).join('');
+  }
   const goalObj = {
     back: 0,
     bicep: 0,
@@ -86,7 +71,7 @@ export default function GoalGenerator({ weekId, weekFirebaseKey }) {
     } else if (goalFrontDelt === 'N') {
       goalObj.frontDelt = 4;
     } else if (goalFrontDelt === 'F') {
-      goalObj.frontDelt = 6;
+      goalObj.frontDelt = 8;
     }
   }
   if (experience === 'Beginner') {
@@ -432,11 +417,13 @@ export default function GoalGenerator({ weekId, weekFirebaseKey }) {
       goalObj.calve = 20;
     }
   }
-
+  console.warn(weekId);
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (weekUid === 'undefined') {
-      const payload = { ...goalObj, userUid: `${user.uid}CURR`, weekUid: 'weekUidPlaceholder' };
+    if (weekId === undefined || weekId === 'undefined') {
+      const payload = {
+        backGoal: goalObj.back, bicepGoal: goalObj.bicep, calveGoal: goalObj.calve, chestGoal: goalObj.chest, frontDeltGoal: goalObj.frontDelt, gluteGoal: goalObj.glute, hamstringGoal: goalObj.hamstring, quadGoal: goalObj.quad, rearSideDeltGoal: goalObj.rearSideDelt, trapGoal: goalObj.trap, tricepGoal: goalObj.tricep, userUid: `${user.uid}CURR`, weekUid: 'weekUidPlaceholder', weekNum: 1,
+      };
       postGoal(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name, weekUid: `${name}WEEK` };
         patchGoal(patchPayload).then(() => {
@@ -444,7 +431,12 @@ export default function GoalGenerator({ weekId, weekFirebaseKey }) {
         });
       });
     } else {
-      const patchPayload = { ...goalObj };
+      const patchPayload = {
+        backGoal: goalObj.back, bicepGoal: goalObj.bicep, calveGoal: goalObj.calve, chestGoal: goalObj.chest, frontDeltGoal: goalObj.frontDelt, gluteGoal: goalObj.glute, hamstringGoal: goalObj.hamstring, quadGoal: goalObj.quad, rearSideDeltGoal: goalObj.rearSideDelt, trapGoal: goalObj.trap, tricepGoal: goalObj.tricep,
+      };
+      patchGoalGenerator(patchPayload, weekFirebaseKey).then(() => {
+        router.push('/');
+      });
     }
   };
 
@@ -454,7 +446,17 @@ export default function GoalGenerator({ weekId, weekFirebaseKey }) {
         <div className="d-flex justify-content-center">
           <ExperienceSelector setExperience={setExperience} />
         </div>
+        <div className="muscle-intent-description d-flex justify-content-between">
+          <p>S = Skip</p>
+          <p>M = Maintain</p>
+          <p>N = Normal</p>
+          <p>F = Focus</p>
+        </div>
         <hr className="goal-gen-page-line-top" />
+        <div className="muscle-intent-titles d-flex justify-content-between">
+          <h4 className="select-intention">Select Intention</h4>
+          <h4 className="goal-gen-sets">Sets</h4>
+        </div>
         <div className="goal-gen-muscles-cont">
           <div className="goal-gen-muscle-selector-cont mt-2 d-flex justify-content-between">
             <div className="d-flex muscle-intention-container">
@@ -533,11 +535,16 @@ export default function GoalGenerator({ weekId, weekFirebaseKey }) {
             </div>
             <h4 className="goal-gen-count">{goalObj.calve}</h4>
           </div>
-          <div className="d-flex justify-content-center goal-gen-submit">
-            <Button onClick={handleSubmit} variant="primary">Set as Current Goal</Button>
+          <div className="d-flex flex-column justify-content-center goal-gen-submit-container">
+            <h5 className="text-center">Set as Goal</h5>
+            <Button className="goal-gen-submit align-self-center" onClick={handleSubmit} variant="primary"><FontAwesomeIcon className="goal-gen-thumbUp" icon={faThumbsUp} /></Button>
           </div>
         </div>
       </div>
     </>
   );
 }
+
+GoalGenerator.propTypes = {
+  weekId: PropTypes.string.isRequired,
+};
