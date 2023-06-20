@@ -22,7 +22,7 @@ export default function WorkoutLogPage() {
   if (weekUid === 'undefined') {
     jsx = <h3>Please set a goal, then you may log workouts!</h3>;
   } else {
-    jsx = <LogWorkoutModal weekUidProp={weekUid} background="orange" onUpdate={getAllCurrentWorkouts} />;
+    jsx = <LogWorkoutModal weekUidProp={weekUid} background="#D4A573" onUpdate={getAllCurrentWorkouts} />;
   }
 
   return (

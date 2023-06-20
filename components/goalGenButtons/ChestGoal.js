@@ -14,11 +14,11 @@ export default function IntentionChest({ setGoalChest }) {
     <>
       <div style={{ marginTop: '4px' }} className="d-flex align-self-center">
         {chestIntention.map((category, index) => (
-          selectedIndex === index ? <Button variant="dark" className="intention-filter-btn-active px-1 mx-1 fs-6 py-1" value={category} onClick={() => handleButtonState(category)} active>{category}</Button>
+          selectedIndex === index ? <Button style={{ backgroundColor: '#476C94', border: 'none', width: '24px' }} className="intention-filter-btn-active px-1 mx-1 fs-6 py-1" value={category} onClick={() => handleButtonState(category)} active>{category}</Button>
             : (
               <Button
                 variant="light"
-                className="eintention-filter-btn px-1 mx-1 fs-6 py-1"
+                className="intention-filter-btn px-1 mx-1 fs-6 py-1"
                 value={category}
                 onClick={(e) => {
                   setSelectedIndex(index);
