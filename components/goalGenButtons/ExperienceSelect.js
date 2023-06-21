@@ -10,13 +10,13 @@ export default function ExperienceSelector({ setExperience }) {
   };
   return (
     <>
-      <div style={{ marginTop: '4px' }} className="d-flex align-self-center">
+      <div style={{ marginTop: '4px' }} className="experience-btns d-flex align-self-center">
         {filterExperience.map((category, index) => (
-          selectedIndex === index ? <Button variant="dark" className="experience-filter-btn-active px-1 mx-1 fs-6 py-1" value={category} onClick={handleButtonState} active>{category}</Button>
+          selectedIndex === index ? <Button variant="dark" className="experience-filter-btn-active" value={category} onClick={handleButtonState} active>{category}</Button>
             : (
               <Button
                 variant="light"
-                className="experience-filter-btn px-1 mx-1 fs-6 py-1"
+                className="experience-filter-btn"
                 value={category}
                 onClick={(e) => {
                   setSelectedIndex(index);
