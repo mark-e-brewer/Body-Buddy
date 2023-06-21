@@ -26,9 +26,9 @@ export default function NavBarAuth({ weekUid, setWeekUid }) {
   return (
     <Navbar className="nav-bar" collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container className="nav-bar-container">
-        <Image className="nav-logo-img" src="https://i.ibb.co/2jyK9FJ/bodyGrey.png" />
+        <Image className="nav-logo-img" src="https://i.ibb.co/3MKRQHK/logo-Brown.png" />
         <Link passHref href="/">
-          <Navbar.Brand>Body Buddy</Navbar.Brand>
+          <Navbar.Brand className="nav-brand-name">Body Buddy</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

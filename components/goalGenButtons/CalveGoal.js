@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
 
 export default function IntentionCalve({ setGoalCalve }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const calveIntention = ['S', 'M', 'N', 'F'];
+  const tooltips = ['Skip', 'Maintain Muscle', 'Normal Growth', 'Focus Heavily'];
   const handleButtonState = (targetValue) => {
     if (targetValue !== setGoalCalve) {
       setGoalCalve(targetValue);
@@ -12,20 +12,33 @@ export default function IntentionCalve({ setGoalCalve }) {
   };
   return (
     <>
-      <div style={{ marginTop: '4px' }} className="d-flex align-self-center">
+      <div className="intent-radio-btns d-flex align-self-center">
         {calveIntention.map((category, index) => (
-          selectedIndex === index ? <Button style={{ backgroundColor: '#476C94', border: 'none', width: '24px' }} className="intention-filter-btn-active px-1 mx-1 fs-6 py-1" value={category} onClick={() => handleButtonState(category)} active>{category}</Button>
+          selectedIndex === index ? (
+            <button
+              type="button"
+              title={tooltips[index]}
+              className={`intention-filter-btn intention-tooltip ${
+                selectedIndex === index ? 'active' : ''
+              }`}
+              value={category}
+              onClick={() => handleButtonState(category)}
+            >
+              {category}
+            </button>
+          )
             : (
-              <Button
-                variant="light"
-                className="intention-filter-btn px-1 mx-1 fs-6 py-1"
+              <button
+                type="button"
+                title={tooltips[index]}
+                className="intention-filter-btn"
                 value={category}
                 onClick={(e) => {
                   setSelectedIndex(index);
                   handleButtonState(e.target.value);
                 }}
               >{category}
-              </Button>
+              </button>
             )
         ))}
       </div>

@@ -1,6 +1,6 @@
 @import 'bootstrap/dist/css/bootstrap.css';
 
-@media (min-width: 1025px) {
+@media (min-width: 1280px) {
 html,
 body {
   padding: 0;
@@ -144,9 +144,15 @@ body {
 
 /* RESET WEEK BUTTON ABOVE */
 /* NAV BAR BELLOW */
+
+.nav-brand-name {
+  font-size: 24px;
+  padding-bottom: 12px;
+}
 .nav-logo-img {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 60px;
+  padding: 0px;
   margin-right: 10px;
   
 }
@@ -1143,7 +1149,7 @@ outline: solid rgb(205, 205, 205) 2px;
 /* GOAL GENERATOR PAGE/ COMPONENT BELLOW */
 .goal-gen-page-line-top {
   border-top: solid rgb(33, 33, 33) 2px;
-  margin-top: 4px;
+  margin-top: 6px;
   margin-bottom: 2px;
 }
 
@@ -1155,8 +1161,12 @@ outline: solid rgb(205, 205, 205) 2px;
 
 .goal-gen-muscle-title {
   padding-bottom: 0px;
-  padding-top: 8px;
-  width: 150px;
+  padding-top: 10px;
+  width: 140px;
+}
+.muscle-intention-container {
+  width: 464px;
+  justify-content: space-between;
 }
 
 .goal-gen-muscles-cont{
@@ -1167,32 +1177,99 @@ outline: solid rgb(205, 205, 205) 2px;
     min-width: 800px;
   }
 
+  .desc-intention {   /* INTENTION DESCRIPTION */
+   margin-right: 36px;
+  }
+
   .goal-gen-muscle-selector-cont {
-    font-size: 28px;
+    margin-top: 18px;
+    margin-bottom: 18px;
   }
 
-  .goal-gen-submit-container {
-    margin-top: 20px;
-  }
+  /* INTENTION TOOLTIPS FOR GOAL GEN BELLOW */
 
-  .muscle-intent-titles {
-    margin-bottom: 0px;
-  }
+.intention-tooltip.active:hover::before {
+  opacity: 1;
+  transform: scale(1.1) translateX(-45%) translateY(-10%);
+}
 
-  .muscle-intent-description {
-    margin-bottom: -16px;
-    margin-top: 60px;
-  }
+.intention-tooltip.active::before {
+  content: attr(title);
+  background-color: #476C94;
+  color: white;
+  font-size: 14px;
+  font-family: Arial;
+  padding: 4px 8px;
+  border-radius: 8px;
+  position: absolute;
+  top: -30px; /* Adjust the position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+  transition: 0.2s ease;
+  box-shadow: -4px -3px 9px -1px #4848487a;
+}
 
-  .select-intention {
-    margin-left: 0px;
-  }
+.intention-tooltip.active {
+  position: relative;
+}
 
-  /* SUBMIT BUTTON BELLOW FOR GOAL GEN */
+.intention-filter-btn {
+  position: relative;
+}
+
+.intention-filter-btn::before {
+  content: attr(title);
+  background-color: #476C94;
+  color: white;
+  font-size: 14px;
+  font-family: Arial;
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: -30px; /* Adjust the position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+  transition: 0.2s ease;
+  box-shadow: -4px -3px 9px -1px #4848487a;
+}
+
+.intention-filter-btn:hover::before {
+  opacity: 1;
+  transform: scale(1) translateX(-50%) translateY(-10%);
+}
+/* GOAL GEN RADIO BUTTONS (INTENTION) BELLOW */
+
+.intent-radio-btns {
+  position: relative;
+  font-size: 18px;
+  left: 12%;
+}
+
+.intention-tooltip.active{
+  background-color: #476C94;
+  width: 38px;
+  height: 38px;
+  border-radius: 50px;
+  color: white;
+  margin-left: 14px;
+  margin-right: 14px;
+}
 .intention-filter-btn {
   background-color: #80B3EA;
   border: none;
-  width: 24px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50px;
+  margin-left: 14px;
+  margin-right: 14px;
   transition: 0.3s ease-in-out;
 }
 
@@ -1201,13 +1278,10 @@ background-color: #476C94;
 border: none;
 }
 
-.intention-filter-btn:active {
-  background: #ffffff;
-  border: none;
+/* GOAL GEN SUBMIT BELLOW */
+.goal-gen-submit-container {
+  margin-top: 20px;
 }
-
-
-
 
   .goal-gen-submit {
     padding-top: 12px;
@@ -1257,6 +1331,7 @@ border: none;
   .goal-gen-thumbUp {
     transition: transform 0.5s ease-in-out;
     color: black;
+    padding-bottom: 5px;
   }
   
   @keyframes rotate {
@@ -1297,9 +1372,62 @@ border: none;
 
 /* PHONE STYLES BELLOW!!!!!!!!!!!!!!!!!!!!!!!!! */
 
-@media (max-width: 767px) {
+@media (max-width: 1280px) {
+/* NAV BAR BELLOW */
+
+.nav-logo-img {
+  width: 90px;
+  height: 70px;
+  margin-right: 0px;
+  padding: 0px;
+}
+
+.nav-bar {
+  background: linear-gradient(144deg,#476C94, #476C94,#476C94);
+  font-weight: 600;
+  box-shadow: 0px 0px 10px -2px rgba(80, 80, 80, 0.905);
+  z-index: 10;
+}
+
+.nav-brand-name {
+  font-size: 26px;
+}
+
+.nav-text {
+  color: rgba(255, 255, 255, 0.772);
+  transition: 0.2s ease-in;
+}
+
+.signout-btn {
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.834);
+  font-weight: 600;
+  font-size: 17px;
+  transition: 0.2s ease-in;
+  margin-left: -4px;
+}
 
   /* GOAL GENERATOR BELLOW */
+.gen-page-title{
+  margin-top: -10px;
+  margin-bottom: 8px;
+}
+
+.goal-gen-descriptions {
+  margin-bottom: -12px;
+  margin-top: -14px;
+}
+  .goal-gen-muscle-title{
+    margin-top: 2px;
+    font-size: 15px;
+    width: 104px;
+    margin-left: 0px;
+  }
+
+  .desc-intention {
+    margin-right: 24px;
+  }
 
   .muscle-intention-container {
     margin-right: 70px;
@@ -1312,6 +1440,8 @@ border: none;
 .goal-gen-count {
   padding-bottom: 0px;
   padding-top: 6px;
+  margin-right: 14px;
+  font-size: 20px;
 }
 
 .goal-gen-muscle-title {
@@ -1320,13 +1450,83 @@ border: none;
 }
 
 .goal-gen-submit {
-  margin-top: 4px;
+  margin-top: -8px;
+}
+.goal-gen-submit-container{
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+.experience-btns{
+  margin-bottom: -10px;
+}
+
+.intention-tooltip.active{
+  background-color: #476C94;
+  width: 24px;
+  border-radius: 0px;
+}
+.intention-filter-btn {
+  background-color: #80B3EA;
+  border: none;
+  width: 24px;
+  transition: 0.3s ease-in-out;
+}
+
+.goal-gen-submit {
+  padding-top: 12px;
+  background-color: white;
+  color: #000000;
+  width: 9em;
+  height: 3em;
+  border-radius: 30em;
+  text-shadow: 5px 5px 5px #000000;
+  font-size: 18px;
+  font-family: inherit;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 6px 6px 12px #c0c0c0;
+  transition: 0.5s ease-in-out;
+ }
+
+ .goal-gen-submit:hover {
+  background-color: rgb(220, 220, 220);
+ }
+ 
+ .goal-gen-submit::before {
+  content: '';
+  width: 0;
+  height: 3em;
+  border-radius: 30em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #D4A573;
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+ }
+ 
+ .goal-gen-submit:hover::before {
+  width: 9em;
+ }
+
+ .goal-gen-submit {
+  position: relative;
+  transform-origin: center;
+}
+
+.goal-gen-thumbUp {
+  transition: transform 0.5s ease-in-out;
+  color: black;
 }
 
   /* MOBILE LOG BELLOW */
   .log-counters-container {
     max-width: 750px;
-    min-width: 300px;
+    min-width: 340px;
   }
   
   .counter-muscle-container {
