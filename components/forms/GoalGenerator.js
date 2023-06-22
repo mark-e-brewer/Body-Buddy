@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Button from 'react-bootstrap/Button';
@@ -38,6 +38,7 @@ export default function GoalGenerator({ weekId }) {
   if (weekId !== undefined && weekId !== 'undefined') {
     weekFirebaseKey = weekId.split('').splice(0, 20).join('');
   }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const goalObj = {
     back: 0,
     bicep: 0,
@@ -51,6 +52,34 @@ export default function GoalGenerator({ weekId }) {
     tricep: 0,
     trap: 0,
   };
+
+  const [trapVal, setTrapVal] = useState(0);
+  const [frontDeltVal, setFrontDeltVal] = useState(0);
+  const [rearSideDeltVal, setRearSideDeltVal] = useState(0);
+  const [backVal, setBackVal] = useState(0);
+  const [chestVal, setChestVal] = useState(0);
+  const [bicepVal, setBicepVal] = useState(0);
+  const [tricepVal, setTricepVal] = useState(0);
+  const [quadVal, setQuadVal] = useState(0);
+  const [hamstringVal, setHamstringVal] = useState(0);
+  const [gluteVal, setGluteVal] = useState(0);
+  const [calveVal, setCalveVal] = useState(0);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setTrapVal(goalObj.trap);
+      setFrontDeltVal(goalObj.frontDelt);
+      setRearSideDeltVal(goalObj.rearSideDelt);
+      setBackVal(goalObj.back);
+      setChestVal(goalObj.chest);
+      setBicepVal(goalObj.bicep);
+      setTricepVal(goalObj.tricep);
+      setQuadVal(goalObj.quad);
+      setHamstringVal(goalObj.hamstring);
+      setGluteVal(goalObj.glute);
+      setCalveVal(goalObj.calve);
+    }, 1);
+    return () => clearTimeout(timeoutId);
+  }, [goalObj]);
 
   if (experience === 'Beginner') {
     if (goalTrap === 'S') {
@@ -458,77 +487,77 @@ export default function GoalGenerator({ weekId }) {
               <h5 className="goal-gen-muscle-title">Trapezius</h5>
               <IntentionTrap setGoalTrap={setGoalTrap} />
             </div>
-            <h4 className="goal-gen-count">{goalObj.trap}</h4>
+            <h4 className={`goal-gen-count ${goalObj.trap === trapVal && trapVal !== 0 ? 'animate' : ''}`}>{goalObj.trap}</h4>
           </div>
           <div className="goal-gen-muscle-selector-cont d-flex justify-content-between">
             <div className="d-flex muscle-intention-container">
               <h5 className="goal-gen-muscle-title">Front Delts</h5>
               <IntentionFrontDelt setGoalFrontDelt={setGoalFrontDelt} />
             </div>
-            <h4 className="goal-gen-count">{goalObj.frontDelt}</h4>
+            <h4 className={`goal-gen-count ${goalObj.frontDelt === frontDeltVal && frontDeltVal !== 0 ? 'animate' : ''}`}>{goalObj.frontDelt}</h4>
           </div>
           <div className="goal-gen-muscle-selector-cont d-flex justify-content-between">
             <div className="d-flex muscle-intention-container">
               <h5 className="goal-gen-muscle-title">Rear/Side Delts</h5>
               <IntentionRearSideDelt setGoalRearSideDelt={setGoalRearSideDelt} />
             </div>
-            <h4 className="goal-gen-count">{goalObj.rearSideDelt}</h4>
+            <h4 className={`goal-gen-count ${goalObj.rearSideDelt === rearSideDeltVal && rearSideDeltVal !== 0 ? 'animate' : ''}`}>{goalObj.rearSideDelt}</h4>
           </div>
           <div className="goal-gen-muscle-selector-cont d-flex justify-content-between">
             <div className="d-flex muscle-intention-container">
               <h5 className="goal-gen-muscle-title">Back</h5>
               <IntentionBack setGoalBack={setGoalBack} />
             </div>
-            <h4 className="goal-gen-count">{goalObj.back}</h4>
+            <h4 className={`goal-gen-count ${goalObj.back === backVal && backVal !== 0 ? 'animate' : ''}`}>{goalObj.back}</h4>
           </div>
           <div className="goal-gen-muscle-selector-cont d-flex justify-content-between">
             <div className="d-flex muscle-intention-container">
               <h5 className="goal-gen-muscle-title">Chest</h5>
               <IntentionChest setGoalChest={setGoalChest} />
             </div>
-            <h4 className="goal-gen-count">{goalObj.chest}</h4>
+            <h4 className={`goal-gen-count ${goalObj.chest === chestVal && chestVal !== 0 ? 'animate' : ''}`}>{goalObj.chest}</h4>
           </div>
           <div className="goal-gen-muscle-selector-cont d-flex justify-content-between">
             <div className="d-flex muscle-intention-container">
               <h5 className="goal-gen-muscle-title">Bicep</h5>
               <IntentionBicep setGoalBicep={setGoalBicep} />
             </div>
-            <h4 className="goal-gen-count">{goalObj.bicep}</h4>
+            <h4 className={`goal-gen-count ${goalObj.bicep === bicepVal && bicepVal !== 0 ? 'animate' : ''}`}>{goalObj.bicep}</h4>
           </div>
           <div className="goal-gen-muscle-selector-cont d-flex justify-content-between">
             <div className="d-flex muscle-intention-container">
               <h5 className="goal-gen-muscle-title">Tricep</h5>
               <IntentionTricep setGoalTricep={setGoalTricep} />
             </div>
-            <h4 className="goal-gen-count">{goalObj.tricep}</h4>
+            <h4 className={`goal-gen-count ${goalObj.tricep === tricepVal && tricepVal !== 0 ? 'animate' : ''}`}>{goalObj.tricep}</h4>
           </div>
           <div className="goal-gen-muscle-selector-cont d-flex justify-content-between">
             <div className="d-flex muscle-intention-container">
               <h5 className="goal-gen-muscle-title">Quadricep</h5>
               <IntentionQuad setGoalQuad={setGoalQuad} />
             </div>
-            <h4 className="goal-gen-count">{goalObj.quad}</h4>
+            <h4 className={`goal-gen-count ${goalObj.quad === quadVal && quadVal !== 0 ? 'animate' : ''}`}>{goalObj.quad}</h4>
           </div>
           <div className="goal-gen-muscle-selector-cont d-flex justify-content-between">
             <div className="d-flex muscle-intention-container">
               <h5 className="goal-gen-muscle-title">Hamstring</h5>
               <IntentionHamstring setGoalHamstring={setGoalHamstring} />
             </div>
-            <h4 className="goal-gen-count">{goalObj.hamstring}</h4>
+            <h4 className={`goal-gen-count ${goalObj.hamstring === hamstringVal && hamstringVal !== 0 ? 'animate' : ''}`}>{goalObj.hamstring}</h4>
           </div>
           <div className="goal-gen-muscle-selector-cont d-flex justify-content-between">
             <div className="d-flex muscle-intention-container">
               <h5 className="goal-gen-muscle-title">Glutes</h5>
               <IntentionGlute setGoalGlute={setGoalGlute} />
             </div>
-            <h4 className="goal-gen-count">{goalObj.glute}</h4>
+            <h4 className={`goal-gen-count ${goalObj.glute === gluteVal && gluteVal !== 0 ? 'animate' : ''}`}>{goalObj.glute}</h4>
           </div>
           <div className="goal-gen-muscle-selector-cont d-flex justify-content-between">
             <div className="d-flex muscle-intention-container">
               <h5 className="goal-gen-muscle-title">Calves</h5>
               <IntentionCalve setGoalCalve={setGoalCalve} />
             </div>
-            <h4 className="goal-gen-count">{goalObj.calve}</h4>
+            <h4 className={`goal-gen-count ${goalObj.calve === calveVal && calveVal !== 0 ? 'animate' : ''}`}>{goalObj.calve}</h4>
           </div>
           <div className="d-flex flex-column justify-content-center goal-gen-submit-container">
             <h4 className="text-center">Set as Goal</h4>

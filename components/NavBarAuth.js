@@ -52,7 +52,7 @@ export default function NavBarAuth({ weekUid, setWeekUid }) {
               <Nav.Link className="nav-text">Info</Nav.Link>
             </Link>
           </Nav>
-          <button type="button" className="signout-btn" onClick={signOut}>signout</button>
+          <button type="button" className="signout-btn" onClick={signOut}>Signout</button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

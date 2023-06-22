@@ -78,7 +78,7 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
   return (
     <>
       <div className="goal-border">
-        <Card className="d-flex goal" style={{ width: '30rem', border: 'none' }}>
+        <Card className="d-flex goal">
           {/* Traps */}
           <div className="muscle-goal">
             <Card.Title style={{ marginTop: '10px' }} className="muscle-goal-title">Trapezius</Card.Title>
