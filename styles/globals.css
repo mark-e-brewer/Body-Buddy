@@ -1,12 +1,17 @@
 @import 'bootstrap/dist/css/bootstrap.css';
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
 html,
 body {
-  padding: 0;
   margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: rgb(128, 179, 234);
+  background: radial-gradient(circle at -130% -120%, #476c94 0%, rgb(246, 246, 246) 100%);
+  backdrop-filter: blur(50px); /* Adjust the blur intensity as needed */
 }
 
 a {
@@ -21,6 +26,10 @@ a {
 body {
   background-color: rgb(255, 255, 255);
 }
+
+/* BACKGROUN SHAPES BELL0W */
+
+
 
 .signout-btn {
   background-color: transparent;
@@ -60,11 +69,12 @@ body {
   border: none;
   outline: none;
   transition: 0.1s ease-in-out;
+  background: transparent;
 }
 
 .reset-day-input:focus {
-  outline: solid #adcbff 3px;
-  box-shadow: 0px 0px 10px 1px #80B3EA;
+  outline: solid #476C94 3px;
+  box-shadow: 0px 0px 10px 1px #476C94;
   border: none;
 }
 
@@ -76,19 +86,21 @@ body {
   margin-left: 15px;
   margin-top: 18px;
   background-color: rgb(255, 255, 255);
-  color: #80B3EA;
+  color: #476C94;
   font-weight: 600;
   border: solid white 2px;
   transition: 0.2s ease-in-out;
   box-shadow: none;
   border-radius: 6px;
+  background: transparent;
+  border: solid #476C94 2px;
 }
 
 .reset-day-submit:hover {
-  box-shadow: 0px 0px 9px 0px #80B3EA;
+  box-shadow: 0px 0px 9px 0px #476C94;
   background-color: white;
-  border: solid #80B3EA 2px;
-  color: #80B3EA;
+  border: solid #476C94 2px;
+  color: #476C94;
   border-radius: 6px;
 }
 
@@ -183,7 +195,7 @@ body {
 
 .goal-border {
   position: relative;
-  width: 499px;
+  width: 900px;
   height: 652px;
   border-radius: 15px;
   z-index: 15;
@@ -200,8 +212,8 @@ body {
   z-index: -1;
   top: 50%;
   left: 50%;
-  width: 350px;
-  height:500px;
+  width: 650px;
+  height:600px;
   border-radius: 50%;
  background: #80B3EA;  /*  MAIN BLUE */
   opacity: 1;
@@ -243,9 +255,10 @@ body {
 }
 
 .goal {
+  border: none;
   margin-top: -1px;
   margin-right: 0px;
-  width: 100%;
+  width: 97.8%;
   height: 97.25%;
   text-align: left;
   background: rgb(234, 234, 234);
@@ -262,8 +275,9 @@ body {
 
 .muscle-goal-title {
   margin-top: -2px;
-  margin-left: 10px;
   font-size: 18px;
+  margin-left: 6px;
+  text-align: left;
 }
 /* GOAL BOARD ABOVE */
 .nav-workouts-btn {
@@ -959,14 +973,14 @@ body {
 
   .muscle-option-div-bar {
     border: solid #D4A573 3px;
-    border-radius: 4px;
+    border-radius: 3px;
   }
 
   .stat-filter-button-muscles {
     background-color: #ffffff;
     border: none;
     font-weight: 600;
-    border-radius: 2px;
+    border-radius: 1px;
     transition: 0.2s ease-in-out;
   }
 
@@ -974,14 +988,14 @@ body {
     background-color: #d4a5736e;
     border: none;
     font-weight: 600;
-    border-radius: 2px;
+    border-radius: 1px;
   }
 
   .stat-filter-button-muscles-active {
     background: #D4A573;
     font-weight: 600;
     border: none;
-    border-radius: 2px;
+    border-radius: 1px;
     box-shadow: 0px 0px 5px 0px #D4A573;
   }
 
@@ -989,7 +1003,7 @@ body {
     background: #D4A573;
     border: none;
     font-weight: 600;
-    border-radius: 2px;
+    border-radius: 1px;
     box-shadow: 0px 0px 5px 0px #D4A573;
   }
 /* MUSCLE GROUP SETS EACH DAY OF WEEK ABOVE */
@@ -1104,6 +1118,14 @@ outline: solid rgb(205, 205, 205) 2px;
 
 /* MOBILE LOGGER BELLOW */
 
+.mobile-log-full-component {
+  margin-top: 20px;
+}
+
+.mobile-title-desk {
+  font-size: 32px;
+}
+
 .log-counters-container {
   min-width: 800px;
 }
@@ -1117,7 +1139,7 @@ outline: solid rgb(205, 205, 205) 2px;
 
 .counter-muscle {
   align-self: center;
-  margin-bottom: -1px;
+  margin-bottom: 8px;
 }
 
 .counter-container > p {
@@ -1125,25 +1147,167 @@ outline: solid rgb(205, 205, 205) 2px;
   padding: 0px;
 }
 
-#count {
-  margin-bottom: 2px;
-  margin-left: 6.5px;
+#count-mobile {
+  padding-top: 8px;
+  margin-bottom: 0px;
+  margin-right: 20px;
+  font-size: 22px;
 }
 
 #up-iterate {
   border: none;
-  background-color: white;
+  background-color: transparent;
 }
 
 #down-iterate {
   border: none;
+  background-color: transparent;
+}
+
+#mobile-line {
+  margin-top: 25px;
+  border-top: solid black 2px;
+  width: 82%;
+}
+
+#mobile-line-rsd {
+  margin-top: 25px;
+  border-top: solid black 2px;
+  width:65%;
+}
+
+#mobile-line-fd {
+  margin-top: 25px;
+  border-top: solid black 2px;
+  width: 72%;
+}
+
+#mobile-line-qh {
+  margin-top: 25px;
+  border-top: solid black 2px;
+  width: 76%;
+}
+
+#mobile-line-trap{
+  margin-top: 25px;
+  border-top: solid black 2px;
+  width: 77%;
+}
+
+#mobile-line-back{
+  margin-top: 25px;
+  border-top: solid black 2px;
+  width: 83%;
+}
+
+#mobile-line-tri{
+  margin-top: 25px;
+  border-top: solid black 2px;
+  width: 81%;
+}
+
+.mobile-log-btn-container {
+  margin-top: 10px;
+}
+
+.reset-mobile {
   background-color: white;
+  width: 7.6rem;
+  height: 3em;
+  border-radius: 30em;
+  font-size: 15px;
+  font-family: inherit;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  margin-top: 0px;
+  box-shadow: 6px 6px 11px #bebebe;
+ }
+ 
+ .reset-mobile::before {
+  content: '';
+  width: 100%;
+  height: 3em;
+  border-radius: 30em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #D4A573 0%, #D4A573 100%);
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+ }
+
+ .reset-mobile:hover::before {
+  width: 0; /* Changed from '100%' to '0' */
+}
+
+.reset-mobile:hover {
+  background-color: #ffffff;
 }
 /* MOBILE LOGGER ABOVE */
 /* MOBILE LOG DAY MODAL/SUBMIT BELLOW */
 .mobile-form-submit {
   margin-top: 10px;
   margin-bottom: -5px;
+}
+
+.mobile-log-modalOpen {
+  color: #000;
+  background-color: #D4A573;
+  width: 11.5rem;
+  height: 3em;
+  border-radius: 30em;
+  font-size: 15px;
+  font-family: inherit;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 6px 6px 12px #c0c0c0;
+  margin-top: 0px;
+}
+
+.mobile-log-modalOpen:hover {
+  color: #000;
+  background-color: #D4A573;
+}
+
+
+.mobile-form::before {
+  content: '';
+  background-image: linear-gradient(144deg,#476C94,#80B3EA);
+  height: 112%;
+  width: 105%;
+  position: absolute;
+  margin-top: -8px;
+  margin-left: 0px;
+  z-index: -1;
+  border-radius: 15px;
+  box-shadow: 0px 0px 18px 0px #80B3EA;
+}
+
+
+.mobile-floating-label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mobile-form-input {
+  font-size: 17px;
+}
+
+.mobile-form-input:focus {
+  outline: solid #476c94 5px;
+  box-shadow: 0px 0px 13px 0px #476c94;
+}
+
+.mobile-form-submit {
+  margin-top: 10px;
+  background-color: #D4A573;
+  border: solid #D4A573 1px;
+  font-weight: 600;
 }
 /* MOBILE LOG DAY MODAL/SUBMIT ABOVE */
 /* GOAL GENERATOR PAGE/ COMPONENT BELLOW */
@@ -1153,9 +1317,30 @@ outline: solid rgb(205, 205, 205) 2px;
   margin-bottom: 2px;
 }
 
+.goal-gen-count.animate {
+  animation: firework 0.5s;
+}
+
+@keyframes firework {
+  0% {
+    transform: scale(.1);
+    opacity: 0;
+    color: #353F4B;
+  }
+  50% {
+    transform: scale(1.45);
+    opacity: 0.6;
+    color: #476C94;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .goal-gen-count {
+  padding-top: 5px;
   padding-bottom: 0px;
-  padding-top: 4px;
   margin-right: 12px;
 }
 
@@ -1174,11 +1359,11 @@ outline: solid rgb(205, 205, 205) 2px;
 }
 
   .goal-gen-form-container {
-    min-width: 800px;
+    min-width: 900px;
   }
 
   .desc-intention {   /* INTENTION DESCRIPTION */
-   margin-right: 36px;
+   margin-right: 42px;
   }
 
   .goal-gen-muscle-selector-cont {
@@ -1250,7 +1435,7 @@ outline: solid rgb(205, 205, 205) 2px;
 .intent-radio-btns {
   position: relative;
   font-size: 18px;
-  left: 12%;
+  left: 24%;
 }
 
 .intention-tooltip.active{
@@ -1372,7 +1557,20 @@ border: none;
 
 /* PHONE STYLES BELLOW!!!!!!!!!!!!!!!!!!!!!!!!! */
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
+
+  html,
+  body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: rgb(128, 179, 234);
+  background: radial-gradient(circle at -130% -120%, #476c94f5 0%, rgb(246, 246, 246) 100%);
+  backdrop-filter: blur(50px); /* Adjust the blur intensity as needed */
+}
 /* NAV BAR BELLOW */
 
 .nav-logo-img {
@@ -1436,6 +1634,7 @@ border: none;
   .goal-gen-page-line-top {
   border-top: solid rgb(33, 33, 33) 2px;
 }
+
 
 .goal-gen-count {
   padding-bottom: 0px;
@@ -1524,6 +1723,14 @@ border: none;
 }
 
   /* MOBILE LOG BELLOW */
+  .mobile-log-btn-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+
   .log-counters-container {
     max-width: 750px;
     min-width: 340px;
@@ -1538,7 +1745,7 @@ border: none;
   
   .counter-muscle {
     align-self: center;
-    margin-bottom: -1px;
+    margin-bottom: 6px;
   }
   
   .counter-container > p {
@@ -1546,20 +1753,165 @@ border: none;
     padding: 0px;
   }
   
-  #count {
+  #count-mobile {
+    padding-top: 10px;
     margin-bottom: 2px;
-    margin-left: 6.5px;
+    margin-right: 16px;
+    font-size: 20px;
   }
   
   #up-iterate {
     border: none;
-    background-color: white;
+    background-color: transparent;
   }
   
   #down-iterate {
     border: none;
+    background-color: transparent;
+  }
+
+  #mobile-line {
+    margin-top: 25px;
+    border-top: solid black 2px;
+    width: 64%;
+  }
+
+  #mobile-line-rsd {
+    margin-top: 25px;
+    border-top: solid black 2px;
+    width: 27%;
+  }
+
+  #mobile-line-fd {
+    margin-top: 25px;
+    border-top: solid black 2px;
+    width: 44%;
+  }
+
+  #mobile-line-qh {
+    margin-top: 25px;
+    border-top: solid black 2px;
+    width: 50%;
+  }
+
+  #mobile-line-trap{
+    margin-top: 25px;
+    border-top: solid black 2px;
+    width: 56%;
+  }
+
+  #mobile-line-back{
+    margin-top: 25px;
+    border-top: solid black 2px;
+    width: 68%;
+  }
+
+  #mobile-line-tri{
+    margin-top: 25px;
+    border-top: solid black 2px;
+    width: 62%;
+  }
+
+  .reset-mobile {
+    background-color: white;
+    width: 7.6rem;
+    height: 3em;
+    border-radius: 30em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c0c0c0;
+    margin-top: 0px;
+   }
+   
+   .reset-mobile::before {
+    content: '';
+    width: 100%;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #D4A573 0%, #D4A573 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+   }
+  
+   .reset-mobile:focus:before {
+    width: 0; /* Changed from '100%' to '0' */
+  }
+  
+  .reset-mobile:active {
     background-color: white;
   }
+   
+  .mobile-log-full-component {
+    margin-top: 0px;
+  }
+  
+  .mobile-title-desk {
+    font-size: 28px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+
+  /* MOBILE LOG SUBMIT AND MODAL BELLOW */
+
+.mobile-log-modalOpen {
+  color: #000;
+  background-color: #D4A573;
+  width: 11.5rem;
+  height: 3em;
+  border-radius: 30em;
+  font-size: 15px;
+  font-family: inherit;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 6px 6px 12px #c0c0c0;
+  margin-top: 0px;
+}
+
+
+.mobile-form::before {
+  content: '';
+  background-image: linear-gradient(144deg,#476C94,#80B3EA);
+  height: 112%;
+  width: 105%;
+  position: absolute;
+  margin-top: -8px;
+  margin-left: 0px;
+  z-index: -1;
+  border-radius: 15px;
+  box-shadow: 0px 0px 18px 0px #80B3EA;
+}
+
+
+.mobile-floating-label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mobile-form-input {
+  font-size: 17px;
+}
+
+.mobile-form-input:focus {
+  outline: solid #476c94 5px;
+  box-shadow: 0px 0px 13px 0px #476c94;
+}
+
+.mobile-form-submit {
+  margin-top: 10px;
+  background-color: #D4A573;
+  border: solid #D4A573 1px;
+  font-weight: 600;
+}
 
 
 }
