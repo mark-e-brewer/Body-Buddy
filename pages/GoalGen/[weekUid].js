@@ -6,7 +6,7 @@ export default function GeneratorPage() {
   const { weekUid } = router.query;
   return (
     <>
-      <div style={{ marginTop: '20px' }} className="d-flex flex-column justify-content-center">
+      <div className="d-flex flex-column justify-content-center">
         <h3 className="text-center gen-page-title">Select Experience Level</h3>
         <GoalGenerator weekId={weekUid} />
       </div>
