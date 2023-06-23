@@ -10,13 +10,14 @@ export default function StatOptionsMuscleGroups({ setMuscleGroup }) {
   };
   return (
     <>
-      <div style={{ marginBottom: '0px', marginTop: '0px' }} className="d-flex align-self-center">
+      <div className="muscle-select-stats-cont d-flex align-self-center">
         {filterMusclesOptions.map((category, index) => (
-          selectedIndex === index ? <Button variant="dark" className="stat-filter-button-muscles-active" value={category} onClick={handleButtonState}>{category}</Button>
+          selectedIndex === index ? <Button variant="light" id="muscle-filter-stat-active" className="stat-filter-button-muscles-active" value={category} onClick={handleButtonState}>{category}</Button>
             : (
               <Button
                 variant="light"
                 className="stat-filter-button-muscles"
+                id="muscle-filter-stat"
                 value={category}
                 onClick={(e) => {
                   setSelectedIndex(index);
