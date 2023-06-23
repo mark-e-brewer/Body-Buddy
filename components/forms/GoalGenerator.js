@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import Button from 'react-bootstrap/Button';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ExperienceSelector from '../goalGenButtons/ExperienceSelect';
@@ -561,7 +560,7 @@ export default function GoalGenerator({ weekId }) {
           </div>
           <div className="d-flex flex-column justify-content-center goal-gen-submit-container">
             <h4 className="text-center">Set as Goal</h4>
-            <Button className="goal-gen-submit align-self-center" onClick={handleSubmit} variant="primary"><FontAwesomeIcon className="goal-gen-thumbUp" icon={faThumbsUp} /></Button>
+            <button type="button" className="goal-gen-submit align-self-center" onClick={handleSubmit} aria-label="submit-goal-gen"><FontAwesomeIcon className="goal-gen-thumbUp" icon={faThumbsUp} /></button>
           </div>
         </div>
       </div>

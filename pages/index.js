@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { faDumbbell } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button } from 'react-bootstrap';
 import Link from 'next/link';
 import { useAuth } from '../utils/context/authContext';
 import GoalBoard from '../components/GoalBoard';
@@ -90,7 +89,7 @@ function Home() {
         <div style={{ marginTop: '30px' }}>
           <h4 className="log-workout-text">Log Workouts</h4>
           <Link href={`/${goal[0]?.weekUid}`} passHref>
-            <Button className="nav-workouts-btn" variant="warning"><FontAwesomeIcon className="nav-wokrouts-dumbbell" icon={faDumbbell} /></Button>
+            <button type="button" aria-label="nav-to-workouts" className="nav-workouts-btn"><FontAwesomeIcon className="nav-wokrouts-dumbbell" icon={faDumbbell} /></button>
           </Link>
         </div>
       </div>

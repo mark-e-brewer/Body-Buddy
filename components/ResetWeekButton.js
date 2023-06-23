@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
 import { useAuth } from '../utils/context/authContext';
 import {
   patchGoal, patchOldGoalToPrev, postGoal, postWeek, patchWeek,
@@ -101,9 +100,10 @@ export default function ResetWeekButton({ goalObj, onUpdate, workoutsArray }) {
 
   return (
     <>
-      <Button
+      <button
+        type="button"
         onClick={handleSubmit}
-        variant="warning"
+        aria-label="reset-week"
         className="reset-week-btn"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -116,9 +116,9 @@ export default function ResetWeekButton({ goalObj, onUpdate, workoutsArray }) {
           >
             <FontAwesomeIcon icon={faArrowsRotate} />
           </p>
-          <p className="reset-week-text" style={{ marginLeft: '3px', marginBottom: '1px' }}>Week</p>
+          <p style={{ marginLeft: '3px', marginBottom: '1px' }}>Week</p>
         </div>
-      </Button>
+      </button>
     </>
   );
 }
