@@ -10,7 +10,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: rgb(128, 179, 234);
-  background: radial-gradient(circle at -140% -140%, #476c94 0%, rgb(246, 246, 246) 100%);
+  background: radial-gradient(circle at -200% -200%, #476c94 0%, rgb(255, 255, 255) 100%);
   backdrop-filter: blur(30px); /* Adjust the blur intensity as needed */
 }
 
@@ -933,6 +933,79 @@ body {
   margin-top: -4px;
 }
 /* BAR CHART CHART MUSCLE GROUPS ABOVE */
+/* FILTER THROUGH GRAPHS BELLOW */
+
+@keyframes blob-bounce-stats {
+  0% {
+    transform: translate(-100%, -100%) translate3d(-135%, 63px, 0);
+  }
+
+  50% {
+    transform: translate(-100%, -100%) translate3d(235%, 63px, 0);
+  }
+
+  100% {
+    transform: translate(-100%, -100%) translate3d(-135%, 63px, 0);
+  }
+}
+
+.blob-stat-filter {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #476C94;
+  filter: blur(22px);
+  animation: blob-bounce-stats 9s infinite ease;
+}
+
+.stats-filter-btn-cont {
+  margin-top: 30px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  z-index: 1111;
+  box-shadow: 0px 0px 12px -1px #476c94a5;
+}
+
+.stats-filter-btns {
+  width: 954px;
+  margin-left: 4px;
+  height: 52px;
+  margin-top: 4.5px;
+}
+
+.stat-filter-button {
+  width: 190px;
+  border: none;
+  background-color: white;
+  transition: 0.2s ease;
+  height: 3rem;
+}
+
+.stat-filter-button:hover {
+  background-color: #d4e7fb;
+}
+
+.stat-filter-button.selected { 
+  background-color: #80B3EA;
+  color: #ffffff;
+  transition: 0.2s ease;
+}
+
+.stat-index0 {
+  border-radius: 30px 0px 0px 30px;
+}
+
+.stat-index4 {
+  border-radius: 0px 30px 30px 0px;
+}
+
+
+
   /* BAR CHART WORKOUTS LOGGED EACH DAY BELLOW */
 #bar-workouts-each-day {
   height: 700px;
@@ -1348,6 +1421,10 @@ outline: solid rgb(205, 205, 205) 2px;
 }
 /* MOBILE LOG DAY MODAL/SUBMIT ABOVE */
 /* GOAL GENERATOR PAGE/ COMPONENT BELLOW */
+
+.gen-page-title {
+  margin-top: 14px;
+}
 .goal-gen-page-line-top {
   border-top: solid rgb(33, 33, 33) 2px;
   margin-top: 6px;
@@ -1400,27 +1477,27 @@ outline: solid rgb(205, 205, 205) 2px;
   }
 
   .desc-intention {   /* INTENTION DESCRIPTION */
-   margin-right: 42px;
+   margin-right: 40px;
   }
 
   .goal-gen-muscle-selector-cont {
-    margin-top: 18px;
-    margin-bottom: 18px;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
 
   /* GOAL GEN EXPERIENCE SELECTOR RADIO BUTTONS BELLOW */
 
   @keyframes blob-bounce-gen {
     0% {
-      transform: translate(-100%, -100%) translate3d(-40%, 66px, 0);
+      transform: translate(-100%, -100%) translate3d(-33%, 66px, 0);
     }
   
     50% {
-      transform: translate(-100%, -100%) translate3d(140%, 66px, 0);
+      transform: translate(-100%, -100%) translate3d(133%, 66px, 0);
     }
   
     100% {
-      transform: translate(-100%, -100%) translate3d(-40%, 66px, 0);
+      transform: translate(-100%, -100%) translate3d(-33%, 66px, 0);
     }
   }
 
@@ -1429,17 +1506,16 @@ outline: solid rgb(205, 205, 205) 2px;
     z-index: -1;
     top: 50%;
     left: 50%;
-    width: 190px;
+    width: 160px;
     height: 120px;
     border-radius: 50%;
     background-color: #476C94;
-    filter: blur(16px);
-    box-shadow: 0px 0px 35px 25px #80B3EA;
+    filter: blur(22px);
     animation: blob-bounce-gen 7s infinite ease;
   }
 
   .exp-btn-cont {
-    width: 312px;
+    width: 306px;
     position: relative;
     z-index: 1111;
     border-radius: 30px;
@@ -1448,29 +1524,30 @@ outline: solid rgb(205, 205, 205) 2px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 9px 9px 18px #c0c0c0;
+    box-shadow: 0px 0px 12px -1px #476c94a5;
     margin-bottom: 12px;
+    margin-top: 6px;
   }
 
   .experience-btns {
     border-radius: 30px;
-    margin-bottom: 16px;
-    margin-top: 8px;
+    margin-bottom: 18px;
     width: 300px;
-    height: 39px;
-    margin-top: 7px;
+    height: 26px;
+    margin-top: 3.5px;
 }
 
 
   .experience-btn {
     background-color: rgb(255, 255, 255);
     border: none;
-    height: 3rem;
+    height: 2.5rem;
     transition: 0.2s ease;
   }
   
   .experience-btn.selected {
     background-color: #80B3EA;
+    color: white;
     border: none;
     transition: 0.2s ease;
   }
@@ -1724,7 +1801,7 @@ border: none;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: rgb(128, 179, 234);
-  background: radial-gradient(circle at -130% -120%, #476c94f5 0%, rgb(246, 246, 246) 100%);
+  background: radial-gradient(circle at -200% -200%, #476c94f5 0%, rgb(246, 246, 246) 100%);
   backdrop-filter: blur(50px); /* Adjust the blur intensity as needed */
 }
 /* NAV BAR BELLOW */

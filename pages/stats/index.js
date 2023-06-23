@@ -47,7 +47,7 @@ export default function StatsPage() {
 
   return (
     <>
-      <div className="d-flex flex-column justify-content-center">
+      <div className="d-flex flex-column justify-content-center align-items-center">
         <StatOptionsButton setFilterGraphs={setFilterGraphs} />
         <div
           className="d-flex justify-content-center"

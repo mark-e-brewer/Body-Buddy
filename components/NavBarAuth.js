@@ -48,9 +48,6 @@ export default function NavBarAuth({ weekUid, setWeekUid }) {
             <Link passHref href={`/mobileLog/${weekUid}`}>
               <Nav.Link className="nav-text">Mobile Log</Nav.Link>
             </Link>
-            <Link passHref href="/info">
-              <Nav.Link className="nav-text">Info</Nav.Link>
-            </Link>
           </Nav>
           <button type="button" className="signout-btn" onClick={signOut}>Signout</button>
         </Navbar.Collapse>
