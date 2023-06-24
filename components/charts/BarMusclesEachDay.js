@@ -8,7 +8,7 @@ export default function BarChartMusclesEachDay({ workoutsArray }) {
   let sundayTotal = 0;
   let mondayTotal = 0;
   let tuesdayTotal = 0;
-  let wednsdayTotal = 0;
+  let wednesdayTotal = 0;
   let thursdayTotal = 0;
   let fridayTotal = 0;
   let saturdayTotal = 0;
@@ -48,8 +48,8 @@ export default function BarChartMusclesEachDay({ workoutsArray }) {
         mondayTotal += workoutsArray[i][muscleSelected];
       } else if (workoutsArray[i]?.day === 'Tuesday') {
         tuesdayTotal += workoutsArray[i][muscleSelected];
-      } else if (workoutsArray[i]?.day === 'Wednsday') {
-        wednsdayTotal += workoutsArray[i][muscleSelected];
+      } else if (workoutsArray[i]?.day === 'Wednesday') {
+        wednesdayTotal += workoutsArray[i][muscleSelected];
       } else if (workoutsArray[i]?.day === 'Thursday') {
         thursdayTotal += workoutsArray[i][muscleSelected];
       } else if (workoutsArray[i]?.day === 'Friday') {
@@ -72,7 +72,7 @@ export default function BarChartMusclesEachDay({ workoutsArray }) {
     sundayTotal = total.Sunday;
     mondayTotal = total.Monday;
     tuesdayTotal = total.Tuesday;
-    wednsdayTotal = total.Wednsday;
+    wednesdayTotal = total.Wednesday;
     thursdayTotal = total.Thursday;
     fridayTotal = total.Friday;
     saturdayTotal = total.Saturday;
@@ -86,8 +86,8 @@ export default function BarChartMusclesEachDay({ workoutsArray }) {
   if (tuesdayTotal === undefined) {
     tuesdayTotal = 0;
   }
-  if (wednsdayTotal === undefined) {
-    wednsdayTotal = 0;
+  if (wednesdayTotal === undefined) {
+    wednesdayTotal = 0;
   }
   if (thursdayTotal === undefined) {
     thursdayTotal = 0;
@@ -98,13 +98,13 @@ export default function BarChartMusclesEachDay({ workoutsArray }) {
   if (saturdayTotal === undefined) {
     saturdayTotal = 0;
   }
-  const totalsArray = [sundayTotal, mondayTotal, tuesdayTotal, wednsdayTotal, thursdayTotal, fridayTotal, saturdayTotal];
+  const totalsArray = [sundayTotal, mondayTotal, tuesdayTotal, wednesdayTotal, thursdayTotal, fridayTotal, saturdayTotal];
   const sortedDays = totalsArray.sort((a, b) => a - b);
   const highestVal = sortedDays[6];
   const sundayPercent = (sundayTotal / highestVal);
   const mondayPercent = (mondayTotal / highestVal);
   const tuesdayPercent = (tuesdayTotal / highestVal);
-  const wednsdayPercent = (wednsdayTotal / highestVal);
+  const wednesdayPercent = (wednesdayTotal / highestVal);
   const thursdayPercent = (thursdayTotal / highestVal);
   const fridayPercent = (fridayTotal / highestVal);
   const saturdayPercent = (saturdayTotal / highestVal);
@@ -130,8 +130,8 @@ export default function BarChartMusclesEachDay({ workoutsArray }) {
               <td className="bar-muscles-each-day-data" style={{ '--size': `${tuesdayPercent}` }}><span className="bar-muscles-each-day-datatext"> {tuesdayTotal} </span></td>
             </tr>
             <tr>
-              <th scope="row" className="label-bar-muscles-each-day">Wednsday</th>
-              <td className="bar-muscles-each-day-data" style={{ '--size': `${wednsdayPercent}` }}><span className="bar-muscles-each-day-datatext"> {wednsdayTotal} </span></td>
+              <th scope="row" className="label-bar-muscles-each-day">Wednesday</th>
+              <td className="bar-muscles-each-day-data" style={{ '--size': `${wednesdayPercent}` }}><span className="bar-muscles-each-day-datatext"> {wednesdayTotal} </span></td>
             </tr>
             <tr>
               <th scope="row" className="label-bar-muscles-each-day">Thursday</th>
