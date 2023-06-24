@@ -31,7 +31,7 @@ export default function WorkoutCard({ workoutObj, onUpdate, formOnUpdate }) {
               style={{
                 textAlign: 'center',
                 fontWeight: '600',
-                fontSize: '24px',
+                fontSize: '22px',
               }}
             >
               {workoutObj.day}

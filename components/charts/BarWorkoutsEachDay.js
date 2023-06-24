@@ -5,7 +5,7 @@ export default function BarChartWorkoutsEachDay({ workoutsArray }) {
   let sundayTotal = 0;
   let mondayTotal = 0;
   let tuesdayTotal = 0;
-  let wednsdayTotal = 0;
+  let wednesdayTotal = 0;
   let thursdayTotal = 0;
   let fridayTotal = 0;
   let saturdayTotal = 0;
@@ -16,8 +16,8 @@ export default function BarChartWorkoutsEachDay({ workoutsArray }) {
       mondayTotal += 1;
     } else if (workoutsArray[i]?.day === 'Tuesday') {
       tuesdayTotal += 1;
-    } else if (workoutsArray[i]?.day === 'Wednsday') {
-      wednsdayTotal += 1;
+    } else if (workoutsArray[i]?.day === 'Wednesday') {
+      wednesdayTotal += 1;
     } else if (workoutsArray[i]?.day === 'Thursday') {
       thursdayTotal += 1;
     } else if (workoutsArray[i]?.day === 'Friday') {
@@ -26,13 +26,13 @@ export default function BarChartWorkoutsEachDay({ workoutsArray }) {
       saturdayTotal += 1;
     }
   }
-  const totalsArray = [sundayTotal, mondayTotal, tuesdayTotal, wednsdayTotal, thursdayTotal, fridayTotal, saturdayTotal];
+  const totalsArray = [sundayTotal, mondayTotal, tuesdayTotal, wednesdayTotal, thursdayTotal, fridayTotal, saturdayTotal];
   const sortedDays = totalsArray.sort((a, b) => a - b);
   const highestVal = sortedDays[6];
   const sundayPercent = (sundayTotal / highestVal);
   const mondayPercent = (mondayTotal / highestVal);
   const tuesdayPercent = (tuesdayTotal / highestVal);
-  const wednsdayPercent = (wednsdayTotal / highestVal);
+  const wednesdayPercent = (wednesdayTotal / highestVal);
   const thursdayPercent = (thursdayTotal / highestVal);
   const fridayPercent = (fridayTotal / highestVal);
   const saturdayPercent = (saturdayTotal / highestVal);
@@ -58,8 +58,8 @@ export default function BarChartWorkoutsEachDay({ workoutsArray }) {
               <td className="bar-workouts-each-day-data" style={{ '--size': `${tuesdayPercent}` }}><span className="bar-workouts-each-day-datatext"> {tuesdayTotal} </span></td>
             </tr>
             <tr>
-              <th scope="row" className="label-bar-workouts-each-day">Wednsday</th>
-              <td className="bar-workouts-each-day-data" style={{ '--size': `${wednsdayPercent}` }}><span className="bar-workouts-each-day-datatext"> {wednsdayTotal} </span></td>
+              <th scope="row" className="label-bar-workouts-each-day">Wednesday</th>
+              <td className="bar-workouts-each-day-data" style={{ '--size': `${wednesdayPercent}` }}><span className="bar-workouts-each-day-datatext"> {wednesdayTotal} </span></td>
             </tr>
             <tr>
               <th scope="row" className="label-bar-workouts-each-day">Thursday</th>

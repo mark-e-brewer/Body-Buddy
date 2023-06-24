@@ -445,7 +445,6 @@ export default function GoalGenerator({ weekId }) {
       goalObj.calve = 20;
     }
   }
-  console.warn(weekId);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (weekId === undefined || weekId === 'undefined') {
