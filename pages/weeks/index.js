@@ -17,16 +17,16 @@ export default function WeeksPage() {
 
   return (
     <>
-      <h1 style={{ textAlign: 'center', marginBottom: '12px' }}>Previous Weeks Completion</h1>
+      <h1 style={{ textAlign: 'center', marginBottom: '0px', marginTop: '10px' }}>Previous Weeks Completion</h1>
       <div
         className="d-flex justify-content-center"
         style={{
-          maxWidth: '400px',
+          maxWidth: '1900px',
           margin: '0 auto',
         }}
       >
         <div
-          className="d-flex"
+          className="d-flex justify-content-center flex-wrap"
           style={{
             margin: '0px',
           }}

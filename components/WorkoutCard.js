@@ -17,7 +17,7 @@ export default function WorkoutCard({ workoutObj, onUpdate, formOnUpdate }) {
     <>
       <div className="workout-card">
         <div className="workout-card__content">
-          <div className="d-flex justify-content-around">
+          <div className="d-flex justify-content-around" style={{ marginLeft: '-7px', marginRight: '7px' }}>
             <LogWorkoutModal
               buttonText={<FontAwesomeIcon icon={faPlusCircle} />}
               background="white"
@@ -25,6 +25,7 @@ export default function WorkoutCard({ workoutObj, onUpdate, formOnUpdate }) {
               onUpdate={formOnUpdate}
               obj={workoutObj}
               textSize={16}
+              editOrNew="edit"
             />
             <h4
               style={{

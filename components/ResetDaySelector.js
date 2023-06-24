@@ -51,7 +51,7 @@ export default function SetResetDay({ dayArr, onUpdate }) {
   return (
     <>
       <div className="d-flex justify-content-center reset-day">
-        <h3 className="reset-day-text">Weekly reset day:</h3>
+        <h3 className="reset-day-text">Weekly reset day :</h3>
         <div style={{ width: '300px' }}>
           <Form onSubmit={handleSubmit}>
             <div className="d-flex align-content-center">
