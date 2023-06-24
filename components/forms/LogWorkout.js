@@ -23,7 +23,7 @@ const initialState = {
 };
 
 export default function LogWorkoutModal({
-  obj, buttonText, background, color, border, weekUidProp, textSize, onUpdate, marginTop,
+  obj, buttonText, background, color, border, weekUidProp, textSize, onUpdate, marginTop, editOrNew,
 }) {
   const [show, setShow] = useState(false);
   const [formInput, setFormInput] = useState(initialState);
@@ -77,6 +77,7 @@ export default function LogWorkoutModal({
       <Button
         variant="warning"
         className="workoutModal-btn"
+        id={`${editOrNew === 'new' ? 'logWorkoutNew' : ''}`}
         onClick={handleShow}
         style={{
           backgroundColor: background,
@@ -314,6 +315,7 @@ LogWorkoutModal.propTypes = {
   border: PropTypes.string,
   textSize: PropTypes.string,
   marginTop: PropTypes.string,
+  editOrNew: PropTypes.string.isRequired,
 };
 
 LogWorkoutModal.defaultProps = {
@@ -322,6 +324,6 @@ LogWorkoutModal.defaultProps = {
   color: 'black',
   buttonText: 'Log a Workout',
   border: 'none',
-  textSize: '20px',
+  textSize: '16px',
   marginTop: '1px',
 };

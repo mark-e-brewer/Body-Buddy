@@ -24,7 +24,7 @@ export default function WorkoutsViewPage() {
 
   return (
     <>
-      <h1 className="d-flex justify-content-center">Week {week[0]?.weekNum} Workouts</h1>
+      <h1 className="d-flex justify-content-center" style={{ marginTop: '10px' }}>Week {week[0]?.weekNum} Workouts</h1>
       <div className="d-flex justify-content-center">
         {workouts.map((obj) => <WorkoutCardWeekView key={obj.firebaseKey} workoutObj={obj} />)}
       </div>

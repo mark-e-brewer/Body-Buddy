@@ -23,7 +23,7 @@ export default function WeekCard({ weekObj, weekObjDisplay }) {
   return (
     <>
       <Link href={`/weeks/${weekObj.weekUid}`} passHref>
-        <div style={{ margin: '18px' }} className="week-card-border">
+        <div style={{ margin: '12px' }} className="week-card-border">
           <div className="week-card">
             <div className="week-card-front">
               <div className="week-title">
@@ -32,7 +32,7 @@ export default function WeekCard({ weekObj, weekObjDisplay }) {
               <p className="week-subtitle">{`Week ${weekObj.weekNum}`}</p>
             </div>
             <div className="week-card-back">
-              <div className="d-flex flex-row justify-content-between week-card-row-back">
+              <div className="d-flex flex-row justify-content-between week-card-row-back week-card-titles-back">
                 <p><FontAwesomeIcon icon={faCheckCircle} /></p>
                 <p className="mg-week-card-title">Muscle Group</p>
                 <p><FontAwesomeIcon icon={faBullseye} /></p>

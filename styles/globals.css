@@ -1,4 +1,5 @@
 @import 'bootstrap/dist/css/bootstrap.css';
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Syncopate:wght@400;700&display=swap');
 
 @media (min-width: 1024px) {
 html,
@@ -7,10 +8,9 @@ body {
   padding: 0;
   width: 100%;
   height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: rgb(128, 179, 234);
-  background: radial-gradient(circle at -200% -200%, #476c94 0%, rgb(255, 255, 255) 100%);
+  font-family: 'Comfortaa', cursive;
+  background-image: radial-gradient(circle at 50% -185%, #476c94 0%, rgb(255, 255, 255) 90%);
+  background-repeat: no-repeat;
   backdrop-filter: blur(30px); /* Adjust the blur intensity as needed */
 }
 
@@ -27,7 +27,78 @@ body {
   background-color: rgb(255, 255, 255);
 }
 
-/* BACKGROUN SHAPES BELL0W */
+/* SIGN IN AND OUT BELLOW */
+
+.signing-page-logo {
+  font-size: 92px;
+  color: #476C94;
+}
+
+.signin-logo-pic {
+  height: 410px;
+  z-index: -1;
+  top: 7%;
+  left: 36%;
+  position: absolute;
+}
+
+.signing-page-moto {
+  font-size: 40px;
+  color: #476C94;
+}
+
+.signin-text {
+  font-size: 28px;
+  margin-bottom: 4px;
+  margin-top: 100px;
+}
+
+.sign-in-btn {
+  align-self: center;
+  border: none;
+  border-radius: 3rem;
+  height: 4rem;
+  width: 250px;
+  background-color: #80B3EA;
+  box-shadow: 6px 6px 8px #b8b8b8;
+  transition: 0.25s ease;
+  }
+
+
+.signin-hand {
+  padding-top: 8px;
+  transition: transform 0.25s ease-in-out;
+  padding-bottom: 6px;
+  transform: scale(1.8);
+}
+
+.sign-in-btn:hover {
+background-color: #80B3EA;
+transform: scale(1.023);
+box-shadow: 6.5px 10px 10px #b8b8b8fb;
+}
+
+.sign-in-btn:hover .signin-hand {
+  animation: rotate-signin 0.6s ease-in-out; /* Add rotation animation */
+}
+
+@keyframes rotate-signin {
+  0% {
+    transform: rotate(0deg) scale(1.8);
+  }
+  25% {
+    transform: rotate(-25deg) scale(1.9);
+  }
+  25% {
+    transform: rotate(25deg) scale(1.925);
+  }
+  75% {
+    transform: rotate(-25deg) scale(1.9);
+  }
+  100% {
+    transform: rotate(0deg) scale(1.8);
+  }
+}
 
 
 
@@ -50,7 +121,7 @@ body {
 
 .reset-day {
   margin-top: 16px;
-  margin-left: 160px;
+  margin-left: 150px;
   margin-bottom: 4px;
 }
 
@@ -59,7 +130,7 @@ body {
 }
 
 .reset-day-input {
-  font-size: 22px;
+  font-size: 20px;
   margin-top: -3px;
   font-weight: 600;
   padding-left: 5px;
@@ -108,7 +179,7 @@ body {
 /* RESET WEEK BUTTON BELLOW */
 
 .reset-week-text {
-  padding-left: 9px;
+  padding-left: 6px;
 }
 
 .reset-week-btn {
@@ -163,14 +234,14 @@ body {
 
 .nav-brand-name {
   font-size: 24px;
-  padding-bottom: 12px;
+  padding-bottom: 10px;
 }
+
 .nav-logo-img {
   width: 80px;
   height: 60px;
   padding: 0px;
   margin-right: 10px;
-  
 }
 
 .nav-bar {
@@ -194,8 +265,29 @@ body {
 }
 
 /*NAV BAR ABOVE */
-
 /* GOAL BOARD BELLOW */
+
+@keyframes blob-bounce {
+  0% {
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+  }
+
+  50% {
+    transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+  }
+
+  75% {
+    transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+  }
+
+  100% {
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
+  }
+}
 
 .goal-border {
   position: relative;
@@ -219,10 +311,12 @@ body {
   width: 650px;
   height:600px;
   border-radius: 50%;
- background: #80B3EA;  /*  MAIN BLUE */
+  background: #80B3EA;  /*  MAIN BLUE */
   opacity: 1;
   filter: blur(30px);
-  animation: blob-bounce 7s infinite ease;
+  animation-name: blob-bounce;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
 }
 
 .cont {
@@ -232,9 +326,9 @@ body {
 }
 
 .progress-bar-goal {
-  width: 96.5%;
+  width: 97.5%;
   height: 20px;
-  background-color: #ffffff;
+  background-color: #f5f5f592;
   border-radius: 9px;
   margin-bottom: 8px;
   position: relative;
@@ -251,7 +345,7 @@ body {
 .progress-text-goal {
   position: absolute;
   font-size: 14px;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #000000;
@@ -278,9 +372,9 @@ body {
 }
 
 .muscle-goal-title {
-  margin-top: -2px;
+  margin-top: -1.5px;
   font-size: 18px;
-  margin-left: 6px;
+  margin-left: 4px;
   text-align: left;
 }
 /* GOAL BOARD ABOVE */
@@ -421,6 +515,10 @@ body {
   transition: transform 0.7s cubic-bezier(0.785, 0.135, 0.150, 0.860);
 }
 
+.week-card-titles-back {
+  margin-top: -6px;
+}
+
 .week-card-back {
   color: rgb(0, 0, 0);
   transform: translateX(120%);
@@ -477,6 +575,7 @@ body {
 
 .workout-card {
   width: 255px;
+  min-width: 255px;
   height: 406px;
   border-radius: 15px;
   padding: 7px;
@@ -504,7 +603,7 @@ body {
 }
 
 .workout-card:hover {
-  transform: scale(1.06);
+  transform: scale(1.027);
   box-shadow: #80B3EA 0 0px 24px 2px;
 }
 
@@ -516,6 +615,18 @@ body {
 
 /* WORKOUT LOG MODAL BELLOW */
 
+ #logWorkoutNew {
+  border-radius: 3rem;
+  height: 3rem;
+  box-shadow: 6px 6px 8px #b8b8b8;
+  font-size: 16px;
+  transition: 0.2s ease;
+}
+
+#logWorkoutNew:hover {
+  transform: scale(1.05);
+  box-shadow: 6.5px 9px 9px #b8b8b8ed;
+}
 
 .workout-form {
   max-width: 500px;
@@ -807,106 +918,6 @@ body {
 }
 
 /* GOAL SET MODAL ABOVE  */
-/* INFO CHART BELLOW */
-.info-card {
-  position: relative;
-  width: 610px;
-  height: 610px;
-  border-radius: 14px;
-  z-index: 1111;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 9px 9px 18px #c0c0c0;
-}
-
-.blob {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background-color: #80B3EA;
-  filter: blur(16px);
-  animation: blob-bounce 7s infinite ease;
-}
-
-@keyframes blob-bounce {
-  0% {
-    transform: translate(-100%, -100%) translate3d(0, 0, 0);
-  }
-
-  25% {
-    transform: translate(-100%, -100%) translate3d(100%, 0, 0);
-  }
-
-  50% {
-    transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
-  }
-
-  75% {
-    transform: translate(-100%, -100%) translate3d(0, 100%, 0);
-  }
-
-  100% {
-    transform: translate(-100%, -100%) translate3d(0, 0, 0);
-  }
-}
-
-.info-chart { 
-  width: 98%;
-  height: 98%;
-  content: '';
-  border-radius: 10px;
-  display: inline-grid;
-  grid-template-rows: repeat(12, 1fr);
-  gap: 5px;
-  background: rgb(255, 255, 255);
-  overflow: hidden;
-  z-index: 2;
-}
-
-.info-line {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-top: 2px dotted rgb(0, 0, 0);
-}
-
-.first-col {
-  width: 165px;
-  margin-left: 6px;
-  text-align: left;
-}
-
-.second-col {
-  width: 60px;
-}
-
-.third-col {
-  width: 70px;
-}
-
-.fourth-col {
-  width: 90px;
-}
-
-.fifth-col {
-  width: 85px;
-}
-
-.fifth-col {
-  width: 90px;
-}
-
-.sixth-col {
-  width: 100px;
-}
-/* INFO CHART ABOVE */
-
 /* BAR CHART MUSCLE GROUPS BELLOW */
 #bar-muscle-total {
   height: 700px;
@@ -979,6 +990,8 @@ body {
 }
 
 .stat-filter-button {
+  font-size: 14px;
+  font-weight: 700;
   width: 190px;
   border: none;
   background-color: white;
@@ -1061,14 +1074,14 @@ body {
 
   .muscle-option-div-bar {
     border: solid #D4A573 3px;
-    border-radius: 3px;
+    border-radius: 2px;
   }
 
   .stat-filter-button-muscles {
     background-color: #ffffff;
     border: none;
     font-weight: 600;
-    border-radius: 1px;
+    border-radius: 0px;
     transition: 0.2s ease-in-out;
   }
 
@@ -1098,7 +1111,7 @@ body {
     background-color: #ffefde;
     border: none;
     font-weight: 600;
-    border-radius: 1px;
+    border-radius: 0px;
   }
 
   .stat-filter-button-muscles-active {
@@ -1106,7 +1119,7 @@ body {
     font-weight: 600;
     border: none;
     color: white;
-    border-radius: 1px;
+    border-radius: 0px;
   }
 
   .stat-filter-button-muscles-active:hover {
@@ -1114,7 +1127,7 @@ body {
     border: none;
     color: white;
     font-weight: 600;
-    border-radius: 1px;
+    border-radius: 0px;
   }
 /* MUSCLE GROUP SETS EACH DAY OF WEEK ABOVE */
 /* LINE PERCENT OF GOAL BELLOW */
@@ -1461,7 +1474,7 @@ outline: solid rgb(205, 205, 205) 2px;
 .goal-gen-muscle-title {
   padding-bottom: 0px;
   padding-top: 10px;
-  width: 140px;
+  width: 170px;
 }
 .muscle-intention-container {
   width: 464px;
@@ -1534,7 +1547,7 @@ outline: solid rgb(205, 205, 205) 2px;
     margin-bottom: 18px;
     width: 300px;
     height: 26px;
-    margin-top: 3.5px;
+    margin-top: 3.9px;
 }
 
 
@@ -1543,6 +1556,8 @@ outline: solid rgb(205, 205, 205) 2px;
     border: none;
     height: 2.5rem;
     transition: 0.2s ease;
+    font-size: 13.5px;
+    font-weight: 900;
   }
   
   .experience-btn.selected {
