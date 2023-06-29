@@ -44,59 +44,59 @@ export default function BarChartMuscles({ workoutsArray }) {
   return (
     <>
       <div className="bar-chart-total-muscles">
-        <table id="bar-muscle-total" className="charts-css column show-labels data-spacing-8 show-primary-axis show-5-secondary-axes">
+        <table id="bar-muscle-total" className="charts-css column show-labels data-spacing-10 show-primary-axis show-5-secondary-axes">
           <h3 style={{ marginBottom: '12px' }} className="d-flex justify-content-center">Total sets Complete for each muscle group</h3>
 
           <tbody>
             <tr>
               <th scope="row" className="label-bar-muscles"> Traps </th>
-              <td className="bar-muscle-data" style={{ '--size': `${trapPercent}` }}><span className="bar-muscle-datatext"> {trapValue} </span><span className="tooltip">Trapezius</span></td>
+              <td className="bar-muscle-data" style={{ '--size': `${trapPercent}`, '--color': '#80B3EA' }}><span className="bar-muscle-datatext"> {trapValue} </span><span className="tooltip">Trapezius</span></td>
             </tr>
             <tr>
               <th scope="row" className="label-bar-muscles">Front D</th>
-              <td className="bar-muscle-data" style={{ '--size': `${frontDeltPercent}` }}><span className="bar-muscle-datatext"> {frontDeltValue} </span>
+              <td className="bar-muscle-data" style={{ '--size': `${frontDeltPercent}`, '--color': '#476C94' }}><span className="bar-muscle-datatext"> {frontDeltValue} </span>
                 <span className="tooltip">Front Delts</span>
               </td>
             </tr>
             <tr>
               <th scope="row" className="label-bar-muscles">R/S Delt</th>
-              <td className="bar-muscle-data" style={{ '--size': `${rearSideDeltPercent}` }}><span className="bar-muscle-datatext"> {rearSideDeltValue} </span><span className="tooltip">Rear/Side Delts</span></td>
+              <td className="bar-muscle-data" style={{ '--size': `${rearSideDeltPercent}`, '--color': '#80B3EA' }}><span className="bar-muscle-datatext"> {rearSideDeltValue} </span><span className="tooltip">Rear/Side Delts</span></td>
             </tr>
             <tr>
               <th scope="row" className="label-bar-muscles"> Back </th>
-              <td className="bar-muscle-data" style={{ '--size': `${backPercent}` }}><span className="bar-muscle-datatext"> {backValue} </span></td>
+              <td className="bar-muscle-data" style={{ '--size': `${backPercent}`, '--color': '#476C94' }}><span className="bar-muscle-datatext"> {backValue} </span></td>
             </tr>
             <tr>
               <th scope="row" className="label-bar-muscles"> Chest </th>
-              <td className="bar-muscle-data" style={{ '--size': `${chestPercent}` }}><span className="bar-muscle-datatext"> {chestValue} </span></td>
+              <td className="bar-muscle-data" style={{ '--size': `${chestPercent}`, '--color': '#80B3EA' }}><span className="bar-muscle-datatext"> {chestValue} </span></td>
             </tr>
             <tr>
               <th scope="row" className="label-bar-muscles"> Bicep </th>
-              <td className="bar-muscle-data" style={{ '--size': `${bicepPercent}` }}><span className="bar-muscle-datatext"> {bicepValue} </span></td>
+              <td className="bar-muscle-data" style={{ '--size': `${bicepPercent}`, '--color': '#476C94' }}><span className="bar-muscle-datatext"> {bicepValue} </span></td>
             </tr>
             <tr>
               <th scope="row" className="label-bar-muscles"> Tricep </th>
-              <td className="bar-muscle-data" style={{ '--size': `${tricepPercent}` }}><span className="bar-muscle-datatext"> {tricepValue} </span></td>
+              <td className="bar-muscle-data" style={{ '--size': `${tricepPercent}`, '--color': '#80B3EA' }}><span className="bar-muscle-datatext"> {tricepValue} </span></td>
             </tr>
             <tr>
               <th scope="row" className="label-bar-muscles"> Quad </th>
-              <td className="bar-muscle-data" style={{ '--size': `${quadPercent}` }}><span className="bar-muscle-datatext"> {quadValue} </span>
+              <td className="bar-muscle-data" style={{ '--size': `${quadPercent}`, '--color': '#476C94' }}><span className="bar-muscle-datatext"> {quadValue} </span>
                 <span className="tooltip">Quadriceps</span>
               </td>
             </tr>
             <tr>
               <th scope="row" className="label-bar-muscles"> Ham </th>
-              <td className="bar-muscle-data" style={{ '--size': `${hamstringPercent}` }}><span className="bar-muscle-datatext"> {hamstringValue} </span>
+              <td className="bar-muscle-data" style={{ '--size': `${hamstringPercent}`, '--color': '#80B3EA' }}><span className="bar-muscle-datatext"> {hamstringValue} </span>
                 <span className="tooltip">Hamstrings</span>
               </td>
             </tr>
             <tr>
               <th scope="row" className="label-bar-muscles"> Glutes </th>
-              <td className="bar-muscle-data" style={{ '--size': `${glutePercent}` }}><span className="bar-muscle-datatext"> {gluteValue} </span></td>
+              <td className="bar-muscle-data" style={{ '--size': `${glutePercent}`, '--color': '#476C94' }}><span className="bar-muscle-datatext"> {gluteValue} </span></td>
             </tr>
             <tr>
               <th scope="row" className="label-bar-muscles"> Calves </th>
-              <td className="bar-muscle-data" style={{ '--size': `${calvePercent}` }}><span className="bar-muscle-datatext"> {calveValue} </span></td>
+              <td className="bar-muscle-data" style={{ '--size': `${calvePercent}`, '--color': '#80B3EA' }}><span className="bar-muscle-datatext"> {calveValue} </span></td>
             </tr>
           </tbody>
         </table>
