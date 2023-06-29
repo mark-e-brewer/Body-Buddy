@@ -1,6 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap.css';
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Syncopate:wght@400;700&display=swap');
 
+
 @media (min-width: 1024px) {
 html,
 body {
@@ -8,7 +9,7 @@ body {
   padding: 0;
   width: 100%;
   height: 100vh;
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Comfortaa', cursive !important;
   background-image: radial-gradient(circle at 50% -185%, #476c94 0%, rgb(255, 255, 255) 90%);
   background-repeat: no-repeat;
   backdrop-filter: blur(30px); /* Adjust the blur intensity as needed */
@@ -120,7 +121,7 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
 /* RESET DAY COMPONENT BELLOW */
 
 .reset-day {
-  margin-top: 16px;
+  margin-top: 14px;
   margin-left: 150px;
   margin-bottom: 4px;
 }
@@ -233,14 +234,15 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
 /* NAV BAR BELLOW */
 
 .nav-brand-name {
-  font-size: 24px;
-  padding-bottom: 10px;
+  font-size: 25px;
+  padding-bottom: 8px;
 }
 
 .nav-logo-img {
   width: 80px;
   height: 60px;
   padding: 0px;
+  margin-top: -4px;
   margin-right: 10px;
 }
 
@@ -919,12 +921,12 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
 
 /* GOAL SET MODAL ABOVE  */
 /* BAR CHART MUSCLE GROUPS BELLOW */
+
 #bar-muscle-total {
   height: 700px;
   width: 900px;
   margin-top: 30px;
   --color: #80B3EA;
-  /* complementary of (255, 163, 0) orange */
 }
 
 .label-bar-muscles {
@@ -935,13 +937,14 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
 .bar-muscle-data {
   border-radius: 6px 6px 0px 0px;
   transition: 1s ease-in-out;
+  box-shadow: 0px 0px 6px 0px #80B3EA;
 }
 
 .bar-muscle-datatext {
   font-size: 18px;
   font-weight: 600;
   color: rgb(0, 0, 0);
-  margin-top: -4px;
+  margin-top: -2.5px;
 }
 /* BAR CHART CHART MUSCLE GROUPS ABOVE */
 /* FILTER THROUGH GRAPHS BELLOW */
@@ -983,10 +986,10 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
 }
 
 .stats-filter-btns {
-  width: 954px;
+  width: 953.5px;
   margin-left: 4px;
-  height: 52px;
-  margin-top: 4.5px;
+  height: 51px;
+  margin-top: 3px;
 }
 
 .stat-filter-button {
@@ -1034,13 +1037,14 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
 .bar-workouts-each-day-data {
   border-radius: 6px 6px 0px 0px;
   transition: 1s ease-in-out;
+  box-shadow: 0px 0px 6px 0px #80B3EA;
 }
 
 .bar-workouts-each-day-datatext {
   font-size: 18px;
   font-weight: 600;
   color: rgb(0, 0, 0);
-  margin-top: -4px;
+  margin-top: -2.5px;
 }
   /* BAR CHART WORKOUTS LOGGED EACH DAY ABOVE */
   /* BAR CHART MUSCLE GROUPS SET EACH DAY OF WEEK BELLOW */
@@ -1061,6 +1065,7 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
   
   .bar-muscles-each-day-data {
     border-radius: 6px 6px 0px 0px;
+    box-shadow: 0px 0px 6px 0px #80B3EA;
     transition: 1s ease-in-out;
   }
   
@@ -1068,7 +1073,7 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
     font-size: 18px;
     font-weight: 600;
     color: rgb(0, 0, 0);
-    margin-top: -4px;
+    margin-top: -2.5px;
   }
 
 
@@ -1203,8 +1208,8 @@ outline: solid rgb(205, 205, 205) 2px;
   background-color: #80B3EA;
   color: #80B3EA;
   border: none;
-  height: 2.5px;
-  width: 1.9rem;
+  height: 3px;
+  width: 2rem;
   border-radius: 1px;
 }
 
@@ -1220,10 +1225,11 @@ outline: solid rgb(205, 205, 205) 2px;
   z-index: 10;
   margin: 0px;
   top: -38%;
-  left: 60%;
+  left: 36%;
 }
 
 #legend-item {
+  font-size: 14.5px;
   margin: 0px;
   padding: 0px;
 }
@@ -1490,7 +1496,7 @@ outline: solid rgb(205, 205, 205) 2px;
   }
 
   .desc-intention {   /* INTENTION DESCRIPTION */
-   margin-right: 40px;
+   margin-right: 38px;
   }
 
   .goal-gen-muscle-selector-cont {
@@ -1547,7 +1553,7 @@ outline: solid rgb(205, 205, 205) 2px;
     margin-bottom: 18px;
     width: 300px;
     height: 26px;
-    margin-top: 3.9px;
+    margin-top: 2.9px;
 }
 
 
@@ -1655,7 +1661,7 @@ outline: solid rgb(205, 205, 205) 2px;
 .intent-radio-btns {
   position: relative;
   font-size: 18px;
-  left: 24%;
+  left: 25%;
 }
 
 .intention-tooltip.active{
@@ -1813,8 +1819,7 @@ border: none;
   padding: 0;
   width: 100%;
   height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Comfortaa', cursive;
   background: rgb(128, 179, 234);
   background: radial-gradient(circle at -200% -200%, #476c94f5 0%, rgb(246, 246, 246) 100%);
   backdrop-filter: blur(50px); /* Adjust the blur intensity as needed */
@@ -1994,6 +1999,7 @@ border: none;
   .counter-muscle {
     align-self: center;
     margin-bottom: 6px;
+    font-size: 16.5px;
   }
   
   .counter-container > p {

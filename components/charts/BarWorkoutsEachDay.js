@@ -40,7 +40,7 @@ export default function BarChartWorkoutsEachDay({ workoutsArray }) {
   return (
     <>
       <div className="bar-chart-workouts-each-day">
-        <table id="bar-workouts-each-day" className="charts-css column show-labels data-spacing-8 show-primary-axis show-5-secondary-axes">
+        <table id="bar-workouts-each-day" className="charts-css column show-labels data-spacing-20 show-primary-axis show-5-secondary-axes">
           <h3 style={{ marginBottom: '12px' }} className="d-flex justify-content-center">Workouts Complete Each Day of The Week</h3>
 
           <tbody>
@@ -50,7 +50,7 @@ export default function BarChartWorkoutsEachDay({ workoutsArray }) {
             </tr>
             <tr>
               <th scope="row" className="label-bar-workouts-each-day">Monday</th>
-              <td className="bar-workouts-each-day-data" style={{ '--size': `${mondayPercent}` }}><span className="bar-workouts-each-day-datatext"> {mondayTotal} </span>
+              <td className="bar-workouts-each-day-data" style={{ '--size': `${mondayPercent}`, '--color': '#476C94' }}><span className="bar-workouts-each-day-datatext"> {mondayTotal} </span>
               </td>
             </tr>
             <tr>
@@ -59,7 +59,7 @@ export default function BarChartWorkoutsEachDay({ workoutsArray }) {
             </tr>
             <tr>
               <th scope="row" className="label-bar-workouts-each-day">Wednesday</th>
-              <td className="bar-workouts-each-day-data" style={{ '--size': `${wednesdayPercent}` }}><span className="bar-workouts-each-day-datatext"> {wednesdayTotal} </span></td>
+              <td className="bar-workouts-each-day-data" style={{ '--size': `${wednesdayPercent}`, '--color': '#476C94' }}><span className="bar-workouts-each-day-datatext"> {wednesdayTotal} </span></td>
             </tr>
             <tr>
               <th scope="row" className="label-bar-workouts-each-day">Thursday</th>
@@ -67,7 +67,7 @@ export default function BarChartWorkoutsEachDay({ workoutsArray }) {
             </tr>
             <tr>
               <th scope="row" className="label-bar-workouts-each-day">Friday</th>
-              <td className="bar-workouts-each-day-data" style={{ '--size': `${fridayPercent}` }}><span className="bar-workouts-each-day-datatext"> {fridayTotal} </span></td>
+              <td className="bar-workouts-each-day-data" style={{ '--size': `${fridayPercent}`, '--color': '#476C94' }}><span className="bar-workouts-each-day-datatext"> {fridayTotal} </span></td>
             </tr>
             <tr>
               <th scope="row" className="label-bar-workouts-each-day">Saturday</th>

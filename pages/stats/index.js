@@ -50,7 +50,7 @@ export default function StatsPage() {
       <div className="d-flex flex-column justify-content-center align-items-center">
         <StatOptionsButton setFilterGraphs={setFilterGraphs} />
         <div
-          className="d-flex justify-content-center"
+          className="d-flex justify-content-center graphs-container"
           style={{
             alignItems: 'center',
           }}
