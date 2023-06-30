@@ -42,7 +42,9 @@ function Home() {
   };
 
   useEffect(() => {
-    getCurrentGoal();
+    getCurrentGoal()?.then((data) => {
+      setGoal(data);
+    });
     getTheResetDay();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -66,13 +68,13 @@ function Home() {
         className="d-flex justify-content-center"
         style={{
           marginTop: '0px',
-          marginBottom: '34px',
+          marginBottom: '30px',
         }}
       >
-        <div style={{ marginRight: '25px', marginTop: '5px' }}>
+        <div style={{ marginRight: '25px', marginTop: '2px' }}>
           <SetGoalModal goalObj={goal[0]} onUpdate={getCurrentGoal} />
         </div>
-        <div style={{ marginleft: '25px', marginTop: '5px' }}>
+        <div style={{ marginleft: '25px', marginTop: '2px' }}>
           <ResetWeekButton goalObj={goal[0]} onUpdate={getCurrentGoal} workoutsArray={workouts} />
         </div>
       </div>

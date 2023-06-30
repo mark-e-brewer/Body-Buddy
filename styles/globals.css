@@ -123,7 +123,7 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
 .reset-day {
   margin-top: 14px;
   margin-left: 150px;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 
 .reset-day-text {
@@ -311,13 +311,13 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
   top: 50%;
   left: 50%;
   width: 650px;
-  height:600px;
+  height: 550px;
   border-radius: 50%;
-  background: #80B3EA;  /*  MAIN BLUE */
+  background: linear-gradient(34deg, rgba(128,179,234,1) 36%, rgba(71,108,148,1) 91%);
   opacity: 1;
-  filter: blur(30px);
+  filter: blur(26px);
   animation-name: blob-bounce;
-  animation-duration: 6s;
+  animation-duration: 7s;
   animation-iteration-count: infinite;
 }
 
@@ -362,7 +362,7 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
   height: 97.25%;
   text-align: left;
   background: rgb(234, 234, 234);
-  background: linear-gradient(90deg, rgb(217, 217, 217) 13%, rgb(234, 234, 234) 48%, rgb(255, 255, 255) 78%);
+  background: linear-gradient(90deg, rgb(219, 219, 219) 13%, rgb(234, 234, 234) 48%, rgb(255, 255, 255) 78%);
   border-radius: 10px;
   position: relative;
 
@@ -374,11 +374,41 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
 }
 
 .muscle-goal-title {
-  margin-top: -1.5px;
+  margin-top: -1px;
+  margin-bottom: 5.5px;
   font-size: 18px;
   margin-left: 4px;
   text-align: left;
 }
+
+.goal-check-first {
+  margin-left: 5px;
+  padding-top: 9px;
+  margin-bottom: 0px;
+  color: transparent;
+}
+
+.goal-check-first-complete {
+  margin-left: 5px;
+  padding-top: 9px;
+  margin-bottom: 0px;
+  color: #476C94;
+}
+
+.goal-check {
+  margin-left: 5px;
+  margin-top: -3px;
+  margin-bottom: 0px;
+  color: transparent;
+}
+
+.goal-check-complete {
+  margin-left: 5px;
+  margin-top: -2px;
+  margin-bottom: 0px;
+  color: #476C94;
+}
+
 /* GOAL BOARD ABOVE */
 .nav-workouts-btn {
   padding-top: 12px;

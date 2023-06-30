@@ -40,7 +40,7 @@ export default function BarChartWorkoutsEachDay({ workoutsArray }) {
   return (
     <>
       <div className="bar-chart-workouts-each-day">
-        <table id="bar-workouts-each-day" className="charts-css column show-labels data-spacing-20 show-primary-axis show-5-secondary-axes">
+        <table id="bar-workouts-each-day" className="charts-css column show-labels data-spacing-20 show-primary-axis show-4-secondary-axes">
           <h3 style={{ marginBottom: '12px' }} className="d-flex justify-content-center">Workouts Complete Each Day of The Week</h3>
 
           <tbody>
