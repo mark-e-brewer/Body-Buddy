@@ -1,6 +1,8 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function GoalBoard({ goalObj, workoutsArray }) {
   let trapValue = 0;
@@ -14,6 +16,17 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
   let hamstringValue = 0;
   let gluteValue = 0;
   let calveValue = 0;
+  let trapCheck = false;
+  let frontDeltCheck = false;
+  let rearSideDeltCheck = false;
+  let backCheck = false;
+  let chestCheck = false;
+  let bicepCheck = false;
+  let tricepCheck = false;
+  let quadCheck = false;
+  let hamstringCheck = false;
+  let gluteCheck = false;
+  let calveCheck = false;
 
   for (let i = 0; i < workoutsArray.length; i++) {
     trapValue += workoutsArray[i]?.trapSets;
@@ -41,47 +54,62 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
   let glutePercent = (gluteValue / goalObj.gluteGoal) * 100;
   let calvePercent = (calveValue / goalObj.gluteGoal) * 100;
 
-  if (trapPercent > 100) {
+  if (trapPercent >= 100) {
     trapPercent = 100;
+    trapCheck = true;
   }
-  if (frontDeltPercent > 100) {
+  if (frontDeltPercent >= 100) {
     frontDeltPercent = 100;
+    frontDeltCheck = true;
   }
-  if (rearSideDeltPercent > 100) {
+  if (rearSideDeltPercent >= 100) {
     rearSideDeltPercent = 100;
+    rearSideDeltCheck = true;
   }
-  if (backPercent > 100) {
+  if (backPercent >= 100) {
     backPercent = 100;
+    backCheck = true;
   }
-  if (chestPercent > 100) {
+  if (chestPercent >= 100) {
     chestPercent = 100;
+    chestCheck = true;
   }
-  if (bicepPercent > 100) {
+  if (bicepPercent >= 100) {
     bicepPercent = 100;
+    bicepCheck = true;
   }
-  if (tricepPercent > 100) {
+  if (tricepPercent >= 100) {
     tricepPercent = 100;
+    tricepCheck = true;
   }
-  if (quadPercent > 100) {
+  if (quadPercent >= 100) {
     quadPercent = 100;
+    quadCheck = true;
   }
-  if (hamstringPercent > 100) {
+  if (hamstringPercent >= 100) {
     hamstringPercent = 100;
+    hamstringCheck = true;
   }
-  if (glutePercent > 100) {
+  if (glutePercent >= 100) {
     glutePercent = 100;
+    gluteCheck = true;
   }
-  if (calvePercent > 100) {
+  if (calvePercent >= 100) {
     calvePercent = 100;
+    calveCheck = true;
   }
 
   return (
     <>
       <div className="goal-border">
         <Card className="d-flex goal">
+          <h4 className="text-center" style={{ marginBottom: '-20px', marginTop: '8px' }}>Week {goalObj.weekNum}</h4>
           {/* Traps */}
           <div className="muscle-goal">
-            <Card.Title style={{ marginTop: '10px' }} className="muscle-goal-title">Trapezius</Card.Title>
+            <div className="d-flex">
+              <Card.Title style={{ marginTop: '10px' }} className="muscle-goal-title">Trapezius</Card.Title>
+              <p className={`goal-check-first${trapCheck === true ? '-complete' : ''}`}><FontAwesomeIcon icon={faCheck} /></p>
+            </div>
             <div className="progress-bar-goal">
               <div className="progress-goal" style={{ width: `${trapPercent}%` }} />
               <div className="progress-text-goal">{trapValue} / {goalObj.trapGoal}</div>
@@ -89,7 +117,10 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
           </div>
           {/* Front Deltoids */}
           <div className="muscle-goal">
-            <Card.Title className="muscle-goal-title">Front Deltoids</Card.Title>
+            <div className="d-flex">
+              <Card.Title className="muscle-goal-title">Front Deltoids</Card.Title>
+              <p className={`goal-check${frontDeltCheck === true ? '-complete' : ''}`}><FontAwesomeIcon icon={faCheck} /></p>
+            </div>
             <div className="progress-bar-goal">
               <div className="progress-goal" style={{ width: `${frontDeltPercent}%` }} />
               <div className="progress-text-goal">{frontDeltValue} / {goalObj.frontDeltGoal}</div>
@@ -97,7 +128,10 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
           </div>
           {/* Side & Rear Deltoids */}
           <div className="muscle-goal">
-            <Card.Title className="muscle-goal-title">Side & Rear Deltoids</Card.Title>
+            <div className="d-flex">
+              <Card.Title className="muscle-goal-title">Side & Rear Deltoids</Card.Title>
+              <p className={`goal-check${rearSideDeltCheck === true ? '-complete' : ''}`}><FontAwesomeIcon icon={faCheck} /></p>
+            </div>
             <div className="progress-bar-goal">
               <div className="progress-goal" style={{ width: `${rearSideDeltPercent}%` }} />
               <div className="progress-text-goal">{rearSideDeltValue} / {goalObj.rearSideDeltGoal}</div>
@@ -105,7 +139,10 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
           </div>
           {/* Back */}
           <div className="muscle-goal">
-            <Card.Title className="muscle-goal-title">Back</Card.Title>
+            <div className="d-flex">
+              <Card.Title className="muscle-goal-title">Back</Card.Title>
+              <p className={`goal-check${backCheck === true ? '-complete' : ''}`}><FontAwesomeIcon icon={faCheck} /></p>
+            </div>
             <div className="progress-bar-goal">
               <div className="progress-goal" style={{ width: `${backPercent}%` }} />
               <div className="progress-text-goal">{backValue} / {goalObj.backGoal}</div>
@@ -113,7 +150,10 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
           </div>
           {/* Chest */}
           <div className="muscle-goal">
-            <Card.Title className="muscle-goal-title">Chest</Card.Title>
+            <div className="d-flex">
+              <Card.Title className="muscle-goal-title">Chest</Card.Title>
+              <p className={`goal-check${chestCheck === true ? '-complete' : ''}`}><FontAwesomeIcon icon={faCheck} /></p>
+            </div>
             <div className="progress-bar-goal">
               <div className="progress-goal" style={{ width: `${chestPercent}%` }} />
               <div className="progress-text-goal">{chestValue} / {goalObj.chestGoal}</div>
@@ -121,7 +161,10 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
           </div>
           {/* Biceps */}
           <div className="muscle-goal">
-            <Card.Title className="muscle-goal-title">Biceps</Card.Title>
+            <div className="d-flex">
+              <Card.Title className="muscle-goal-title">Biceps</Card.Title>
+              <p className={`goal-check${bicepCheck === true ? '-complete' : ''}`}><FontAwesomeIcon icon={faCheck} /></p>
+            </div>
             <div className="progress-bar-goal">
               <div className="progress-goal" style={{ width: `${bicepPercent}%` }} />
               <div className="progress-text-goal">{bicepValue} / {goalObj.bicepGoal}</div>
@@ -129,7 +172,10 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
           </div>
           {/* Triceps */}
           <div className="muscle-goal">
-            <Card.Title className="muscle-goal-title">Triceps</Card.Title>
+            <div className="d-flex">
+              <Card.Title className="muscle-goal-title">Triceps</Card.Title>
+              <p className={`goal-check${tricepCheck === true ? '-complete' : ''}`}><FontAwesomeIcon icon={faCheck} /></p>
+            </div>
             <div className="progress-bar-goal">
               <div className="progress-goal" style={{ width: `${tricepPercent}%` }} />
               <div className="progress-text-goal">{tricepValue} / {goalObj.tricepGoal}</div>
@@ -137,7 +183,10 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
           </div>
           {/* Quads */}
           <div className="muscle-goal">
-            <Card.Title className="muscle-goal-title">Quadriceps</Card.Title>
+            <div className="d-flex">
+              <Card.Title className="muscle-goal-title">Quadriceps</Card.Title>
+              <p className={`goal-check${quadCheck === true ? '-complete' : ''}`}><FontAwesomeIcon icon={faCheck} /></p>
+            </div>
             <div className="progress-bar-goal">
               <div className="progress-goal" style={{ width: `${quadPercent}%` }} />
               <div className="progress-text-goal">{quadValue} / {goalObj.quadGoal}</div>
@@ -145,7 +194,10 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
           </div>
           {/* Hamstrings */}
           <div className="muscle-goal">
-            <Card.Title className="muscle-goal-title">Hamstrings</Card.Title>
+            <div className="d-flex">
+              <Card.Title className="muscle-goal-title">Hamstrings</Card.Title>
+              <p className={`goal-check${hamstringCheck === true ? '-complete' : ''}`}><FontAwesomeIcon icon={faCheck} /></p>
+            </div>
             <div className="progress-bar-goal">
               <div className="progress-goal" style={{ width: `${hamstringPercent}%` }} />
               <div className="progress-text-goal">{hamstringValue} / {goalObj.hamstringGoal}</div>
@@ -153,7 +205,10 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
           </div>
           {/* Glutes */}
           <div className="muscle-goal">
-            <Card.Title className="muscle-goal-title">Glutes</Card.Title>
+            <div className="d-flex">
+              <Card.Title className="muscle-goal-title">Glutes</Card.Title>
+              <p className={`goal-check${gluteCheck === true ? '-complete' : ''}`}><FontAwesomeIcon icon={faCheck} /></p>
+            </div>
             <div className="progress-bar-goal">
               <div className="progress-goal" style={{ width: `${glutePercent}%` }} />
               <div className="progress-text-goal">{gluteValue} / {goalObj.gluteGoal}</div>
@@ -161,7 +216,10 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
           </div>
           {/* Calves */}
           <div className="muscle-goal" style={{ marginBottom: '10px' }}>
-            <Card.Title className="muscle-goal-title">Calves</Card.Title>
+            <div className="d-flex">
+              <Card.Title className="muscle-goal-title">Calves</Card.Title>
+              <p className={`goal-check${calveCheck === true ? '-complete' : ''}`}><FontAwesomeIcon icon={faCheck} /></p>
+            </div>
             <div className="progress-bar-goal">
               <div className="progress-goal" style={{ width: `${calvePercent}%` }} />
               <div className="progress-text-goal">{calveValue} / {goalObj.calveGoal}</div>
@@ -190,6 +248,7 @@ GoalBoard.propTypes = {
     trapGoal: PropTypes.number,
     userUid: PropTypes.string,
     weekUid: PropTypes.string,
+    weekNum: PropTypes.number,
   }).isRequired,
   // onUpdate: PropTypes.func.isRequired,
   workoutsArray: PropTypes.arrayOf(PropTypes.shape).isRequired,

@@ -44,7 +44,7 @@ export default function BarChartMuscles({ workoutsArray }) {
   return (
     <>
       <div className="bar-chart-total-muscles">
-        <table id="bar-muscle-total" className="charts-css column show-labels data-spacing-10 show-primary-axis show-5-secondary-axes">
+        <table id="bar-muscle-total" className="charts-css column show-labels data-spacing-10 show-primary-axis show-4-secondary-axes">
           <h3 style={{ marginBottom: '12px' }} className="d-flex justify-content-center">Total sets Complete for each muscle group</h3>
 
           <tbody>
