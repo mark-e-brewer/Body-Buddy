@@ -128,6 +128,18 @@ export default function LinePercentOfGoal({ weekArray }) {
     week2percent = Math.ceil(percentageComplete?.week2PercentsComplete[muscleSelected]);
     week3percent = Math.ceil(percentageComplete?.week3PercentsComplete[muscleSelected]);
     week4percent = Math.ceil(percentageComplete?.week4PercentsComplete[muscleSelected]);
+    if (Number.isNaN(week4percent) === true) {
+      week4percent = 100;
+    }
+    if (Number.isNaN(week3percent) === true) {
+      week3percent = 100;
+    }
+    if (Number.isNaN(week2percent) === true) {
+      week2percent = 100;
+    }
+    if (Number.isNaN(week1percent) === true) {
+      week1percent = 100;
+    }
   }
 
   return (
