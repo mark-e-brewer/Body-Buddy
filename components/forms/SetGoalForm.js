@@ -42,6 +42,7 @@ export default function SetGoalModal({ goalObj, onUpdate }) {
         patchGoal(patchPayload).then(() => {
           onUpdate();
           handleClose();
+          onUpdate();
         });
       });
     } else {
@@ -49,6 +50,7 @@ export default function SetGoalModal({ goalObj, onUpdate }) {
       patchGoal(patchPayload).then(() => {
         onUpdate();
         handleClose();
+        onUpdate();
       });
     }
   };

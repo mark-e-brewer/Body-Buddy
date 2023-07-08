@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../utils/context/authContext';
 import { getPrevWeeks } from '../../API/apiData';
@@ -17,7 +18,7 @@ export default function WeeksPage() {
 
   return (
     <>
-      <h1 style={{ textAlign: 'center', marginBottom: '0px', marginTop: '10px' }}>Previous Weeks Completion</h1>
+      <h1 style={{ textAlign: 'center', marginBottom: '0px', marginTop: '10px' }}>Previous Week's Completion</h1>
       <div
         className="d-flex justify-content-center"
         style={{

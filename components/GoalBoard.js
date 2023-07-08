@@ -52,49 +52,49 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
   let quadPercent = (quadValue / goalObj.quadGoal) * 100;
   let hamstringPercent = (hamstringValue / goalObj.hamstringGoal) * 100;
   let glutePercent = (gluteValue / goalObj.gluteGoal) * 100;
-  let calvePercent = (calveValue / goalObj.gluteGoal) * 100;
+  let calvePercent = (calveValue / goalObj.calveGoal) * 100;
 
-  if (trapPercent >= 100) {
+  if (trapPercent >= 100 && goalObj.trapGoal > 0) {
     trapPercent = 100;
     trapCheck = true;
   }
-  if (frontDeltPercent >= 100) {
+  if (frontDeltPercent >= 100 && goalObj.frontDeltGoal > 0) {
     frontDeltPercent = 100;
     frontDeltCheck = true;
   }
-  if (rearSideDeltPercent >= 100) {
+  if (rearSideDeltPercent >= 100 && goalObj.rearSideDeltGoal > 0) {
     rearSideDeltPercent = 100;
     rearSideDeltCheck = true;
   }
-  if (backPercent >= 100) {
+  if (backPercent >= 100 && goalObj.backGoal > 0) {
     backPercent = 100;
     backCheck = true;
   }
-  if (chestPercent >= 100) {
+  if (chestPercent >= 100 && goalObj.chestGoal > 0) {
     chestPercent = 100;
     chestCheck = true;
   }
-  if (bicepPercent >= 100) {
+  if (bicepPercent >= 100 && goalObj.bicepGoal > 0) {
     bicepPercent = 100;
     bicepCheck = true;
   }
-  if (tricepPercent >= 100) {
+  if (tricepPercent >= 100 && goalObj.trapGoal > 0) {
     tricepPercent = 100;
     tricepCheck = true;
   }
-  if (quadPercent >= 100) {
+  if (quadPercent >= 100 && goalObj.quadGoal > 0) {
     quadPercent = 100;
     quadCheck = true;
   }
-  if (hamstringPercent >= 100) {
+  if (hamstringPercent >= 100 && goalObj.hamstringGoal > 0) {
     hamstringPercent = 100;
     hamstringCheck = true;
   }
-  if (glutePercent >= 100) {
+  if (glutePercent >= 100 && goalObj.gluteGoal > 0) {
     glutePercent = 100;
     gluteCheck = true;
   }
-  if (calvePercent >= 100) {
+  if (calvePercent >= 100 && goalObj.calveGoal > 0) {
     calvePercent = 100;
     calveCheck = true;
   }
