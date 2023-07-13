@@ -101,7 +101,7 @@ export default function GoalBoard({ goalObj, workoutsArray }) {
 
   return (
     <>
-      <div className="goal-border" id="goalBorder">
+      <div className="goal-border">
         <Card className="d-flex goal">
           <h4 className="text-center" style={{ marginBottom: '-20px', marginTop: '8px' }}>Week {goalObj.weekNum}</h4>
           {/* Traps */}

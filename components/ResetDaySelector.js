@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Form from 'react-bootstrap/Form';
+import { Button } from 'react-bootstrap';
 import { useAuth } from '../utils/context/authContext';
 import { patchResetDay, postResetDay } from '../API/apiData';
 
@@ -72,9 +73,9 @@ export default function SetResetDay({ dayArr, onUpdate }) {
                 <option value="Friday">Friday</option>
                 <option value="Saturday">Saturday</option>
               </Form.Select>
-              <button type="submit" className="reset-day-submit" id="resetDaySubmit">
+              <Button type="submit" className="reset-day-submit" id="resetDaySubmit">
                 <FontAwesomeIcon icon={faCheck} />
-              </button>
+              </Button>
             </div>
           </Form>
         </div>
