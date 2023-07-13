@@ -88,7 +88,7 @@ function Home() {
         }}
       >
         {goal.map((obj) => <GoalBoard key={obj.firebaseKey} goalObj={obj} workoutsArray={workouts} />)}
-        <div style={{ marginTop: '30px' }}>
+        <div style={{ marginTop: '20px' }}>
           <h4 className="log-workout-text">Log Workouts</h4>
           <Link href={`/${goal[0]?.weekUid}`} passHref>
             <button type="button" aria-label="nav-to-workouts" className="nav-workouts-btn"><FontAwesomeIcon className="nav-wokrouts-dumbbell" icon={faDumbbell} /></button>

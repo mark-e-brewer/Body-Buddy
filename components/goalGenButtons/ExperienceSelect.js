@@ -21,7 +21,7 @@ export default function ExperienceSelector({ setExperience }) {
 
   return (
     <div className="exp-btn-cont">
-      <div className="experience-btns">
+      <div className="experience-btns" id="expBtn">
         {['Beginner', 'Intermediate', 'Advanced'].map((experience, index) => (
           <button
             type="button"
