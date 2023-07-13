@@ -23,13 +23,13 @@ export default function ExperienceSelector({ setExperience }) {
     <div className="exp-btn-cont">
       <div className="experience-btns">
         {['Beginner', 'Intermediate', 'Advanced'].map((experience, index) => (
-          <utton
+          <button
             type="button"
             className={`${getButtonClassName(index)} ${selectedIndex === index ? 'selected' : ''}`}
             onClick={() => handleButtonState(experience, index)}
           >
             {experience}
-          </utton>
+          </button>
         ))}
       </div>
       <div className="blob-gen-exp" />
