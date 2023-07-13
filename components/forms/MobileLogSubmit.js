@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { FloatingLabel } from 'react-bootstrap';
+import { Button, FloatingLabel } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { patchWorkout, postWorkout } from '../../API/apiData';
 
@@ -62,13 +61,14 @@ export default function MobileLogSubmit({ workoutObj, weekId, resetLog }) {
 
   return (
     <>
-      <Button
-        variant="primary"
+      <button
+        type="button"
         className="mobile-log-modalOpen"
+        id="openMobileModal"
         onClick={handleShow}
       >
         Log to Current Week
-      </Button>
+      </button>
       <Modal centered size="sm" show={show} onHide={handleClose}>
         <div className="mobile-form d-flex justify-content-center">
           <Modal.Body className="mobile-form-body">

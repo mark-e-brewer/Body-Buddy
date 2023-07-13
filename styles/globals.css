@@ -141,7 +141,7 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
   border: none;
   outline: none;
   transition: 0.1s ease-in-out;
-  background: transparent;
+  background: transparent !important;
 }
 
 .reset-day-input:focus {
@@ -151,6 +151,24 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
 }
 
 .reset-day-submit {
+  height: 24px;
+  width: 24px;
+  padding-top: 0px;
+  padding-left: 3px;
+  margin-left: 15px;
+  margin-top: 18px;
+  background-color: rgb(255, 255, 255);
+  color: #476C94;
+  font-weight: 600;
+  border: solid white 2px;
+  transition: 0.2s ease-in-out;
+  box-shadow: none;
+  border-radius: 6px;
+  background: transparent;
+  border: solid #476C94 2px;
+}
+
+#resetDaySubmit {
   height: 24px;
   width: 24px;
   padding-top: 0px;
@@ -294,7 +312,7 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
 .goal-border {
   position: relative;
   width: 900px;
-  height: 652px;
+  height: 716px; /* 652 to 716 */
   border-radius: 15px;
   z-index: 15;
   overflow: hidden;
@@ -304,6 +322,7 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
   justify-content: center;
   box-shadow: 9px 9px 18px #c0c0c0;
 }
+
 
 .blob-goal {
   position: absolute;
@@ -2149,6 +2168,22 @@ border: none;
   /* MOBILE LOG SUBMIT AND MODAL BELLOW */
 
 .mobile-log-modalOpen {
+  color: #000;
+  background-color: #D4A573;
+  width: 11.5rem;
+  height: 3em;
+  border-radius: 30em;
+  font-size: 15px;
+  font-family: inherit;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 6px 6px 12px #c0c0c0;
+  margin-top: 0px;
+}
+
+#openMobileModal {
   color: #000;
   background-color: #D4A573;
   width: 11.5rem;

@@ -73,7 +73,7 @@ export default function SetResetDay({ dayArr, onUpdate }) {
                 <option value="Friday">Friday</option>
                 <option value="Saturday">Saturday</option>
               </Form.Select>
-              <Button type="submit" className="reset-day-submit">
+              <Button type="submit" className="reset-day-submit" id="resetDaySubmit">
                 <FontAwesomeIcon icon={faCheck} />
               </Button>
             </div>
