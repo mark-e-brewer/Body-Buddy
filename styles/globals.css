@@ -1139,61 +1139,62 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
 
 
   .muscle-option-div-bar {
-    border: solid #D4A573 3px;
-    border-radius: 2px;
+    border: solid #D4A573 3px !important;
+    border-radius: 2px !important;
   }
 
   .stat-filter-button-muscles {
-    background-color: #ffffff;
-    border: none;
-    font-weight: 600;
-    border-radius: 0px;
-    transition: 0.2s ease-in-out;
+    background-color: #ffffff !important;
+    border: none !important;
+    font-weight: 600 !important;
+    border-radius: 0px !important;
+    transition: 0.2s ease-in-out !important;
   }
 
   #muscle-filter-stat:active {
-    background-color: #D4A573;
-    color: white;
+    background-color: #D4A573 !important;
+    color: white !important;
   }
 
   
   #muscle-filter-stat:focus {
-    background-color: #D4A573;
-    color: white;
+    background-color: #D4A573 !important;
+    color: white !important;
   }
 
   #muscle-filter-stat-active:active {
-    background-color: #D4A573;
-    color: white;
+    background-color: #D4A573 !important;
+    color: white !important;
   }
 
   
   #muscle-filter-stat-active:focus {
-    background-color: #D4A573;
-    color: white;
+    background-color: #D4A573 !important;
+    color: white !important;
   }
 
   .stat-filter-button-muscles:hover {
-    background-color: #ffefde;
-    border: none;
-    font-weight: 600;
-    border-radius: 0px;
+    background-color: #ffefde !important;
+    border: none !important;
+    font-weight: 600 !important;
+    border-radius: 0px !important;
   }
 
   .stat-filter-button-muscles-active {
-    background: #D4A573;
-    font-weight: 600;
-    border: none;
-    color: white;
-    border-radius: 0px;
+    background: #D4A573 !important;
+    font-weight: 600 !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 0px !important;
   }
 
   .stat-filter-button-muscles-active:hover {
-    background: #D4A573;
-    border: none;
-    color: white;
-    font-weight: 600;
-    border-radius: 0px;
+    background: #D4A573 !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 600 !important;
+    font-weight: 600 !important;
+    border-radius: 0px !important;
   }
 /* MUSCLE GROUP SETS EACH DAY OF WEEK ABOVE */
 /* LINE PERCENT OF GOAL BELLOW */

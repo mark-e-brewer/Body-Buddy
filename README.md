@@ -26,7 +26,7 @@ Body Buddy is a React web app built for anyone who likes to weightlift for hyper
 -Goal Generator (create personalized goals based on user weightlifting experience and intention for each muscle group)
 <img width="500" alt="Goal Generator" src="https://user-images.githubusercontent.com/119375745/253435417-c4622ced-9cb8-4ea9-b6d8-69165af34114.png">
 -Mobbile Logger (log sets as you go in the gym on your phone, data is saved automaticly after each iteration to allow more flexability but will not log to current week until user does so)
-<img width="500" alt="Mobbile Logger" src="https://user-images.githubusercontent.com/119375745/253435429-5da0a64d-7429-4255-8669-93ff1a3a27da.png">
+<img width="300" alt="Mobbile Logger" src="https://user-images.githubusercontent.com/119375745/253435429-5da0a64d-7429-4255-8669-93ff1a3a27da.png">
 -User stats (Statistical graphs on user data such as completed sets vs goal or number of sets logged each day of the week. filterable by all or individual muscle groups)
 <img width="500" alt="goal vs complete" src="https://user-images.githubusercontent.com/119375745/253435434-fa001839-ce5e-4701-a992-2a27ce4ce3c5.png">
 <img width="500" alt="Sets each day of week" src="https://user-images.githubusercontent.com/119375745/253435437-b09f5641-10fb-4ba7-99d8-af846638628a.png">
@@ -35,67 +35,7 @@ Body Buddy is a React web app built for anyone who likes to weightlift for hyper
 <img width="500" alt="previous weeks" src="https://user-images.githubusercontent.com/119375745/253438206-984d05ba-7414-4e71-a138-e930e6e8f1c1.png">
 
 ## Code Snippet (Portion of Past Month % Completion Logic)
-  if (muscleSelected === null) {
-    const weekObj1 = prevMonth[0];
-    const weekObj2 = prevMonth[1];
-    const weekObj3 = prevMonth[2];
-    const weekObj4 = prevMonth[3];
-
-    let totalGoal1 = 0;
-    let totalCompleted1 = 0;
-    let totalGoal2 = 0;
-    let totalCompleted2 = 0;
-    let totalGoal3 = 0;
-    let totalCompleted3 = 0;
-    let totalGoal4 = 0;
-    let totalCompleted4 = 0;
-
-    Object?.keys(weekObj1 || {}).forEach((key) => {
-      if (key?.endsWith('Goal')) {
-        const totalKey = key.replace('Goal', 'Total');
-        const goal = weekObj1[key];
-        const total = weekObj1[totalKey];
-        const completed = Math.min(total, goal);
-        totalGoal1 += goal;
-        totalCompleted1 += completed;
-      }
-    });
-    Object?.keys(weekObj2 || {}).forEach((key) => {
-      if (key?.endsWith('Goal')) {
-        const totalKey = key.replace('Goal', 'Total');
-        const goal = weekObj2[key];
-        const total = weekObj2[totalKey];
-        const completed = Math.min(total, goal);
-        totalGoal2 += goal;
-        totalCompleted2 += completed;
-      }
-    });
-    Object?.keys(weekObj3 || {}).forEach((key) => {
-      if (key?.endsWith('Goal')) {
-        const totalKey = key.replace('Goal', 'Total');
-        const goal = weekObj3[key];
-        const total = weekObj3[totalKey];
-        const completed = Math.min(total, goal);
-        totalGoal3 += goal;
-        totalCompleted3 += completed;
-      }
-    });
-    Object?.keys(weekObj4 || {}).forEach((key) => {
-      if (key?.endsWith('Goal')) {
-        const totalKey = key.replace('Goal', 'Total');
-        const goal = weekObj4[key];
-        const total = weekObj4[totalKey];
-        const completed = Math.min(total, goal);
-        totalGoal4 += goal;
-        totalCompleted4 += completed;
-      }
-    });
-
-    week1percent = Math.ceil((totalCompleted1 / totalGoal1) * 100);
-    week2percent = Math.ceil((totalCompleted2 / totalGoal2) * 100);
-    week3percent = Math.ceil((totalCompleted3 / totalGoal3) * 100);
-    week4percent = Math.ceil((totalCompleted4 / totalGoal4) * 100);
-  } else if (muscleSelected !== null) {
+else if (muscleSelected !== null) {
     const percentageComplete = {};
     for (let i = 0; i < 4; i++) {
       const weekObj = prevMonth[i];
@@ -128,6 +68,7 @@ Body Buddy is a React web app built for anyone who likes to weightlift for hyper
       week1percent = 100;
     }
   }
+
 
 ## Contributors
 - [Mark Brewer] (https://github.com/mark-e-brewer)
