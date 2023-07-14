@@ -725,81 +725,81 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
 }
 
 .workout-submit-button {
-  background-color: #D4A573;
-  border: solid #D4A573 1px;
-  font-weight: 600;
-  transition: 0.3s ease-out;
+  background-color: #D4A573 !important;
+  border: solid #D4A573 1px !important;
+  font-weight: 600 !important;
+  transition: 0.3s ease-out !important;
 }
 
 .workout-submit-button:hover {
-  background-color: #D4A573;
-  box-shadow: 0px 0px 8px 0px #D4A573;
-  border: solid #D4A573 1px;
+  background-color: #D4A573 !important;
+  box-shadow: 0px 0px 8px 0px #D4A573 !important;
+  border: solid #D4A573 1px !important;
 }
 
 .workout-input-0:focus {
-  outline: solid #476c94 5px;
-  box-shadow: 0px 0px 13px 0px #476c94;
+  outline: solid #476c94 5px !important;
+  box-shadow: 0px 0px 13px 0px #476c94 !important;
 }
 
 .workout-input-1:focus {
-  outline: solid #4d739d 5px;
-  box-shadow: 0px 0px 13px 0px #4d739d;
+  outline: solid #4d739d 5px !important;
+  box-shadow: 0px 0px 13px 0px #4d739d !important;
 }
 
 .workout-input-2:focus {
-  outline: solid #537aa6 5px;
-  box-shadow: 0px 0px 13px 0px #537aa6;
+  outline: solid #537aa6 5px !important;
+  box-shadow: 0px 0px 13px 0px #537aa6 !important;
 }
 
 .workout-input-3:focus {
-  outline: solid #5981af 5px;
-  box-shadow: 0px 0px 13px 0px #5981af;
+  outline: solid #5981af 5px !important;
+  box-shadow: 0px 0px 13px 0px #5981af !important;
 }
 
 .workout-input-4:focus {
-  outline: solid #5e88b7 5px;
-  box-shadow: 0px 0px 13px 0px #5e88b7;
+  outline: solid #5e88b7 5px !important;
+  box-shadow: 0px 0px 13px 0px #5e88b7 !important;
 }
 
 .workout-input-5:focus {
-  outline: solid #638ebf 5px;
-  box-shadow: 0px 0px 13px 0px #638ebf;
+  outline: solid #638ebf 5px !important;
+  box-shadow: 0px 0px 13px 0px #638ebf !important;
 }
 
 .workout-input-6:focus {
-  outline: solid #6995c7 5px;
-  box-shadow: 0px 0px 13px 0px #6995c7;
+  outline: solid #6995c7 5px !important;
+  box-shadow: 0px 0px 13px 0px #6995c7 !important;
 }
 
 .workout-input-7:focus {
-  outline: solid #6f9cd0 5px;
-  box-shadow: 0px 0px 13px 0px #6f9cd0;
+  outline: solid #6f9cd0 5px !important;
+  box-shadow: 0px 0px 13px 0px #6f9cd0 !important;
 }
 
 .workout-input-8:focus {
   outline: solid #73a1d6 5px;
-  box-shadow: 0px 0px 13px 0px #73a1d6;
+  box-shadow: 0px 0px 13px 0px #73a1d6 !important;
 }
 
 .workout-input-8:focus {
-  outline: solid #78a8de 5px;
-  box-shadow: 0px 0px 13px 0px #78a8de;
+  outline: solid #78a8de 5px !important;
+  box-shadow: 0px 0px 13px 0px #78a8de !important;
 }
 
 .workout-input-9:focus {
-  outline: solid #7cade4 5px;
-  box-shadow: 0px 0px 13px 0px #7cade4;
+  outline: solid #7cade4 5px !important;
+  box-shadow: 0px 0px 13px 0px #7cade4 !important;
 }
 
 .workout-input-10:focus {
-  outline: solid #80b3ea 5px;
-  box-shadow: 0px 0px 13px 0px #80b3ea;
+  outline: solid #80b3ea 5px !important;
+  box-shadow: 0px 0px 13px 0px #80b3ea !important;
 }
 
 .workout-input-11:focus {
-  outline: solid #80b3ea 5px;
-  box-shadow: 0px 0px 13px 0px #80b3ea;
+  outline: solid #80b3ea 5px !important;
+  box-shadow: 0px 0px 13px 0px #80b3ea !important;
 }
 /* WORKOUT LOG MODAL ABOVE */
 
@@ -907,77 +907,77 @@ box-shadow: 6.5px 10px 10px #b8b8b8fb;
 }
 
 .goal-submit-button {
-  background-color: #D4A573;
-  border: solid #D4A573 1px;
-  font-weight: 600;
-  transition: 0.3s ease-out;
-  border-radius: 5px;
+  background-color: #D4A573 !important;
+  border: solid #D4A573 1px !important;
+  font-weight: 600 !important;
+  transition: 0.3s ease-out !important;
+  border-radius: 5px !important;
 }
 
 .goal-submit-button:hover {
-  background-color: #D4A573;
-  box-shadow: 0px 0px 8px 0px #D4A573;
-  border: solid #D4A573 1px;
+  background-color: #D4A573 !important;
+  box-shadow: 0px 0px 8px 0px #D4A573 !important;
+  border: solid #D4A573 1px !important;
 }
 
 .goal-input-0:focus {
-  outline: solid #4b719a 5px;
-  box-shadow: 0px 0px 13px 0px #4b719a;
+  outline: solid #4b719a 5px !important;
+  box-shadow: 0px 0px 13px 0px #4b719a !important;
 }
 
 .goal-input-1:focus {
-  outline: solid #5279a5 5px;
-  box-shadow: 0px 0px 13px 0px #5279a5;
+  outline: solid #5279a5 5px !important;
+  box-shadow: 0px 0px 13px 0px #5279a5 !important;
 }
 
 .goal-input-2:focus {
-  outline: solid #5981af 5px;
-  box-shadow: 0px 0px 13px 0px #5981af;
+  outline: solid #5981af 5px !important;
+  box-shadow: 0px 0px 13px 0px #5981af !important;
 }
 
 .goal-input-3:focus {
-  outline: solid #5e88b7 5px;
-  box-shadow: 0px 0px 13px 0px #5e88b7;
+  outline: solid #5e88b7 5px !important;
+  box-shadow: 0px 0px 13px 0px #5e88b7 !important;
 }
 
 .goal-input-4:focus {
-  outline: solid #638ebf 5px;
-  box-shadow: 0px 0px 13px 0px #638ebf;
+  outline: solid #638ebf 5px !important;
+  box-shadow: 0px 0px 13px 0px #638ebf !important;
 }
 
 .goal-input-5:focus {
-  outline: solid #6995c7 5px;
-  box-shadow: 0px 0px 13px 0px #6995c7;
+  outline: solid #6995c7 5px !important;
+  box-shadow: 0px 0px 13px 0px #6995c7 !important;
 }
 
 .goal-input-6:focus {
-  outline: solid #6f9cd0 5px;
-  box-shadow: 0px 0px 13px 0px #6f9cd0;
+  outline: solid #6f9cd0 5px !important;
+  box-shadow: 0px 0px 13px 0px #6f9cd0 !important;
 }
 
 .goal-input-7:focus {
-  outline: solid #73a1d6 5px;
-  box-shadow: 0px 0px 13px 0px #73a1d6;
+  outline: solid #73a1d6 5px !important;
+  box-shadow: 0px 0px 13px 0px #73a1d6 !important;
 }
 
 .goal-input-8:focus {
-  outline: solid #78a8de 5px;
-  box-shadow: 0px 0px 13px 0px #78a8de;
+  outline: solid #78a8de 5px !important;
+  box-shadow: 0px 0px 13px 0px #78a8de !important;
 }
 
 .goal-input-8:focus {
-  outline: solid #7cade4 5px;
-  box-shadow: 0px 0px 13px 0px #7cade4;
+  outline: solid #7cade4 5px !important;
+  box-shadow: 0px 0px 13px 0px #7cade4 !important;
 }
 
 .goal-input-9:focus {
-  outline: solid #80b3ea 5px;
-  box-shadow: 0px 0px 13px 0px #80b3ea;
+  outline: solid #80b3ea 5px !important;
+  box-shadow: 0px 0px 13px 0px #80b3ea !important;
 }
 
 .goal-input-10:focus {
-  outline: solid #80b3ea 5px;
-  box-shadow: 0px 0px 13px 0px #80b3ea;
+  outline: solid #80b3ea 5px !important;
+  box-shadow: 0px 0px 13px 0px #80b3ea !important;
 }
 
 /* GOAL SET MODAL ABOVE  */
