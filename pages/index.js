@@ -71,10 +71,10 @@ function Home() {
           marginBottom: '30px',
         }}
       >
-        <div style={{ marginRight: '25px', marginTop: '2px' }}>
+        <div style={{ marginRight: '25px', marginTop: '2px', marginBottom: '-8px' }}>
           <SetGoalModal goalObj={goal[0]} onUpdate={getCurrentGoal} />
         </div>
-        <div style={{ marginleft: '25px', marginTop: '2px' }}>
+        <div style={{ marginleft: '25px', marginTop: '2px', marginBottom: '-8px' }}>
           <ResetWeekButton goalObj={goal[0]} onUpdate={getCurrentGoal} workoutsArray={workouts} />
         </div>
       </div>
