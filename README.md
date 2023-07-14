@@ -34,40 +34,10 @@ Body Buddy is a React web app built for anyone who likes to weightlift for hyper
 -Previous weeks completion (Hover over week to see your goal and completion for each muscle group or click to see log of each individual workout for that week)
 <img width="500" alt="previous weeks" src="https://user-images.githubusercontent.com/119375745/253438206-984d05ba-7414-4e71-a138-e930e6e8f1c1.png">
 
-## Code Snippet (Portion of Past Month % Completion Logic)
-else if (muscleSelected !== null) {
-    const percentageComplete = {};
-    for (let i = 0; i < 4; i++) {
-      const weekObj = prevMonth[i];
-      const weekPercentsComplete = {};
-      // eslint-disable-next-line no-restricted-syntax
-      for (const muscle in weekObj) {
-        if (muscle.includes('Goal')) {
-          const total = weekObj[muscle.replace('Goal', 'Total')];
-          const goal = weekObj[muscle];
-          const percent = Math.min((total / goal) * 100, 100);
-          weekPercentsComplete[muscle.replace('Goal', '')] = percent;
-        }
-      }
-      percentageComplete[`week${i + 1}PercentsComplete`] = weekPercentsComplete;
-    }
-    week1percent = Math.ceil(percentageComplete?.week1PercentsComplete[muscleSelected]);
-    week2percent = Math.ceil(percentageComplete?.week2PercentsComplete[muscleSelected]);
-    week3percent = Math.ceil(percentageComplete?.week3PercentsComplete[muscleSelected]);
-    week4percent = Math.ceil(percentageComplete?.week4PercentsComplete[muscleSelected]);
-    if (Number.isNaN(week4percent) === true) {
-      week4percent = 100;
-    }
-    if (Number.isNaN(week3percent) === true) {
-      week3percent = 100;
-    }
-    if (Number.isNaN(week2percent) === true) {
-      week2percent = 100;
-    }
-    if (Number.isNaN(week1percent) === true) {
-      week1percent = 100;
-    }
-  }
+## Code Snippet (Part of Past Month % Completion Logic)
+- Screenshot is only a portion of the logic used for the Percent of Goal line graph
+<img width="555" alt="Code Snippet" src="https://user-images.githubusercontent.com/119375745/253442351-1d2663e8-2e57-41f4-8fb8-118c4e4a0664.png">
+
 
 
 ## Contributors
